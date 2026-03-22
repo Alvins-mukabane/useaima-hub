@@ -35,7 +35,8 @@ const products = [
     status: "Beta" as const,
     description: "AI social media analytics agent with cross-platform analytics, trend discovery, and content idea generation.",
     features: ["Cross-platform analytics", "Trend discovery", "Algorithm change detection"],
-    link: "/about",
+    link: "https://socialpulse.useaima.com",
+    external: true,
   },
   {
     name: "HealthAI",
@@ -102,12 +103,23 @@ function ProductCard({ product, index }: { product: (typeof products)[number]; i
           </li>
         ))}
       </ul>
-      <Link
-        to={product.link}
-        className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
-      >
-        {product.status === "Coming Soon" ? "Learn More" : "Explore"} <ArrowRight className="h-3.5 w-3.5" />
-      </Link>
+      {product.external ? (
+        <a
+          href={product.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
+        >
+          {product.status === "Coming Soon" ? "Learn More" : "Explore"} <ArrowRight className="h-3.5 w-3.5" />
+        </a>
+      ) : (
+        <Link
+          to={product.link}
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
+        >
+          {product.status === "Coming Soon" ? "Learn More" : "Explore"} <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      )}
     </div>
   );
 }

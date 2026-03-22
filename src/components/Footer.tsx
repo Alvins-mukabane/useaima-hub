@@ -8,7 +8,7 @@ const sections = [
       { label: "FinanceAI", to: "/finance" },
       { label: "EmailAI", to: "/#products" },
       { label: "KidsAI", to: "/kids" },
-      { label: "SocialPulse", to: "/#products" },
+      { label: "SocialPulse", to: "https://socialpulse.useaima.com", external: true },
       { label: "HealthAI", to: "/health" },
     ],
   },
