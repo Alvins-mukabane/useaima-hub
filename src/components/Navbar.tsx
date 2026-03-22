@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Search } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { SearchModal } from "./SearchModal";
+import { BrandLogo } from "./BrandLogo";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -12,7 +13,7 @@ const links = [
   { label: "Health", to: "/health" },
   { label: "Kids", to: "/kids" },
   { label: "FAQs", to: "/#faq" },
-  { label: "About", to: "/about" },
+  { label: "About Us", to: "/about" },
 ];
 
 export function Navbar() {
@@ -36,8 +37,8 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
         <div className="container flex h-16 items-center justify-between">
-          <Link to="/" className="text-xl font-bold tracking-tight">
-            USE<span className="text-primary">AIMA</span>
+          <Link to="/" className="flex items-center" aria-label="USEAIMA home">
+            <BrandLogo size="md" />
           </Link>
 
           {/* Desktop */}

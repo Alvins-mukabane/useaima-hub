@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 320" role="img" aria-labelledby="useaima-logo-dark-title useaima-logo-dark-desc">
+  <title id="useaima-logo-dark-title">USEAIMA logo for dark backgrounds</title>
+  <desc id="useaima-logo-dark-desc">The USEAIMA wordmark with its hexagonal circuit symbol on dark surfaces.</desc>
+  <defs>
+    <linearGradient id="logo-dark-hex-gradient" x1="38" y1="268" x2="278" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16d6d0" />
+      <stop offset="0.38" stop-color="#3d90f1" />
+      <stop offset="0.72" stop-color="#6547d6" />
+      <stop offset="1" stop-color="#9b4de8" />
+    </linearGradient>
+    <linearGradient id="logo-dark-circuit-gradient" x1="58" y1="262" x2="232" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#19c9d0" />
+      <stop offset="0.46" stop-color="#36a1eb" />
+      <stop offset="1" stop-color="#7249db" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(12 28)">
+    <path
+      d="M140 18 255 84v144l-115 66-115-66V84Z"
+      fill="none"
+      stroke="url(#logo-dark-hex-gradient)"
+      stroke-linejoin="round"
+      stroke-width="18"
+    />
+    <g
+      fill="none"
+      stroke="url(#logo-dark-circuit-gradient)"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="15"
+    >
+      <path d="M58 132h34l29-29 15-20" />
+      <path d="M136 104v70l-58 35v42" />
+      <path d="M136 174l67-40" />
+      <path d="M110 252v-41l86-49v22h24" />
+    </g>
+    <g fill="#fff" stroke="url(#logo-dark-circuit-gradient)" stroke-width="13">
+      <circle cx="58" cy="132" r="13" />
+      <circle cx="136" cy="82" r="17" />
+      <circle cx="216" cy="134" r="17" />
+      <circle cx="220" cy="184" r="17" />
+    </g>
+  </g>
+  <text
+    x="348"
+    y="205"
+    fill="#f7fbff"
+    font-family="'Avenir Next', Montserrat, 'Segoe UI', Arial, sans-serif"
+    font-size="150"
+    font-weight="800"
+    letter-spacing="6"
+  >
+    USEAIMA
+  </text>
+</svg>

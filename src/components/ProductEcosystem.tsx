@@ -19,7 +19,7 @@ const products = [
     status: "Beta" as const,
     description: "AI email intelligence that summarizes emails, detects deadlines and tasks, and generates daily action plans.",
     features: ["Smart email summaries", "Deadline & task detection", "Daily action plans"],
-    link: "#",
+    link: "/about",
   },
   {
     name: "KidsAI",
@@ -35,7 +35,7 @@ const products = [
     status: "Beta" as const,
     description: "AI social media analytics agent with cross-platform analytics, trend discovery, and content idea generation.",
     features: ["Cross-platform analytics", "Trend discovery", "Algorithm change detection"],
-    link: "#",
+    link: "/about",
   },
   {
     name: "HealthAI",
@@ -58,8 +58,8 @@ export function ProductEcosystem() {
     <section id="products" className="py-24">
       <div className="container">
         <SectionHeader
-          title="The AI Ecosystem"
-          subtitle="Intelligent tools that work together to manage and improve every aspect of your daily life."
+          title="The USEAIMA Ecosystem"
+          subtitle="A unified collection of AI-powered products built to help users understand context, take action, and make better decisions."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p, i) => (

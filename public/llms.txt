@@ -1,0 +1,36 @@
+# USEAIMA
+
+> USEAIMA is an AI-powered platform building intelligent systems that help people make better decisions across finance, communication, learning, health, productivity, and digital growth.
+
+## Brand Summary
+
+USEAIMA is positioned as a professional AI ecosystem.
+Each product is designed to act like an assistant, not just a dashboard.
+The platform emphasizes clarity, trust, integration, and practical use cases.
+
+## Primary Pages
+
+- Home: https://useaima.com/
+- About: https://useaima.com/about
+- FinanceAI: https://useaima.com/finance
+- HealthAI: https://useaima.com/health
+- KidsAI: https://useaima.com/kids
+- Privacy Policy: https://useaima.com/privacy-policy
+- Terms of Service: https://useaima.com/terms-of-service
+- Blog: https://blog.useaima.com
+
+## Key Facts
+
+- USEAIMA is a unified platform connecting multiple AI tools.
+- Core product areas include finance, email intelligence, health, kids learning, and digital growth.
+- The product philosophy is intelligence over data, simplicity over complexity, and integration over isolation.
+- USEAIMA does not replace human judgment; it supports decision-making with insights and recommendations.
+
+## FAQ Highlights
+
+- What is USEAIMA?
+  USEAIMA is an AI-powered platform building intelligent systems for everyday decision-making.
+- Who is USEAIMA for?
+  USEAIMA is built for students, professionals, creators, developers, and people who want better productivity and clearer decisions.
+- How is data handled?
+  USEAIMA is designed with privacy in mind and aims to process data securely and responsibly.

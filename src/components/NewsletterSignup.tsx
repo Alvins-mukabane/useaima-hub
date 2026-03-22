@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
@@ -47,9 +48,7 @@ export function NewsletterSignup() {
         {submitted ? (
           <div className="mt-8 flex flex-col items-center gap-3 rounded-xl border bg-accent/50 p-6">
             <CheckCircle className="h-8 w-8 text-primary" />
-            <p className="text-sm font-medium text-accent-foreground">
-              You're subscribed! Check your inbox for a confirmation. 🎉
-            </p>
+            <p className="text-sm font-medium text-accent-foreground">You're subscribed. Check your inbox for a confirmation.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="mt-8 flex gap-3">
@@ -74,7 +73,15 @@ export function NewsletterSignup() {
         )}
 
         <p className="mt-4 text-xs text-muted-foreground">
-          We respect your privacy. Unsubscribe anytime.
+          We respect your privacy. Review our{" "}
+          <Link to="/privacy-policy" className="underline underline-offset-4 hover:text-foreground">
+            Privacy Policy
+          </Link>{" "}
+          and{" "}
+          <Link to="/terms-of-service" className="underline underline-offset-4 hover:text-foreground">
+            Terms of Service
+          </Link>
+          .
         </p>
       </div>
     </section>

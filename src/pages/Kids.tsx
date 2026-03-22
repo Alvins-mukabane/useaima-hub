@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
+import { SEOHead } from "@/components/SEOHead";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { ShieldCheck, Gamepad2, GraduationCap, Heart } from "lucide-react";
@@ -16,6 +17,11 @@ const Kids = () => {
   const { ref, isVisible } = useScrollReveal();
   return (
     <>
+      <SEOHead
+        title="KidsAI"
+        description="Discover KidsAI, the USEAIMA learning and entertainment experience built to be safe, personalized, and engaging for children."
+        path="/kids"
+      />
       <Navbar />
       <main>
         <section className="py-24">

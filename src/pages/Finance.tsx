@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
+import { SEOHead } from "@/components/SEOHead";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { DollarSign, TrendingUp, Shield, BarChart3 } from "lucide-react";
@@ -22,6 +23,11 @@ const Finance = () => {
   const { ref, isVisible } = useScrollReveal();
   return (
     <>
+      <SEOHead
+        title="FinanceAI"
+        description="Explore FinanceAI, the USEAIMA financial intelligence product for tracking spending, insights, risk detection, and smarter decisions."
+        path="/finance"
+      />
       <Navbar />
       <main>
         <section className="py-24">

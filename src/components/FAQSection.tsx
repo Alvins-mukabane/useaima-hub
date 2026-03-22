@@ -1,27 +1,35 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 import { SectionHeader } from "./SectionHeader";
-
-const faqs = [
-  { q: "What is USEAIMA?", a: "USEAIMA is an AI-driven platform focused on building intelligent systems that act as assistants in everyday life — covering finances, email, health, social media, and children's education." },
-  { q: "Are the tools free?", a: "We offer free tiers for most products so you can explore before committing. Premium features are available through affordable plans." },
-  { q: "How is user data handled?", a: "Privacy is foundational. All data is encrypted at rest and in transit, never sold to third parties, and you can delete your data at any time." },
-  { q: "Can I use multiple tools together?", a: "Absolutely. The ecosystem is designed to work together — insights from FinanceAI can inform your EmailAI action plans, and SocialPulse trends can feed content ideas." },
-  { q: "Who is this platform for?", a: "Anyone who wants to work smarter and live better: freelancers, parents, creators, students, small business owners — anyone who values intelligent automation." },
-];
+import { faqItems } from "@/content/siteContent";
 
 export function FAQSection() {
   return (
     <section id="faq" className="bg-muted/30 py-24">
-      <div className="container max-w-2xl">
-        <SectionHeader title="Frequently Asked Questions" />
+      <div className="container max-w-3xl">
+        <SectionHeader
+          title="Frequently Asked Questions"
+          subtitle="Clear answers about what USEAIMA is, how the platform works, and what users should expect from the ecosystem."
+        />
         <Accordion type="single" collapsible className="w-full">
-          {faqs.map((f, i) => (
+          {faqItems.map((f, i) => (
             <AccordionItem key={i} value={`faq-${i}`}>
-              <AccordionTrigger className="text-left text-base">{f.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">{f.a}</AccordionContent>
+              <AccordionTrigger className="text-left text-base">{f.question}</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed">{f.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
+        <div className="mt-8 flex flex-wrap gap-3 text-sm text-muted-foreground">
+          <Link to="/about" className="rounded-full border bg-background px-4 py-2 transition-colors hover:text-foreground">
+            Learn more about USEAIMA
+          </Link>
+          <Link to="/privacy-policy" className="rounded-full border bg-background px-4 py-2 transition-colors hover:text-foreground">
+            Privacy Policy
+          </Link>
+          <Link to="/terms-of-service" className="rounded-full border bg-background px-4 py-2 transition-colors hover:text-foreground">
+            Terms of Service
+          </Link>
+        </div>
       </div>
     </section>
   );

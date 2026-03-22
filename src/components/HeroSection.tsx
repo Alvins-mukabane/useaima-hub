@@ -1,6 +1,7 @@
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function FloatingShape({ className, delay }: { className: string; delay: number }) {
   return (
@@ -53,11 +54,12 @@ export function HeroSection() {
 
       <div className="container relative flex min-h-[85vh] flex-col items-center justify-center py-24 text-center">
         <span
-          className={`mb-6 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium tracking-wide text-primary transition-all duration-700 ease-out ${
+          className={`mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium tracking-wide text-primary transition-all duration-700 ease-out ${
             mounted ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-4 blur-[4px]"
           }`}
         >
-          AI-Powered Ecosystem
+          <ShieldCheck className="h-3.5 w-3.5" />
+          AI Systems for Everyday Decisions
         </span>
 
         <h1
@@ -66,10 +68,10 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "120ms", lineHeight: 1.08 }}
         >
-          Build Smarter. Live Better.
+          USEAIMA builds AI assistants
           <br />
           <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Powered by AI.
+            for real life.
           </span>
         </h1>
 
@@ -79,8 +81,22 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "240ms" }}
         >
-          A unified ecosystem of AI-powered systems designed to manage and improve your life — from finances and communication to learning, health, and digital growth.
+          USEAIMA is a professional AI platform creating intelligent systems for finance, communication, health, learning,
+          productivity, and digital growth. Each product is designed to act like an assistant, not just a dashboard.
         </p>
+
+        <div
+          className={`mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground transition-all duration-700 ease-out ${
+            mounted ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-4 blur-[4px]"
+          }`}
+          style={{ transitionDelay: "300ms" }}
+        >
+          {["Professional startup-style experience", "Unified AI ecosystem", "Privacy-minded product design"].map((item) => (
+            <span key={item} className="rounded-full border bg-background/70 px-3 py-1.5">
+              {item}
+            </span>
+          ))}
+        </div>
 
         <div
           className={`mt-10 flex flex-wrap items-center justify-center gap-4 transition-all duration-700 ease-out ${
@@ -90,15 +106,29 @@ export function HeroSection() {
         >
           <Button size="lg" className="gap-2 active:scale-[0.97]" asChild>
             <a href="#products">
-              Explore Tools <ArrowRight className="h-4 w-4" />
+              Explore USEAIMA <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
           <Button variant="outline" size="lg" className="gap-2 active:scale-[0.97]" asChild>
+            <Link to="/about">
+              About Us <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+          <Button variant="ghost" size="lg" className="gap-2 active:scale-[0.97]" asChild>
             <a href="https://blog.useaima.com" target="_blank" rel="noopener noreferrer">
               <BookOpen className="h-4 w-4" /> Read Blog
             </a>
           </Button>
         </div>
+
+        <p
+          className={`mt-5 text-sm text-muted-foreground transition-all duration-700 ease-out ${
+            mounted ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-4 blur-[4px]"
+          }`}
+          style={{ transitionDelay: "420ms" }}
+        >
+          Start with the ecosystem overview, then learn more on the About page and review the platform policies below.
+        </p>
 
         {/* Scroll indicator */}
         <div

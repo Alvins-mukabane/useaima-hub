@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
+import { SEOHead } from "@/components/SEOHead";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { HeartPulse, Brain, Activity, Leaf } from "lucide-react";
@@ -16,6 +17,11 @@ const Health = () => {
   const { ref, isVisible } = useScrollReveal();
   return (
     <>
+      <SEOHead
+        title="HealthAI"
+        description="Learn about HealthAI, the upcoming USEAIMA health intelligence product focused on preventive insights and smarter recommendations."
+        path="/health"
+      />
       <Navbar />
       <main>
         <section className="py-24">

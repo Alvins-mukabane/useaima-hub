@@ -12,6 +12,7 @@ interface SearchItem {
 }
 
 const searchData: SearchItem[] = [
+  { title: "What is USEAIMA?", description: "Overview of the USEAIMA platform and ecosystem", category: "Page", to: "/#what-is-useaima" },
   { title: "FinanceAI", description: "AI financial advisor — tracks spending and provides insights", category: "Product", to: "/finance" },
   { title: "EmailAI", description: "AI email intelligence — summarizes, detects deadlines, generates plans", category: "Product", to: "/#products" },
   { title: "KidsAI", description: "AI learning and entertainment platform for kids", category: "Product", to: "/kids" },
@@ -23,7 +24,10 @@ const searchData: SearchItem[] = [
   { title: "Finance", description: "AI-powered financial intelligence hub", category: "Page", to: "/finance" },
   { title: "Health", description: "AI in healthcare and preventive care", category: "Page", to: "/health" },
   { title: "Kids", description: "Safe AI for children's learning and fun", category: "Page", to: "/kids" },
-  { title: "About", description: "Learn about the USEAIMA mission", category: "Page", to: "/about" },
+  { title: "About Us", description: "Learn about the USEAIMA mission, vision, and approach", category: "Page", to: "/about" },
+  { title: "Privacy Policy", description: "How USEAIMA handles user data and privacy", category: "Page", to: "/privacy-policy" },
+  { title: "Terms of Service", description: "Terms that govern use of the USEAIMA platform", category: "Page", to: "/terms-of-service" },
+  { title: "FAQs", description: "Frequently asked questions about USEAIMA", category: "Page", to: "/#faq" },
 ];
 
 interface SearchModalProps {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BrandLogo } from "./BrandLogo";
 
 const sections = [
   {
@@ -14,7 +15,7 @@ const sections = [
   {
     title: "Company",
     links: [
-      { label: "About", to: "/about" },
+      { label: "About Us", to: "/about" },
       { label: "Blog", to: "https://blog.useaima.com", external: true },
       { label: "FAQs", to: "/#faq" },
     ],
@@ -22,8 +23,8 @@ const sections = [
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", to: "#" },
-      { label: "Terms of Service", to: "#" },
+      { label: "Privacy Policy", to: "/privacy-policy" },
+      { label: "Terms of Service", to: "/terms-of-service" },
     ],
   },
 ];
@@ -34,9 +35,7 @@ export function Footer() {
       <div className="container py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <span className="text-lg font-bold tracking-tight">
-              USE<span className="text-primary">AIMA</span>
-            </span>
+            <BrandLogo size="lg" />
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground" style={{ maxWidth: "28ch" }}>
               AI systems that help people make better decisions, every day.
             </p>
@@ -68,9 +67,15 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row">
           <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} USEAIMA. All rights reserved.</p>
           <div className="flex gap-4">
-            {["Twitter", "LinkedIn", "GitHub"].map((s) => (
-              <a key={s} href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">{s}</a>
-            ))}
+            <Link to="/about" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+              About Us
+            </Link>
+            <Link to="/privacy-policy" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
