@@ -1,0 +1,52 @@
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { SectionHeader } from "@/components/SectionHeader";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { cn } from "@/lib/utils";
+import { ShieldCheck, Gamepad2, GraduationCap, Heart } from "lucide-react";
+
+const features = [
+  { icon: ShieldCheck, title: "Safe Environment", desc: "Every interaction is filtered and age-appropriate. Parental controls built in from day one." },
+  { icon: GraduationCap, title: "Personalized Learning", desc: "AI adapts to each child's pace and interests, making education feel like play." },
+  { icon: Gamepad2, title: "Interactive Games", desc: "Educational games that reinforce concepts while keeping kids genuinely entertained." },
+  { icon: Heart, title: "Parental Trust", desc: "Full transparency on what your child interacts with. Weekly progress reports and content logs." },
+];
+
+const Kids = () => {
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <>
+      <Navbar />
+      <main>
+        <section className="py-24">
+          <div className="container">
+            <SectionHeader
+              title="KidsAI"
+              subtitle="Safe, personalized AI learning and entertainment — designed for curious young minds."
+            />
+            <div
+              ref={ref}
+              className={cn("grid gap-6 sm:grid-cols-2 opacity-0", isVisible && "animate-fade-in")}
+            >
+              {features.map((f, i) => {
+                const Icon = f.icon;
+                return (
+                  <div key={i} className="rounded-xl border bg-card p-6 transition-shadow hover:shadow-md">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-semibold">{f.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default Kids;
