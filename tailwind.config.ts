@@ -101,6 +101,8 @@ export default {
         "fade-in": "fade-in 0.6s cubic-bezier(0.16,1,0.3,1) both",
         "fade-in-left": "fade-in-left 0.6s cubic-bezier(0.16,1,0.3,1) both",
         "fade-in-right": "fade-in-right 0.6s cubic-bezier(0.16,1,0.3,1) both",
+        "float": "float 18s ease-in-out infinite",
+        "float-reverse": "float-reverse 18s ease-in-out infinite",
       },
     },
   },
