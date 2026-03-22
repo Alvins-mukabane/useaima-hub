@@ -84,6 +84,16 @@ export default {
           "0%": { opacity: "0", transform: "translateX(16px)", filter: "blur(4px)" },
           "100%": { opacity: "1", transform: "translateX(0)", filter: "blur(0)" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "33%": { transform: "translateY(-20px) translateX(10px)" },
+          "66%": { transform: "translateY(10px) translateX(-10px)" },
+        },
+        "float-reverse": {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "33%": { transform: "translateY(15px) translateX(-12px)" },
+          "66%": { transform: "translateY(-10px) translateX(8px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
