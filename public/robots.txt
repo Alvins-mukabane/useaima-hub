@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://useaima.com/sitemap.xml
+Sitemap: https://blog.useaima.com/blog-sitemap.xml

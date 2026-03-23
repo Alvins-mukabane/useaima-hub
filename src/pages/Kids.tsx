@@ -5,12 +5,28 @@ import { SEOHead } from "@/components/SEOHead";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { ShieldCheck, Gamepad2, GraduationCap, Heart } from "lucide-react";
+import { siteName, siteUrl } from "@/content/siteContent";
 
 const features = [
   { icon: ShieldCheck, title: "Safe Environment", desc: "Every interaction is filtered and age-appropriate. Parental controls built in from day one." },
   { icon: GraduationCap, title: "Personalized Learning", desc: "AI adapts to each child's pace and interests, making education feel like play." },
   { icon: Gamepad2, title: "Interactive Games", desc: "Educational games that reinforce concepts while keeping kids genuinely entertained." },
   { icon: Heart, title: "Parental Trust", desc: "Full transparency on what your child interacts with. Weekly progress reports and content logs." },
+];
+
+const kidsStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "KidsAI",
+    url: `${siteUrl}/kids`,
+    provider: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    description: "KidsAI is the USEAIMA learning and entertainment product designed to be safe, personalized, and engaging for children.",
+  },
 ];
 
 const Kids = () => {
@@ -21,6 +37,8 @@ const Kids = () => {
         title="KidsAI"
         description="Discover KidsAI, the USEAIMA learning and entertainment experience built to be safe, personalized, and engaging for children."
         path="/kids"
+        keywords={["KidsAI", "AI learning for kids", "safe AI for children", "children's education technology"]}
+        structuredData={kidsStructuredData}
       />
       <Navbar />
       <main>

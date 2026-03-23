@@ -5,12 +5,28 @@ import { SEOHead } from "@/components/SEOHead";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { HeartPulse, Brain, Activity, Leaf } from "lucide-react";
+import { siteName, siteUrl } from "@/content/siteContent";
 
 const features = [
   { icon: HeartPulse, title: "Preventive Health Insights", desc: "AI-driven analysis that identifies health risks before they become problems." },
   { icon: Brain, title: "Mental Wellness Tracking", desc: "Monitor stress patterns and receive evidence-based coping recommendations." },
   { icon: Activity, title: "Activity Intelligence", desc: "Go beyond step counts — understand how your movement patterns affect overall health." },
   { icon: Leaf, title: "Nutrition Guidance", desc: "Personalized meal insights based on your goals, preferences, and health data." },
+];
+
+const healthStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "HealthAI",
+    url: `${siteUrl}/health`,
+    provider: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    description: "HealthAI is the upcoming USEAIMA health intelligence experience focused on preventive insights and better health decision support.",
+  },
 ];
 
 const Health = () => {
@@ -21,6 +37,8 @@ const Health = () => {
         title="HealthAI"
         description="Learn about HealthAI, the upcoming USEAIMA health intelligence product focused on preventive insights and smarter recommendations."
         path="/health"
+        keywords={["HealthAI", "AI health assistant", "preventive health insights", "health intelligence"]}
+        structuredData={healthStructuredData}
       />
       <Navbar />
       <main>

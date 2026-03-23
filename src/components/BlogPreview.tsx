@@ -3,20 +3,9 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SectionHeader } from "./SectionHeader";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { getBlogPostUrl, latestBlogPosts, getCategoryBySlug } from "@/content/blogContent";
 
-const posts = [
-  { title: "How I Built an AI Email Assistant", desc: "A deep dive into building intelligent email workflows that save hours every week.", tag: "Engineering" },
-  { title: "The Future of Personal AI Systems", desc: "Why the next decade belongs to AI agents that understand your life, not just your commands.", tag: "Vision" },
-  { title: "Why Most People Fail at Managing Money", desc: "Behavioral patterns that sabotage finances — and how AI can intervene before it's too late.", tag: "Finance" },
-  { title: "Designing Safe AI for Children", desc: "Principles and guardrails behind KidsAI's approach to age-appropriate AI interactions.", tag: "Kids" },
-];
-
-const tagColors: Record<string, string> = {
-  Engineering: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-  Vision: "bg-purple-500/10 text-purple-600 dark:text-purple-400",
-  Finance: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-  Kids: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
-};
+const posts = latestBlogPosts.slice(0, 4);
 
 export function BlogPreview() {
   return (
@@ -42,6 +31,8 @@ export function BlogPreview() {
 
 function BlogCard({ post, index }: { post: (typeof posts)[number]; index: number }) {
   const { ref, isVisible } = useScrollReveal();
+  const category = getCategoryBySlug(post.categorySlug);
+
   return (
     <article
       ref={ref}
@@ -51,11 +42,13 @@ function BlogCard({ post, index }: { post: (typeof posts)[number]; index: number
       )}
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      <span className={cn("inline-block rounded-full px-2.5 py-0.5 text-xs font-medium", tagColors[post.tag] || "bg-muted text-muted-foreground")}>
-        {post.tag}
+      <span className={cn("inline-block rounded-full px-2.5 py-0.5 text-xs font-medium", category?.badgeClassName ?? "bg-muted text-muted-foreground")}>
+        {category?.title ?? "Blog"}
       </span>
-      <h3 className="mt-3 text-lg font-semibold group-hover:text-primary transition-colors">{post.title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.desc}</p>
+      <a href={getBlogPostUrl(post.slug)} target="_blank" rel="noopener noreferrer" className="block">
+        <h3 className="mt-3 text-lg font-semibold transition-colors group-hover:text-primary">{post.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+      </a>
     </article>
   );
 }

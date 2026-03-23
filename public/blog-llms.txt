@@ -1,0 +1,34 @@
+# USEAIMA Blog
+
+> The USEAIMA Blog publishes practical guides on AI agents, finance, creator growth, safe learning systems, and operational product design.
+
+## Primary URLs
+
+- Home: https://blog.useaima.com/
+- AI & Agents: https://blog.useaima.com/category/ai-agents
+- Finance: https://blog.useaima.com/category/finance
+- Social Media: https://blog.useaima.com/category/social-media
+- Kids & Learning: https://blog.useaima.com/category/kids-learning
+- Dev & Systems: https://blog.useaima.com/category/dev-systems
+- What Is Agentic AI and Why It Matters for Everyday Work: https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters
+- Choosing AI Tools That Reduce Work Instead of Adding More Dashboards: https://blog.useaima.com/choosing-ai-tools-that-reduce-work
+- A Simple Weekly Finance Review You Can Run With AI: https://blog.useaima.com/weekly-finance-review-with-ai
+- Why Most Budgets Fail and What to Track Instead: https://blog.useaima.com/why-most-budgets-fail-and-what-to-track-instead
+- What Creators Should Measure Before Posting Again: https://blog.useaima.com/what-creators-should-measure-before-posting-again
+- Social Media Analytics That Lead to Action: https://blog.useaima.com/social-media-analytics-that-lead-to-action
+- Designing Safe AI Learning Experiences for Kids: https://blog.useaima.com/designing-safe-ai-learning-for-kids
+- Why AI Products Need Operational Clarity, Not Just Clever Features: https://blog.useaima.com/why-ai-products-need-operational-clarity
+
+## Summary
+
+- This blog is part of the broader USEAIMA ecosystem.
+- The goal is to help readers learn useful digital skills, trust the brand, and discover practical AI-powered products.
+- Featured products include SocialPulse, FinanceAI, and KidsAI.
+
+## Editorial Themes
+
+- AI & Agents: practical assistant-style software and product thinking
+- Finance: simple frameworks for better money decisions
+- Social Media: analytics, creator growth, and content strategy
+- Kids & Learning: safer AI-supported education experiences
+- Dev & Systems: operational clarity, systems design, and reliability

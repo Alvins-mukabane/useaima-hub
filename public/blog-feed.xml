@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>USEAIMA Blog</title>
+    <link>https://blog.useaima.com</link>
+    <description>Simple guides, real insights, and tools built for the future.</description>
+    <language>en-us</language>
+    <item>
+      <title>What Is Agentic AI and Why It Matters for Everyday Work</title>
+      <link>https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters</link>
+      <guid>https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters</guid>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Understand agentic AI in simple terms and why assistant-style systems matter.</description>
+    </item>
+    <item>
+      <title>Choosing AI Tools That Reduce Work Instead of Adding More Dashboards</title>
+      <link>https://blog.useaima.com/choosing-ai-tools-that-reduce-work</link>
+      <guid>https://blog.useaima.com/choosing-ai-tools-that-reduce-work</guid>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A framework for evaluating AI products based on clarity, trust, and actionability.</description>
+    </item>
+    <item>
+      <title>A Simple Weekly Finance Review You Can Run With AI</title>
+      <link>https://blog.useaima.com/weekly-finance-review-with-ai</link>
+      <guid>https://blog.useaima.com/weekly-finance-review-with-ai</guid>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Use a practical weekly review to understand spending patterns and better decisions.</description>
+    </item>
+    <item>
+      <title>Why Most Budgets Fail and What to Track Instead</title>
+      <link>https://blog.useaima.com/why-most-budgets-fail-and-what-to-track-instead</link>
+      <guid>https://blog.useaima.com/why-most-budgets-fail-and-what-to-track-instead</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Learn why budgets break down and which signals matter more.</description>
+    </item>
+    <item>
+      <title>What Creators Should Measure Before Posting Again</title>
+      <link>https://blog.useaima.com/what-creators-should-measure-before-posting-again</link>
+      <guid>https://blog.useaima.com/what-creators-should-measure-before-posting-again</guid>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A practical social media review framework for creators.</description>
+    </item>
+    <item>
+      <title>Social Media Analytics That Lead to Action</title>
+      <link>https://blog.useaima.com/social-media-analytics-that-lead-to-action</link>
+      <guid>https://blog.useaima.com/social-media-analytics-that-lead-to-action</guid>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Move from passive reporting to insight-led social decisions.</description>
+    </item>
+    <item>
+      <title>Designing Safe AI Learning Experiences for Kids</title>
+      <link>https://blog.useaima.com/designing-safe-ai-learning-for-kids</link>
+      <guid>https://blog.useaima.com/designing-safe-ai-learning-for-kids</guid>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A practical look at safe AI learning design for children and families.</description>
+    </item>
+    <item>
+      <title>Why AI Products Need Operational Clarity, Not Just Clever Features</title>
+      <link>https://blog.useaima.com/why-ai-products-need-operational-clarity</link>
+      <guid>https://blog.useaima.com/why-ai-products-need-operational-clarity</guid>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Operational clarity keeps AI products trustworthy and useful beyond the demo.</description>
+    </item>
+  </channel>
+</rss>

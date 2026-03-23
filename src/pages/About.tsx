@@ -72,6 +72,7 @@ const About = () => {
         title="About USEAIMA"
         description="Learn what USEAIMA is, what the platform builds, and the vision behind its AI-powered ecosystem."
         path="/about"
+        keywords={["about USEAIMA", "AI startup", "AI platform", "USEAIMA vision"]}
         structuredData={aboutStructuredData}
       />
       <Navbar />

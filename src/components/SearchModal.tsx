@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Search, X, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { getBlogPostUrl, latestBlogPosts } from "@/content/blogContent";
 
 interface SearchItem {
   title: string;
@@ -11,7 +12,7 @@ interface SearchItem {
   external?: boolean;
 }
 
-const searchData: SearchItem[] = [
+const staticSearchData: SearchItem[] = [
   { title: "What is USEAIMA?", description: "Overview of the USEAIMA platform and ecosystem", category: "Page", to: "/#what-is-useaima" },
   { title: "FinanceAI", description: "AI financial advisor — tracks spending and provides insights", category: "Product", to: "/finance" },
   { title: "EmailAI", description: "AI email intelligence — summarizes, detects deadlines, generates plans", category: "Product", to: "/#products" },
@@ -24,9 +25,6 @@ const searchData: SearchItem[] = [
     external: true,
   },
   { title: "HealthAI", description: "AI health intelligence — preventive insights and recommendations", category: "Product", to: "/health" },
-  { title: "How I Built an AI Email Assistant", description: "Deep dive into building an AI-powered email system", category: "Blog", to: "https://blog.useaima.com", external: true },
-  { title: "The Future of Personal AI Systems", description: "Exploring next-gen personal AI assistants", category: "Blog", to: "https://blog.useaima.com", external: true },
-  { title: "Why Most People Fail at Managing Money", description: "Common pitfalls and how AI can help", category: "Blog", to: "https://blog.useaima.com", external: true },
   { title: "Finance", description: "AI-powered financial intelligence hub", category: "Page", to: "/finance" },
   { title: "Health", description: "AI in healthcare and preventive care", category: "Page", to: "/health" },
   { title: "Kids", description: "Safe AI for children's learning and fun", category: "Page", to: "/kids" },
@@ -34,6 +32,17 @@ const searchData: SearchItem[] = [
   { title: "Privacy Policy", description: "How USEAIMA handles user data and privacy", category: "Page", to: "/privacy-policy" },
   { title: "Terms of Service", description: "Terms that govern use of the USEAIMA platform", category: "Page", to: "/terms-of-service" },
   { title: "FAQs", description: "Frequently asked questions about USEAIMA", category: "Page", to: "/#faq" },
+];
+
+const searchData: SearchItem[] = [
+  ...staticSearchData,
+  ...latestBlogPosts.slice(0, 5).map((post) => ({
+    title: post.title,
+    description: post.description,
+    category: "Blog",
+    to: getBlogPostUrl(post.slug),
+    external: true,
+  })),
 ];
 
 interface SearchModalProps {

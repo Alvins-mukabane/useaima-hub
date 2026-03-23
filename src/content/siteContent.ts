@@ -1,5 +1,7 @@
 export const siteName = "USEAIMA";
 export const siteUrl = "https://useaima.com";
+export const blogUrl = "https://blog.useaima.com";
+export const siteEmail = "hello@useaima.com";
 export const siteDescription =
   "USEAIMA is an AI-powered platform building intelligent systems for finance, communication, learning, health, productivity, and digital growth.";
 

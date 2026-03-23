@@ -18,6 +18,8 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 - Privacy Policy: https://useaima.com/privacy-policy
 - Terms of Service: https://useaima.com/terms-of-service
 - Blog: https://blog.useaima.com
+- Blog Feed: https://blog.useaima.com/blog-feed.xml
+- Blog LLMs: https://blog.useaima.com/blog-llms.txt
 
 ## Key Facts
 
@@ -25,6 +27,24 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 - Core product areas include finance, email intelligence, health, kids learning, and digital growth.
 - The product philosophy is intelligence over data, simplicity over complexity, and integration over isolation.
 - USEAIMA does not replace human judgment; it supports decision-making with insights and recommendations.
+- The USEAIMA blog is designed as a discovery engine for search, answer engines, and product education.
+
+## Product Links
+
+- SocialPulse: https://socialpulse.useaima.com
+- FinanceAI: https://useaima.com/finance
+- KidsAI: https://useaima.com/kids
+
+## Blog Highlights
+
+- AI & Agents: https://blog.useaima.com/category/ai-agents
+- Finance: https://blog.useaima.com/category/finance
+- Social Media: https://blog.useaima.com/category/social-media
+- Kids & Learning: https://blog.useaima.com/category/kids-learning
+- Dev & Systems: https://blog.useaima.com/category/dev-systems
+- What Is Agentic AI and Why It Matters for Everyday Work: https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters
+- A Simple Weekly Finance Review You Can Run With AI: https://blog.useaima.com/weekly-finance-review-with-ai
+- What Creators Should Measure Before Posting Again: https://blog.useaima.com/what-creators-should-measure-before-posting-again
 
 ## FAQ Highlights
 

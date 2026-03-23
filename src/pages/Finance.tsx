@@ -5,6 +5,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { DollarSign, TrendingUp, Shield, BarChart3 } from "lucide-react";
+import { siteName, siteUrl } from "@/content/siteContent";
 
 const features = [
   { icon: DollarSign, title: "Smart Spending Tracking", desc: "AI categorizes and analyzes every transaction to reveal patterns you'd never catch manually." },
@@ -19,6 +20,23 @@ const updates = [
   { date: "Jan 2026", title: "Tax optimization suggestions", tag: "Improvement" },
 ];
 
+const financeStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "FinanceAI",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Web",
+    url: `${siteUrl}/finance`,
+    description: "FinanceAI is the USEAIMA financial intelligence product for smarter spending reviews, insight summaries, and guided decisions.",
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+  },
+];
+
 const Finance = () => {
   const { ref, isVisible } = useScrollReveal();
   return (
@@ -27,6 +45,8 @@ const Finance = () => {
         title="FinanceAI"
         description="Explore FinanceAI, the USEAIMA financial intelligence product for tracking spending, insights, risk detection, and smarter decisions."
         path="/finance"
+        keywords={["FinanceAI", "AI finance assistant", "financial intelligence", "budget analysis"]}
+        structuredData={financeStructuredData}
       />
       <Navbar />
       <main>
