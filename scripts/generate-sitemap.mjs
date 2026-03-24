@@ -28,6 +28,12 @@ const blogCategories = [
 
 const blogPosts = [
   {
+    slug: "what-are-ai-agents",
+    title: "What Are AI Agents? A Beginner Guide to Agentic Systems and Finance",
+    description: "Learn what AI agents are, how MCP and agentic finance workflows work, and why they matter.",
+    publishedAt: "2026-03-24",
+  },
+  {
     slug: "what-is-agentic-ai-and-why-it-matters",
     title: "What Is Agentic AI and Why It Matters for Everyday Work",
     description: "Understand agentic AI in simple terms and why assistant-style systems matter.",

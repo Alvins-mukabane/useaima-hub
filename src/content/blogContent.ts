@@ -26,6 +26,7 @@ export type BlogPost = {
   description: string;
   excerpt: string;
   categorySlug: string;
+  secondaryCategorySlugs?: string[];
   publishedAt: string;
   updatedAt: string;
   readingTime: string;
@@ -113,6 +114,104 @@ export const blogProducts = [
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "what-are-ai-agents",
+    title: "What Are AI Agents? A Beginner Guide to Agentic Systems and Finance",
+    description:
+      "Learn what AI agents are, how MCP, mandates, A2A coordination, and stablecoin payments work, and why agentic systems matter for finance and digital infrastructure.",
+    excerpt:
+      "A beginner-friendly breakdown of AI agents, agentic commerce, finance use cases, and the protocols turning software into active economic actors.",
+    categorySlug: "ai-agents",
+    secondaryCategorySlugs: ["finance"],
+    publishedAt: "2026-03-24",
+    updatedAt: "2026-03-24",
+    readingTime: "6 min read",
+    featured: true,
+    eyebrow: "AI & Finance",
+    thumbnailClassName: "from-violet-500 via-sky-500 to-emerald-400",
+    tags: ["AI agents", "agentic commerce", "MCP", "stablecoins", "finance automation", "DeFi"],
+    summary:
+      "AI agents are autonomous software systems that can understand goals, access tools, and take action with less human micromanagement. In finance, that means they can move from passive analysis to execution, coordination, and faster economic decision-making.",
+    simpleExplanation:
+      "An AI agent is software that does more than answer a question. It can gather context, make decisions within rules, and complete tasks like monitoring budgets, moving funds, or coordinating with other tools.",
+    keyTakeaways: [
+      "AI agents are active software doers, not just passive chatbots.",
+      "Protocols like MCP, verifiable mandates, and agent-to-agent communication make agents more secure and useful.",
+      "Finance is a major use case because agents can monitor, decide, and execute faster than manual workflows.",
+      "The strongest products pair autonomy with trust, limits, and clear authorization.",
+    ],
+    sections: [
+      {
+        heading: "What are AI agents?",
+        paragraphs: [
+          "AI agents are autonomous software programs designed to perceive their environment, reason about a goal, and carry out actions to reach that goal. That makes them different from older AI experiences that could generate answers but still relied on the user to do everything manually afterward.",
+          "A language model might draft an email. An AI agent can draft the message, pull the right context, find the correct recipient, send it, and trigger the next follow-up inside a defined workflow.",
+          "That shift matters because useful AI is moving from content generation toward task completion, decision support, and agentic workflows that feel closer to a capable assistant than a chatbot.",
+        ],
+      },
+      {
+        heading: "Why are AI agents becoming important in finance?",
+        paragraphs: [
+          "Finance is one of the clearest environments for agentic systems because money decisions rely on context, timing, and fast execution. Users do not just need data. They need help interpreting risk, comparing options, and acting within limits they trust.",
+          "That is why the move from dashboards to assistants matters. In a financial setting, an agent can monitor spending patterns, surface anomalies, compare yield opportunities, or rebalance a portfolio when predefined conditions are met.",
+        ],
+        bullets: [
+          "They reduce manual review across fragmented financial tools.",
+          "They can act inside user-approved limits instead of waiting for every click.",
+          "They help turn financial context into next-step recommendations or execution.",
+        ],
+      },
+      {
+        heading: "How do modern AI agents work?",
+        paragraphs: [
+          "The modern agent stack depends on more than a model. It needs context, authorization, and a way to coordinate with other systems securely.",
+          "Protocols like Anthropic's Model Context Protocol help agents connect to tools and data sources in a more standardized way. Verifiable mandates give the agent bounded authority to act. Agent-to-agent coordination lets one system request services from another without forcing the human to orchestrate every detail.",
+        ],
+        bullets: [
+          "Context: secure access to tools, data, and user state.",
+          "Authorization: signed rules defining what the agent may do.",
+          "Coordination: structured communication between specialized agents or services.",
+          "Settlement: payment rails that let machine-to-machine activity complete in real time.",
+        ],
+      },
+      {
+        heading: "What does this mean for agentic commerce and digital infrastructure?",
+        paragraphs: [
+          "As software becomes more autonomous, agents stop behaving like interface features and start acting like participants in a wider digital economy. They can request compute, buy services, negotiate workflows, and settle transactions without waiting for a human at every step.",
+          "That is why protocols, stablecoins, and verifiable credentials matter. They give agents a way to operate responsibly inside systems that require trust, cost control, and auditability.",
+          "Infrastructure is changing too. Agents can now become direct consumers of compute, storage, and software services, which is part of why the conversation around decentralized infrastructure, digital payments, and machine-to-machine commerce is accelerating.",
+        ],
+      },
+      {
+        heading: "How this connects to USEAIMA",
+        paragraphs: [
+          "USEAIMA is built around the idea that software should assist, not just display. That philosophy fits directly with agentic systems. FinanceAI, for example, is more useful when it can move from reporting toward guided financial action, risk awareness, and recommendation-driven workflows.",
+          "In practical terms, that means the real future of AI products is not more dashboards. It is more trusted systems that understand context, work within clear limits, and help users make better decisions with less friction.",
+        ],
+      },
+      {
+        heading: "What challenges still matter?",
+        paragraphs: [
+          "The biggest challenge is not whether agents can act. It is whether they can act safely. Identity, accountability, payment authorization, compliance, and security all become more important when software is allowed to execute on behalf of a person or business.",
+          "That is why terms like Know Your Agent, verifiable credentials, and secure key management are becoming central. Strong agentic systems need trust boundaries as much as they need intelligence.",
+        ],
+      },
+    ],
+    inlineCallout:
+      "The next generation of financial software will not just explain money. It will help people act on financial context with clearer, safer agentic workflows.",
+    productCta: {
+      name: "FinanceAI",
+      href: "https://useaima.com/finance",
+      description:
+        "FinanceAI reflects the USEAIMA approach to agentic systems: less dashboard noise, more context-aware guidance, clearer signals, and better next-step decisions.",
+      label: "Explore FinanceAI",
+    },
+    relatedSlugs: [
+      "what-is-agentic-ai-and-why-it-matters",
+      "weekly-finance-review-with-ai",
+      "choosing-ai-tools-that-reduce-work",
+    ],
+  },
+  {
     slug: "what-is-agentic-ai-and-why-it-matters",
     title: "What Is Agentic AI and Why It Matters for Everyday Work",
     description: "Understand agentic AI in simple terms and learn why assistant-style systems matter more than generic dashboards.",
@@ -169,7 +268,7 @@ export const blogPosts: BlogPost[] = [
       description: "Instead of guessing what content worked, SocialPulse helps translate performance signals into next actions.",
       label: "Try SocialPulse",
     },
-    relatedSlugs: ["choosing-ai-tools-that-reduce-work", "why-ai-products-need-operational-clarity"],
+    relatedSlugs: ["what-are-ai-agents", "choosing-ai-tools-that-reduce-work", "why-ai-products-need-operational-clarity"],
   },
   {
     slug: "choosing-ai-tools-that-reduce-work",
@@ -228,7 +327,7 @@ export const blogPosts: BlogPost[] = [
       description: "FinanceAI is designed to help users interpret patterns and make better financial decisions with less manual effort.",
       label: "Explore FinanceAI",
     },
-    relatedSlugs: ["what-is-agentic-ai-and-why-it-matters", "weekly-finance-review-with-ai"],
+    relatedSlugs: ["what-are-ai-agents", "what-is-agentic-ai-and-why-it-matters", "weekly-finance-review-with-ai"],
   },
   {
     slug: "weekly-finance-review-with-ai",
@@ -287,7 +386,7 @@ export const blogPosts: BlogPost[] = [
       description: "FinanceAI can support a repeatable review process with clearer spending insights, risk signals, and context-aware summaries.",
       label: "Explore FinanceAI",
     },
-    relatedSlugs: ["why-most-budgets-fail-and-what-to-track-instead", "choosing-ai-tools-that-reduce-work"],
+    relatedSlugs: ["what-are-ai-agents", "why-most-budgets-fail-and-what-to-track-instead", "choosing-ai-tools-that-reduce-work"],
   },
   {
     slug: "why-most-budgets-fail-and-what-to-track-instead",
@@ -592,12 +691,20 @@ export function getCategoryBySlug(slug: string) {
   return blogCategories.find((category) => category.slug === slug);
 }
 
+export function getCategoriesForPost(post: BlogPost) {
+  return [post.categorySlug, ...(post.secondaryCategorySlugs ?? [])]
+    .map((slug) => getCategoryBySlug(slug))
+    .filter((category): category is BlogCategory => Boolean(category));
+}
+
 export function getPostBySlug(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
 }
 
 export function getPostsByCategory(slug: string) {
-  return sortedBlogPosts.filter((post) => post.categorySlug === slug);
+  return sortedBlogPosts.filter(
+    (post) => post.categorySlug === slug || post.secondaryCategorySlugs?.includes(slug)
+  );
 }
 
 export function getRelatedPosts(post: BlogPost) {

@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
 import { BlogFooter } from "@/components/blog/BlogFooter";
 import { BlogNavbar } from "@/components/blog/BlogNavbar";
-import { blogAuthor, blogTitle, getCategoryBySlug, getPostBySlug, getRelatedPosts } from "@/content/blogContent";
+import { blogAuthor, blogTitle, getCategoriesForPost, getCategoryBySlug, getPostBySlug, getRelatedPosts } from "@/content/blogContent";
 import { blogUrl, siteName, siteUrl } from "@/content/siteContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import BlogNotFound from "./BlogNotFound";
@@ -29,6 +29,7 @@ export default function BlogArticle() {
   }
 
   const category = getCategoryBySlug(post.categorySlug);
+  const postCategories = getCategoriesForPost(post);
   const relatedPosts = getRelatedPosts(post);
   const [activePanel, setActivePanel] = useState<ArticlePanel>("summary");
 
@@ -60,7 +61,7 @@ export default function BlogArticle() {
         logo: `${siteUrl}/android-chrome-512x512.png`,
       },
       mainEntityOfPage: `${blogUrl}/${post.slug}`,
-      articleSection: category?.title,
+      articleSection: postCategories.map((item) => item.title),
       keywords: post.tags.join(", "),
     },
     {
@@ -91,7 +92,7 @@ export default function BlogArticle() {
         authorName={blogAuthor}
         publishedTime={post.publishedAt}
         modifiedTime={post.updatedAt}
-        keywords={[category?.title ?? "USEAIMA", ...post.tags]}
+        keywords={[...postCategories.map((item) => item.title), ...post.tags]}
         alternateLinks={[
           {
             type: "application/rss+xml",
@@ -121,6 +122,13 @@ export default function BlogArticle() {
               </div>
 
               <div className={cn("mt-8 rounded-[2rem] bg-gradient-to-br p-8 text-white shadow-xl", post.thumbnailClassName)}>
+                <div className="flex flex-wrap gap-2">
+                  {postCategories.map((item) => (
+                    <span key={item.slug} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white/85">
+                      {item.emoji} {item.title}
+                    </span>
+                  ))}
+                </div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">{post.eyebrow}</p>
                 <h1 className="mt-4 max-w-[15ch] text-balance text-4xl font-semibold leading-tight sm:text-5xl">
                   {post.title}
@@ -128,7 +136,8 @@ export default function BlogArticle() {
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">{post.excerpt}</p>
                 <div className="mt-8 flex flex-wrap gap-4 text-sm text-white/80">
                   <span>By {blogAuthor}</span>
-                  <span>{post.publishedAt}</span>
+                  <span>Published {post.publishedAt}</span>
+                  {post.updatedAt !== post.publishedAt ? <span>Updated {post.updatedAt}</span> : null}
                   <span>{post.readingTime}</span>
                 </div>
               </div>

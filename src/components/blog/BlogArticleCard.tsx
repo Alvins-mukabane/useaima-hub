@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { BlogPost, getCategoryBySlug } from "@/content/blogContent";
+import { BlogPost, getCategoriesForPost } from "@/content/blogContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import { cn } from "@/lib/utils";
 
@@ -10,7 +10,7 @@ type BlogArticleCardProps = {
 };
 
 export function BlogArticleCard({ post, variant = "latest" }: BlogArticleCardProps) {
-  const category = getCategoryBySlug(post.categorySlug);
+  const categories = getCategoriesForPost(post).slice(0, 2);
   const isCompact = variant === "compact";
 
   return (
@@ -27,9 +27,22 @@ export function BlogArticleCard({ post, variant = "latest" }: BlogArticleCardPro
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.16),transparent_55%)]" />
         <div className="relative flex h-full flex-col justify-between text-white">
           <div className="flex items-start justify-between gap-3">
-            <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">
-              {category?.emoji} {category?.title ?? "USEAIMA"}
-            </span>
+            <div className="flex flex-wrap gap-2">
+              {categories.length > 0 ? (
+                categories.map((category) => (
+                  <span
+                    key={category.slug}
+                    className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur"
+                  >
+                    {category.emoji} {category.title}
+                  </span>
+                ))
+              ) : (
+                <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">
+                  USEAIMA
+                </span>
+              )}
+            </div>
             <span className="text-xs font-medium text-white/80">{post.readingTime}</span>
           </div>
           <div>
@@ -42,11 +55,13 @@ export function BlogArticleCard({ post, variant = "latest" }: BlogArticleCardPro
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        {category && (
-          <span className={cn("inline-flex w-fit rounded-full px-3 py-1 text-xs font-medium", category.badgeClassName)}>
-            {category.title}
-          </span>
-        )}
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <span key={category.slug} className={cn("inline-flex w-fit rounded-full px-3 py-1 text-xs font-medium", category.badgeClassName)}>
+              {category.title}
+            </span>
+          ))}
+        </div>
         <p className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">{post.excerpt}</p>
         <div className="mt-5 flex items-center justify-between gap-3 text-sm">
           <span className="text-muted-foreground">{post.publishedAt}</span>

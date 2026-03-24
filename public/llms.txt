@@ -42,6 +42,7 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 - Social Media: https://blog.useaima.com/category/social-media
 - Kids & Learning: https://blog.useaima.com/category/kids-learning
 - Dev & Systems: https://blog.useaima.com/category/dev-systems
+- What Are AI Agents? A Beginner Guide to Agentic Systems and Finance: https://blog.useaima.com/what-are-ai-agents
 - What Is Agentic AI and Why It Matters for Everyday Work: https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters
 - A Simple Weekly Finance Review You Can Run With AI: https://blog.useaima.com/weekly-finance-review-with-ai
 - What Creators Should Measure Before Posting Again: https://blog.useaima.com/what-creators-should-measure-before-posting-again
