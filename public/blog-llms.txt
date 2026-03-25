@@ -10,7 +10,9 @@
 - Social Media: https://blog.useaima.com/category/social-media
 - Kids & Learning: https://blog.useaima.com/category/kids-learning
 - Dev & Systems: https://blog.useaima.com/category/dev-systems
-- What Are AI Agents? A Beginner Guide to Agentic Systems and Finance: https://blog.useaima.com/what-are-ai-agents
+- What Are AI Agents? Beginner Guide for 2026: https://blog.useaima.com/what-are-ai-agents
+- How AI Assistants Are Replacing Apps (And What It Means for You): https://blog.useaima.com/how-ai-assistants-are-replacing-apps
+- Why Your Social Media Posts Get No Views (And How to Fix It): https://blog.useaima.com/why-your-social-media-posts-get-no-views
 - What Is Agentic AI and Why It Matters for Everyday Work: https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters
 - Choosing AI Tools That Reduce Work Instead of Adding More Dashboards: https://blog.useaima.com/choosing-ai-tools-that-reduce-work
 - A Simple Weekly Finance Review You Can Run With AI: https://blog.useaima.com/weekly-finance-review-with-ai

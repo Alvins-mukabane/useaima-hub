@@ -29,9 +29,21 @@ const blogCategories = [
 const blogPosts = [
   {
     slug: "what-are-ai-agents",
-    title: "What Are AI Agents? A Beginner Guide to Agentic Systems and Finance",
-    description: "Learn what AI agents are, how MCP and agentic finance workflows work, and why they matter.",
-    publishedAt: "2026-03-24",
+    title: "What Are AI Agents? Beginner Guide for 2026",
+    description: "Learn what AI agents are, how they differ from traditional apps, and why they matter in 2026.",
+    publishedAt: "2026-03-25",
+  },
+  {
+    slug: "how-ai-assistants-are-replacing-apps",
+    title: "How AI Assistants Are Replacing Apps (And What It Means for You)",
+    description: "Discover why AI assistants are replacing standalone apps and what that means for work and productivity.",
+    publishedAt: "2026-03-25",
+  },
+  {
+    slug: "why-your-social-media-posts-get-no-views",
+    title: "Why Your Social Media Posts Get No Views (And How to Fix It)",
+    description: "Learn the biggest reasons social posts get low views and how to improve reach with data and better structure.",
+    publishedAt: "2026-03-25",
   },
   {
     slug: "what-is-agentic-ai-and-why-it-matters",
