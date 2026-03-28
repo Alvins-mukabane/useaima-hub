@@ -3,6 +3,7 @@ import { ChevronDown, Search, Sparkles } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { blogCategories } from "@/content/blogContent";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Input } from "@/components/ui/input";
 import { BrandLogo } from "@/components/BrandLogo";
 import {
@@ -11,11 +12,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useBlogVisitorTracking } from "@/hooks/useBlogVisitorTracking";
 import { getBlogRoute } from "@/lib/siteMode";
 
 export function BlogNavbar() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
+  useBlogVisitorTracking();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -76,6 +79,9 @@ export function BlogNavbar() {
               aria-label="Search blog articles"
             />
           </form>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+          </div>
           <Button asChild className="rounded-full">
             <a href="https://useaima.com/#products">
               <Sparkles className="h-4 w-4" />

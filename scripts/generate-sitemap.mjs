@@ -124,12 +124,14 @@ function buildSitemapXml(baseUrl, routes) {
 function buildRssFeed() {
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0">',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
     "  <channel>",
     "    <title>USEAIMA Blog</title>",
     `    <link>${blogUrl}</link>`,
+    `    <atom:link href="${blogUrl}/blog-feed.xml" rel="self" type="application/rss+xml" />`,
     "    <description>Simple guides, real insights, and tools built for the future.</description>",
     "    <language>en-us</language>",
+    `    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
     ...blogPosts.map(
       (post) => `    <item>
       <title>${escapeXml(post.title)}</title>
@@ -160,6 +162,7 @@ function buildBlogLlms() {
     "## Summary",
     "",
     "- This blog is part of the broader USEAIMA ecosystem.",
+    "- The blog is public, indexable, and intended for search engines, answer engines, and AI retrieval systems.",
     "- The goal is to help readers learn useful digital skills, trust the brand, and discover practical AI-powered products.",
     "- Featured products include SocialPulse, FinanceAI, and KidsAI.",
     "",
@@ -170,6 +173,13 @@ function buildBlogLlms() {
     "- Social Media: analytics, creator growth, and content strategy",
     "- Kids & Learning: safer AI-supported education experiences",
     "- Dev & Systems: operational clarity, systems design, and reliability",
+    "",
+    "## Product Links",
+    "",
+    "- USEAIMA: https://useaima.com",
+    "- SocialPulse: https://socialpulse.useaima.com",
+    "- FinanceAI: https://useaima.com/finance",
+    "- KidsAI: https://useaima.com/kids",
     "",
   ].join("\n");
 }

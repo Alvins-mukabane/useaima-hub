@@ -115,6 +115,8 @@ export function SEOHead({
     upsertMeta('meta[name="author"]', { name: "author", content: authorName ?? siteName });
     upsertMeta('meta[name="application-name"]', { name: "application-name", content: siteName });
     upsertMeta('meta[name="format-detection"]', { name: "format-detection", content: "telephone=no" });
+    upsertMeta('meta[name="referrer"]', { name: "referrer", content: "strict-origin-when-cross-origin" });
+    upsertMeta('meta[name="theme-color"]', { name: "theme-color", content: "#0f172a" });
     upsertMeta('meta[name="robots"]', { name: "robots", content: robots });
     upsertMeta('meta[name="googlebot"]', { name: "googlebot", content: robots });
     upsertMeta('meta[name="keywords"]', keywordContent ? { name: "keywords", content: keywordContent } : undefined);
@@ -126,6 +128,7 @@ export function SEOHead({
     upsertMeta('meta[property="og:site_name"]', { property: "og:site_name", content: siteName });
     upsertMeta('meta[property="og:locale"]', { property: "og:locale", content: "en_US" });
     upsertMeta('meta[property="og:image"]', { property: "og:image", content: absoluteImage });
+    upsertMeta('meta[property="og:image:secure_url"]', { property: "og:image:secure_url", content: absoluteImage });
     upsertMeta('meta[property="og:image:alt"]', { property: "og:image:alt", content: `${siteName} logo and preview` });
 
     upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
@@ -133,6 +136,7 @@ export function SEOHead({
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: absoluteImage });
     upsertMeta('meta[name="twitter:image:alt"]', { name: "twitter:image:alt", content: `${siteName} logo and preview` });
+    upsertMeta('meta[name="twitter:url"]', { name: "twitter:url", content: absoluteUrl });
 
     upsertMeta(
       'meta[property="article:section"]',

@@ -27,6 +27,18 @@ export function BlogFooter() {
               >
                 About USEAIMA
               </a>
+              <a
+                href="https://blog.useaima.com/blog-feed.xml"
+                className="rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-background"
+              >
+                RSS Feed
+              </a>
+              <a
+                href="https://blog.useaima.com/blog-sitemap.xml"
+                className="rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-background"
+              >
+                Sitemap
+              </a>
             </div>
           </div>
 

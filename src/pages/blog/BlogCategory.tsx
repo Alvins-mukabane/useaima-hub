@@ -74,6 +74,12 @@ export default function BlogCategory() {
                 <span>{posts.length} articles</span>
                 <span>Practical breakdowns from the USEAIMA ecosystem</span>
               </div>
+              <div className="mt-8 rounded-[1.5rem] border bg-card/80 p-5 shadow-sm">
+                <p className="text-sm leading-7 text-muted-foreground">
+                  This category page is built to help readers move from explanation to action, with guides that connect
+                  learning, product thinking, and real USEAIMA tools.
+                </p>
+              </div>
             </div>
           </div>
         </section>

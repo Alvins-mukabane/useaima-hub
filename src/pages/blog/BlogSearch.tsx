@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Search } from "lucide-react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { SEOHead } from "@/components/SEOHead";
 import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
 import { BlogFooter } from "@/components/blog/BlogFooter";
@@ -76,6 +76,18 @@ export default function BlogSearch() {
                 Search
               </Button>
             </form>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {blogCategories.map((category) => (
+                <Link
+                  key={category.slug}
+                  to={getBlogRoute(`/category/${category.slug}`)}
+                  className="rounded-full border bg-card/80 px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {category.emoji} {category.title}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 

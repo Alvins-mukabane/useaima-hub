@@ -1,13 +1,16 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BookOpenCheck, Layers3, Lightbulb, Sparkles } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
+import { BlogCommentsSection } from "@/components/blog/BlogCommentsSection";
+import { BlogEngagementBar } from "@/components/blog/BlogEngagementBar";
+import { BlogSubscribeBar } from "@/components/blog/BlogSubscribeBar";
 import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
 import { BlogFooter } from "@/components/blog/BlogFooter";
 import { BlogNavbar } from "@/components/blog/BlogNavbar";
-import { blogAuthor, blogTitle, getCategoriesForPost, getCategoryBySlug, getPostBySlug, getRelatedPosts } from "@/content/blogContent";
+import { blogAuthor, blogTitle, getBlogPostUrl, getCategoriesForPost, getCategoryBySlug, getPostBySlug, getRelatedPosts } from "@/content/blogContent";
 import { blogUrl, siteName, siteUrl } from "@/content/siteContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import BlogNotFound from "./BlogNotFound";
@@ -19,6 +22,13 @@ const panelIcons = {
   simple: Lightbulb,
   takeaways: Layers3,
 } as const;
+
+function toSectionId(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
 
 export default function BlogArticle() {
   const { slug = "" } = useParams();
@@ -32,6 +42,12 @@ export default function BlogArticle() {
   const postCategories = getCategoriesForPost(post);
   const relatedPosts = getRelatedPosts(post);
   const [activePanel, setActivePanel] = useState<ArticlePanel>("summary");
+  const [readingProgress, setReadingProgress] = useState(0);
+  const articleUrl = getBlogPostUrl(post.slug);
+  const sectionLinks = useMemo(
+    () => post.sections.map((section) => ({ id: toSectionId(section.heading), label: section.heading })),
+    [post.sections]
+  );
 
   const panelCopy = useMemo(
     () => ({
@@ -42,17 +58,48 @@ export default function BlogArticle() {
     [post]
   );
 
+  useEffect(() => {
+    const updateReadingProgress = () => {
+      const articleElement = document.getElementById("blog-article-content");
+      if (!articleElement) return;
+
+      const rect = articleElement.getBoundingClientRect();
+      const articleTop = window.scrollY + rect.top;
+      const articleHeight = articleElement.offsetHeight;
+      const distance = window.scrollY - articleTop + window.innerHeight * 0.2;
+      const progress = (distance / Math.max(articleHeight, 1)) * 100;
+      setReadingProgress(Math.min(100, Math.max(0, progress)));
+    };
+
+    updateReadingProgress();
+    window.addEventListener("scroll", updateReadingProgress, { passive: true });
+    window.addEventListener("resize", updateReadingProgress);
+
+    return () => {
+      window.removeEventListener("scroll", updateReadingProgress);
+      window.removeEventListener("resize", updateReadingProgress);
+    };
+  }, [post.slug]);
+
+  const scrollToComments = () => {
+    document.getElementById("comments")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const structuredData = [
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       headline: post.title,
       description: post.description,
+      abstract: post.summary,
       datePublished: post.publishedAt,
       dateModified: post.updatedAt,
+      inLanguage: "en",
+      isAccessibleForFree: true,
       author: {
         "@type": "Organization",
         name: blogAuthor,
+        url: blogUrl,
       },
       publisher: {
         "@type": "Organization",
@@ -60,9 +107,25 @@ export default function BlogArticle() {
         url: siteUrl,
         logo: `${siteUrl}/android-chrome-512x512.png`,
       },
-      mainEntityOfPage: `${blogUrl}/${post.slug}`,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": articleUrl,
+      },
+      url: articleUrl,
       articleSection: postCategories.map((item) => item.title),
       keywords: post.tags.join(", "),
+      about: postCategories.map((item) => ({
+        "@type": "Thing",
+        name: item.title,
+        description: item.description,
+      })),
+      mentions: [
+        {
+          "@type": "Organization",
+          name: post.productCta.name,
+          url: post.productCta.href,
+        },
+      ],
     },
     {
       "@context": "https://schema.org",
@@ -104,6 +167,12 @@ export default function BlogArticle() {
       />
       <BlogNavbar />
       <main>
+        <div className="sticky top-[73px] z-40 h-1 bg-border/40">
+          <div
+            className="h-full bg-gradient-to-r from-primary via-sky-500 to-emerald-400 transition-[width] duration-200"
+            style={{ width: `${readingProgress}%` }}
+          />
+        </div>
         <section className="border-b bg-muted/20 py-16">
           <div className="container">
             <div className="max-w-4xl">
@@ -141,6 +210,21 @@ export default function BlogArticle() {
                   <span>{post.readingTime}</span>
                 </div>
               </div>
+
+              <div className="mt-8 grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
+                <div className="rounded-[1.75rem] border bg-card/85 p-6 shadow-sm backdrop-blur">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Answer-First Summary</p>
+                  <p className="mt-4 text-base leading-8 text-foreground/90">{post.summary}</p>
+                </div>
+                <div className="rounded-[1.75rem] border bg-card/85 p-6 shadow-sm backdrop-blur">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">What You’ll Get</p>
+                  <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
+                    {post.keyTakeaways.slice(0, 3).map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -148,10 +232,31 @@ export default function BlogArticle() {
         <section className="py-20">
           <div className="container grid gap-12 xl:grid-cols-[minmax(0,1fr)_320px]">
             <article className="min-w-0">
-              <div className="prose prose-slate max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-p:text-foreground/90 prose-p:leading-8 prose-li:leading-8 dark:prose-invert">
+              <div className="mb-10 rounded-[1.75rem] border bg-card p-6 shadow-sm">
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Reader Actions</p>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                      Like, share, or jump into the discussion for this article.
+                    </p>
+                  </div>
+                  <BlogEngagementBar
+                    slug={post.slug}
+                    title={post.title}
+                    url={articleUrl}
+                    variant="article"
+                    onCommentClick={scrollToComments}
+                  />
+                </div>
+              </div>
+
+              <div
+                id="blog-article-content"
+                className="prose prose-slate max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-p:text-foreground/90 prose-p:leading-8 prose-li:leading-8 dark:prose-invert"
+              >
                 {post.sections.map((section, index) => (
                   <div key={section.heading}>
-                    <h2>{section.heading}</h2>
+                    <h2 id={toSectionId(section.heading)}>{section.heading}</h2>
                     {section.paragraphs.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
@@ -217,6 +322,12 @@ export default function BlogArticle() {
                   </div>
                 </div>
               ) : null}
+
+              <BlogCommentsSection slug={post.slug} title={post.title} articleUrl={articleUrl} />
+
+              <div className="mt-16">
+                <BlogSubscribeBar compact />
+              </div>
             </article>
 
             <aside className="xl:sticky xl:top-24 xl:self-start">
@@ -251,6 +362,28 @@ export default function BlogArticle() {
                     {activePanel === "summary" ? "Summary" : activePanel === "simple" ? "Simple Explanation" : "Takeaways"}
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">{panelCopy[activePanel]}</p>
+                </div>
+
+                <div className="mt-6 rounded-2xl border bg-muted/15 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">On This Page</p>
+                  <div className="mt-4 grid gap-3">
+                    {sectionLinks.map((section) => (
+                      <a
+                        key={section.id}
+                        href={`#${section.id}`}
+                        className="text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {section.label}
+                      </a>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={scrollToComments}
+                      className="text-left text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                    >
+                      Jump to comments
+                    </button>
+                  </div>
                 </div>
 
                 {category ? (

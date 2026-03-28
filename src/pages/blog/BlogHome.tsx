@@ -1,9 +1,10 @@
-import { ArrowRight, BookOpen, Sparkles } from "lucide-react";
+import { ArrowRight, BrainCircuit, Sparkles, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SEOHead } from "@/components/SEOHead";
 import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
 import { BlogFooter } from "@/components/blog/BlogFooter";
 import { BlogNavbar } from "@/components/blog/BlogNavbar";
+import { BlogSubscribeBar } from "@/components/blog/BlogSubscribeBar";
 import {
   blogCategories,
   blogDescription,
@@ -23,6 +24,13 @@ const structuredData = [
     name: blogTitle,
     url: blogUrl,
     description: blogDescription,
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    about: blogCategories.map((category) => ({
+      "@type": "Thing",
+      name: category.title,
+      description: category.description,
+    })),
     publisher: {
       "@type": "Organization",
       name: siteName,
@@ -37,6 +45,7 @@ const structuredData = [
     url: blogUrl,
     description: blogDescription,
     isPartOf: blogUrl,
+    about: blogCategories.map((category) => category.title),
     hasPart: featuredBlogPosts.map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
@@ -55,9 +64,34 @@ const structuredData = [
       "query-input": "required name=search_term_string",
     },
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Latest USEAIMA Blog Articles",
+    itemListElement: latestBlogPosts.slice(0, 6).map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${blogUrl}/${post.slug}`,
+      name: post.title,
+    })),
+  },
 ];
 
 export default function BlogHome() {
+  const heroPosts = featuredBlogPosts.slice(0, 2);
+  const learningSignals = [
+    {
+      icon: BrainCircuit,
+      label: "AI, finance, creators, and systems",
+      description: "Learn the operating ideas behind the products, not just surface tips.",
+    },
+    {
+      icon: TrendingUp,
+      label: "Traffic that can convert into trust",
+      description: "Every article is designed to be useful first and product-aware second.",
+    },
+  ];
+
   return (
     <>
       <SEOHead
@@ -85,30 +119,83 @@ export default function BlogHome() {
       <BlogNavbar />
       <main>
         <section className="relative overflow-hidden border-b">
-          <div className="absolute inset-x-0 top-0 h-[460px] bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.15),transparent_36%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_30%),linear-gradient(180deg,rgba(15,23,42,0.03),transparent)]" />
+          <div className="absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.16),transparent_36%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.16),transparent_34%),radial-gradient(circle_at_bottom,rgba(14,165,233,0.10),transparent_28%),linear-gradient(180deg,rgba(15,23,42,0.05),transparent)]" />
           <div className="container relative py-24 lg:py-28">
-            <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-primary">
-                <Sparkles className="h-3.5 w-3.5" />
-                Built for learning that converts into action
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
+              <div className="max-w-4xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-primary">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Built for learning that converts into action
+                </div>
+                <h1 className="mt-8 max-w-[15ch] text-balance text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl">
+                  Learn AI, Finance & Digital Skills That Actually Matter
+                </h1>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+                  Simple guides, real insights, and tools built for the future. The USEAIMA blog helps people learn faster,
+                  think more clearly, and discover practical systems that improve work and everyday decisions.
+                </p>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <Button asChild size="lg" className="rounded-full">
+                    <a href="#latest">
+                      Start Learning
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="rounded-full">
+                    <a href="https://useaima.com/#products">Explore Tools</a>
+                  </Button>
+                </div>
+                <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                  {learningSignals.map((signal) => {
+                    const Icon = signal.icon;
+                    return (
+                      <div
+                        key={signal.label}
+                        className="rounded-[1.5rem] border border-border/60 bg-card/70 p-5 shadow-sm backdrop-blur"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                            <Icon className="h-5 w-5" />
+                          </div>
+                          <p className="text-sm font-semibold">{signal.label}</p>
+                        </div>
+                        <p className="mt-3 text-sm leading-7 text-muted-foreground">{signal.description}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              <h1 className="mt-8 max-w-[15ch] text-balance text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl">
-                Learn AI, Finance & Digital Skills That Actually Matter
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-                Simple guides, real insights, and tools built for the future. The USEAIMA blog helps people learn faster,
-                think more clearly, and discover practical systems that improve work and everyday decisions.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Button asChild size="lg" className="rounded-full">
-                  <a href="#latest">
-                    Start Learning
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full">
-                  <a href="https://useaima.com/#products">Explore Tools</a>
-                </Button>
+
+              <div className="rounded-[2rem] border border-border/60 bg-card/80 p-6 shadow-xl backdrop-blur">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Start Here</p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight">Reader-friendly guides with product context</h2>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  Explore the articles that explain AI assistants, digital growth, and practical systems in the clearest way.
+                </p>
+                <div className="mt-6 space-y-4">
+                  {heroPosts.map((post) => (
+                    <Link
+                      key={post.slug}
+                      to={getBlogRoute(`/${post.slug}`)}
+                      className="block rounded-[1.5rem] border bg-background/70 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{post.eyebrow}</p>
+                      <h3 className="mt-2 text-lg font-semibold leading-tight">{post.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-muted-foreground">{post.excerpt}</p>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {blogCategories.slice(0, 4).map((category) => (
+                    <Link
+                      key={category.slug}
+                      to={getBlogRoute(`/category/${category.slug}`)}
+                      className="rounded-full border px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {category.emoji} {category.title}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -213,27 +300,7 @@ export default function BlogHome() {
 
         <section className="py-20">
           <div className="container">
-            <div className="rounded-[2rem] border bg-card p-8 shadow-sm lg:p-10">
-              <div className="max-w-3xl">
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Newsletter</p>
-                <h2 className="mt-3 text-3xl font-semibold tracking-tight">Get smarter every week</h2>
-                <p className="mt-4 text-lg leading-8 text-muted-foreground">
-                  Receive practical lessons on AI, finance, digital growth, and product systems from the USEAIMA blog.
-                </p>
-              </div>
-              <form className="mt-8 flex flex-col gap-3 sm:flex-row" onSubmit={(event) => event.preventDefault()}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="h-12 flex-1 rounded-full border bg-background px-5 text-sm outline-none transition focus:border-primary"
-                  aria-label="Email address"
-                />
-                <Button type="submit" size="lg" className="rounded-full">
-                  <BookOpen className="h-4 w-4" />
-                  Subscribe
-                </Button>
-              </form>
-            </div>
+            <BlogSubscribeBar />
           </div>
         </section>
       </main>
