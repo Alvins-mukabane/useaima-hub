@@ -87,12 +87,6 @@ const blogPosts = [
     description: "A practical look at safe AI learning design for children and families.",
     publishedAt: "2026-03-19",
   },
-  {
-    slug: "why-ai-products-need-operational-clarity",
-    title: "Why AI Products Need Operational Clarity, Not Just Clever Features",
-    description: "Operational clarity keeps AI products trustworthy and useful beyond the demo.",
-    publishedAt: "2026-03-16",
-  },
 ];
 
 function escapeXml(value) {
@@ -178,8 +172,8 @@ function buildBlogLlms() {
     "",
     "- USEAIMA: https://useaima.com",
     "- SocialPulse: https://socialpulse.useaima.com",
-    "- FinanceAI: https://useaima.com/finance",
-    "- KidsAI: https://useaima.com/kids",
+    "- FinanceAI: https://financeai.useaima.com",
+    "- KidsAI: https://kidsai.useaima.com",
     "",
   ].join("\n");
 }

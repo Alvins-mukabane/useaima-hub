@@ -5,6 +5,14 @@ export const siteEmail = "hello@useaima.com";
 export const siteDescription =
   "USEAIMA is an AI-powered platform building intelligent systems for finance, communication, learning, health, productivity, and digital growth.";
 
+export const toolLinks = {
+  socialPulse: "https://socialpulse.useaima.com",
+  financeAI: "https://financeai.useaima.com",
+  kidsAI: "https://kidsai.useaima.com",
+  emailAI: "https://mailmind.useaima.com",
+  healthAI: "https://useaima.com/health",
+} as const;
+
 export const faqItems = [
   {
     question: "What is USEAIMA?",

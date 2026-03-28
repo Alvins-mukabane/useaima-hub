@@ -3,6 +3,7 @@ import { Search, X, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { getBlogPostUrl, latestBlogPosts } from "@/content/blogContent";
+import { toolLinks } from "@/content/siteContent";
 
 interface SearchItem {
   title: string;
@@ -14,14 +15,14 @@ interface SearchItem {
 
 const staticSearchData: SearchItem[] = [
   { title: "What is USEAIMA?", description: "Overview of the USEAIMA platform and ecosystem", category: "Page", to: "/#what-is-useaima" },
-  { title: "FinanceAI", description: "AI financial advisor — tracks spending and provides insights", category: "Product", to: "/finance" },
-  { title: "EmailAI", description: "AI email intelligence — summarizes, detects deadlines, generates plans", category: "Product", to: "/#products" },
-  { title: "KidsAI", description: "AI learning and entertainment platform for kids", category: "Product", to: "/kids" },
+  { title: "FinanceAI", description: "AI financial advisor — tracks spending and provides insights", category: "Product", to: toolLinks.financeAI, external: true },
+  { title: "EmailAI", description: "AI email intelligence — summarizes, detects deadlines, generates plans", category: "Product", to: toolLinks.emailAI, external: true },
+  { title: "KidsAI", description: "AI learning and entertainment platform for kids", category: "Product", to: toolLinks.kidsAI, external: true },
   {
     title: "SocialPulse",
     description: "AI social media analytics — trends, content ideas, algorithm detection",
     category: "Product",
-    to: "https://socialpulse.useaima.com",
+    to: toolLinks.socialPulse,
     external: true,
   },
   { title: "HealthAI", description: "AI health intelligence — preventive insights and recommendations", category: "Product", to: "/health" },

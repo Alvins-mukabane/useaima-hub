@@ -20,7 +20,6 @@
 - What Creators Should Measure Before Posting Again: https://blog.useaima.com/what-creators-should-measure-before-posting-again
 - Social Media Analytics That Lead to Action: https://blog.useaima.com/social-media-analytics-that-lead-to-action
 - Designing Safe AI Learning Experiences for Kids: https://blog.useaima.com/designing-safe-ai-learning-for-kids
-- Why AI Products Need Operational Clarity, Not Just Clever Features: https://blog.useaima.com/why-ai-products-need-operational-clarity
 
 ## Summary
 
@@ -41,5 +40,5 @@
 
 - USEAIMA: https://useaima.com
 - SocialPulse: https://socialpulse.useaima.com
-- FinanceAI: https://useaima.com/finance
-- KidsAI: https://useaima.com/kids
+- FinanceAI: https://financeai.useaima.com
+- KidsAI: https://kidsai.useaima.com

@@ -2,10 +2,11 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SEOHead } from "@/components/SEOHead";
+import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { ShieldCheck, Gamepad2, GraduationCap, Heart } from "lucide-react";
-import { siteName, siteUrl } from "@/content/siteContent";
+import { siteName, siteUrl, toolLinks } from "@/content/siteContent";
 
 const features = [
   { icon: ShieldCheck, title: "Safe Environment", desc: "Every interaction is filtered and age-appropriate. Parental controls built in from day one." },
@@ -19,7 +20,7 @@ const kidsStructuredData = [
     "@context": "https://schema.org",
     "@type": "Service",
     name: "KidsAI",
-    url: `${siteUrl}/kids`,
+    url: toolLinks.kidsAI,
     provider: {
       "@type": "Organization",
       name: siteName,
@@ -48,6 +49,13 @@ const Kids = () => {
               title="KidsAI"
               subtitle="Safe, personalized AI learning and entertainment — designed for curious young minds."
             />
+            <div className="mb-10 flex justify-center">
+              <Button asChild className="rounded-full">
+                <a href={toolLinks.kidsAI} target="_blank" rel="noreferrer">
+                  Open KidsAI
+                </a>
+              </Button>
+            </div>
             <div
               ref={ref}
               className={cn("grid gap-6 sm:grid-cols-2 opacity-0", isVisible && "animate-fade-in")}

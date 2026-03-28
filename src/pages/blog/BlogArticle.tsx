@@ -5,6 +5,7 @@ import { BlogCommentsSection } from "@/components/blog/BlogCommentsSection";
 import { BlogEngagementBar } from "@/components/blog/BlogEngagementBar";
 import { BlogSubscribeBar } from "@/components/blog/BlogSubscribeBar";
 import { SEOHead } from "@/components/SEOHead";
+import { ToolMentionText } from "@/components/ToolMentionText";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
@@ -258,12 +259,16 @@ export default function BlogArticle() {
                   <div key={section.heading}>
                     <h2 id={toSectionId(section.heading)}>{section.heading}</h2>
                     {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
+                      <p key={paragraph}>
+                        <ToolMentionText text={paragraph} />
+                      </p>
                     ))}
                     {section.bullets ? (
                       <ul>
                         {section.bullets.map((bullet) => (
-                          <li key={bullet}>{bullet}</li>
+                          <li key={bullet}>
+                            <ToolMentionText text={bullet} />
+                          </li>
                         ))}
                       </ul>
                     ) : null}

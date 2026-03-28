@@ -2,10 +2,11 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SEOHead } from "@/components/SEOHead";
+import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { DollarSign, TrendingUp, Shield, BarChart3 } from "lucide-react";
-import { siteName, siteUrl } from "@/content/siteContent";
+import { siteName, siteUrl, toolLinks } from "@/content/siteContent";
 
 const features = [
   { icon: DollarSign, title: "Smart Spending Tracking", desc: "AI categorizes and analyzes every transaction to reveal patterns you'd never catch manually." },
@@ -27,7 +28,7 @@ const financeStructuredData = [
     name: "FinanceAI",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Web",
-    url: `${siteUrl}/finance`,
+    url: toolLinks.financeAI,
     description: "FinanceAI is the USEAIMA financial intelligence product for smarter spending reviews, insight summaries, and guided decisions.",
     publisher: {
       "@type": "Organization",
@@ -56,6 +57,13 @@ const Finance = () => {
               title="FinanceAI"
               subtitle="Your AI-powered financial advisor — tracking, insights, and smarter decisions in one place."
             />
+            <div className="mb-10 flex justify-center">
+              <Button asChild className="rounded-full">
+                <a href={toolLinks.financeAI} target="_blank" rel="noreferrer">
+                  Open FinanceAI
+                </a>
+              </Button>
+            </div>
             <div
               ref={ref}
               className={cn("grid gap-6 sm:grid-cols-2 opacity-0", isVisible && "animate-fade-in")}

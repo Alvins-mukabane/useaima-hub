@@ -8,7 +8,7 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
-import { faqItems, blogUrl, siteDescription, siteEmail, siteName, siteUrl } from "@/content/siteContent";
+import { faqItems, blogUrl, siteDescription, siteEmail, siteName, siteUrl, toolLinks } from "@/content/siteContent";
 
 const homeStructuredData = [
   {
@@ -43,10 +43,12 @@ const homeStructuredData = [
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "FinanceAI", url: `${siteUrl}/finance` },
-      { "@type": "ListItem", position: 2, name: "HealthAI", url: `${siteUrl}/health` },
-      { "@type": "ListItem", position: 3, name: "KidsAI", url: `${siteUrl}/kids` },
-      { "@type": "ListItem", position: 4, name: "Blog", url: blogUrl },
+      { "@type": "ListItem", position: 1, name: "FinanceAI", url: toolLinks.financeAI },
+      { "@type": "ListItem", position: 2, name: "EmailAI", url: toolLinks.emailAI },
+      { "@type": "ListItem", position: 3, name: "KidsAI", url: toolLinks.kidsAI },
+      { "@type": "ListItem", position: 4, name: "SocialPulse", url: toolLinks.socialPulse },
+      { "@type": "ListItem", position: 5, name: "HealthAI", url: `${siteUrl}/health` },
+      { "@type": "ListItem", position: 6, name: "Blog", url: blogUrl },
     ],
   },
 ];

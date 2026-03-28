@@ -12,9 +12,10 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 
 - Home: https://useaima.com/
 - About: https://useaima.com/about
-- FinanceAI: https://useaima.com/finance
+- FinanceAI: https://financeai.useaima.com
+- EmailAI: https://mailmind.useaima.com
 - HealthAI: https://useaima.com/health
-- KidsAI: https://useaima.com/kids
+- KidsAI: https://kidsai.useaima.com
 - Privacy Policy: https://useaima.com/privacy-policy
 - Terms of Service: https://useaima.com/terms-of-service
 - Blog: https://blog.useaima.com
@@ -32,8 +33,9 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 ## Product Links
 
 - SocialPulse: https://socialpulse.useaima.com
-- FinanceAI: https://useaima.com/finance
-- KidsAI: https://useaima.com/kids
+- FinanceAI: https://financeai.useaima.com
+- EmailAI: https://mailmind.useaima.com
+- KidsAI: https://kidsai.useaima.com
 
 ## Blog Highlights
 

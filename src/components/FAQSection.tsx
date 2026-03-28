@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
+import { ToolMentionText } from "./ToolMentionText";
 import { SectionHeader } from "./SectionHeader";
 import { faqItems } from "@/content/siteContent";
 
@@ -15,7 +16,9 @@ export function FAQSection() {
           {faqItems.map((f, i) => (
             <AccordionItem key={i} value={`faq-${i}`}>
               <AccordionTrigger className="text-left text-base">{f.question}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">{f.answer}</AccordionContent>
+              <AccordionContent className="text-muted-foreground leading-relaxed">
+                <ToolMentionText text={f.answer} />
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

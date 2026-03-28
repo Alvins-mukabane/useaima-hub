@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
+import { toolLinks } from "@/content/siteContent";
 import { BrandLogo } from "./BrandLogo";
 
 const sections = [
   {
     title: "Products",
     links: [
-      { label: "FinanceAI", to: "/finance" },
-      { label: "EmailAI", to: "/#products" },
-      { label: "KidsAI", to: "/kids" },
-      { label: "SocialPulse", to: "https://socialpulse.useaima.com", external: true },
+      { label: "FinanceAI", to: toolLinks.financeAI, external: true },
+      { label: "EmailAI", to: toolLinks.emailAI, external: true },
+      { label: "KidsAI", to: toolLinks.kidsAI, external: true },
+      { label: "SocialPulse", to: toolLinks.socialPulse, external: true },
       { label: "HealthAI", to: "/health" },
     ],
   },

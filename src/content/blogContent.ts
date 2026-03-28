@@ -1,4 +1,4 @@
-import { blogUrl, siteName } from "@/content/siteContent";
+import { blogUrl, siteName, toolLinks } from "@/content/siteContent";
 
 export const blogTitle = `${siteName} Blog`;
 export const blogDescription =
@@ -95,19 +95,19 @@ export const blogProducts = [
   {
     name: "SocialPulse",
     description: "Turn social data into decisions with insight-led analytics, trend detection, and content clarity.",
-    href: "https://socialpulse.useaima.com",
+    href: toolLinks.socialPulse,
     label: "Try SocialPulse",
   },
   {
     name: "FinanceAI",
     description: "Build a smarter personal finance workflow with tracking, analysis, and guided financial insights.",
-    href: "https://useaima.com/finance",
+    href: toolLinks.financeAI,
     label: "Explore FinanceAI",
   },
   {
     name: "KidsAI",
     description: "Design safer, more engaging AI-powered learning experiences for children and families.",
-    href: "https://useaima.com/kids",
+    href: toolLinks.kidsAI,
     label: "Discover KidsAI",
   },
 ];
@@ -418,7 +418,7 @@ export const blogPosts: BlogPost[] = [
       "Once you understand the system and use data well, social growth stops feeling random and starts feeling repeatable.",
     productCta: {
       name: "SocialPulse",
-      href: "https://socialpulse.useaima.com",
+      href: toolLinks.socialPulse,
       description:
         "Use SocialPulse to analyze content performance, surface trend opportunities, and make smarter decisions about what to post next.",
       label: "Try SocialPulse",
@@ -482,7 +482,7 @@ export const blogPosts: BlogPost[] = [
       "Agentic products become valuable when they shorten the path between seeing a signal and taking the next step.",
     productCta: {
       name: "SocialPulse",
-      href: "https://socialpulse.useaima.com",
+      href: toolLinks.socialPulse,
       description: "Instead of guessing what content worked, SocialPulse helps translate performance signals into next actions.",
       label: "Try SocialPulse",
     },
@@ -541,7 +541,7 @@ export const blogPosts: BlogPost[] = [
       "Software should not make users interpret five dashboards before taking one action.",
     productCta: {
       name: "FinanceAI",
-      href: "https://useaima.com/finance",
+      href: toolLinks.financeAI,
       description: "FinanceAI is designed to help users interpret patterns and make better financial decisions with less manual effort.",
       label: "Explore FinanceAI",
     },
@@ -600,7 +600,7 @@ export const blogPosts: BlogPost[] = [
       "Better finance systems help users notice what changed and decide what to do next.",
     productCta: {
       name: "FinanceAI",
-      href: "https://useaima.com/finance",
+      href: toolLinks.financeAI,
       description: "FinanceAI can support a repeatable review process with clearer spending insights, risk signals, and context-aware summaries.",
       label: "Explore FinanceAI",
     },
@@ -658,7 +658,7 @@ export const blogPosts: BlogPost[] = [
       "Tracking better signals is often more powerful than building a more complicated budget.",
     productCta: {
       name: "FinanceAI",
-      href: "https://useaima.com/finance",
+      href: toolLinks.financeAI,
       description: "FinanceAI is designed around pattern recognition and actionable clarity, not just record keeping.",
       label: "See FinanceAI",
     },
@@ -716,7 +716,7 @@ export const blogPosts: BlogPost[] = [
       "The best content systems learn from the previous post before publishing the next one.",
     productCta: {
       name: "SocialPulse",
-      href: "https://socialpulse.useaima.com",
+      href: toolLinks.socialPulse,
       description: "SocialPulse helps creators understand what signals matter and where the next content decision should come from.",
       label: "Try SocialPulse",
     },
@@ -774,7 +774,7 @@ export const blogPosts: BlogPost[] = [
       "Strong analytics do not stop at explanation. They shorten the time to the next experiment.",
     productCta: {
       name: "SocialPulse",
-      href: "https://socialpulse.useaima.com",
+      href: toolLinks.socialPulse,
       description: "SocialPulse is built to surface content opportunities, trend signals, and clearer next steps for teams and creators.",
       label: "Open SocialPulse",
     },
@@ -832,7 +832,7 @@ export const blogPosts: BlogPost[] = [
       "Trust in learning products comes from visible design choices, not marketing promises.",
     productCta: {
       name: "KidsAI",
-      href: "https://useaima.com/kids",
+      href: toolLinks.kidsAI,
       description: "KidsAI is designed around safe, engaging, and practical AI-supported learning experiences.",
       label: "Discover KidsAI",
     },
@@ -898,7 +898,11 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export const sortedBlogPosts = [...blogPosts].sort(
+const hiddenBlogSlugs = new Set(["why-ai-products-need-operational-clarity"]);
+
+export const sortedBlogPosts = [...blogPosts]
+  .filter((post) => !hiddenBlogSlugs.has(post.slug))
+  .sort(
   (left, right) => new Date(right.publishedAt).getTime() - new Date(left.publishedAt).getTime()
 );
 
@@ -916,7 +920,7 @@ export function getCategoriesForPost(post: BlogPost) {
 }
 
 export function getPostBySlug(slug: string) {
-  return blogPosts.find((post) => post.slug === slug);
+  return sortedBlogPosts.find((post) => post.slug === slug);
 }
 
 export function getPostsByCategory(slug: string) {

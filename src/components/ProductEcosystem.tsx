@@ -3,6 +3,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SectionHeader } from "./SectionHeader";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { toolLinks } from "@/content/siteContent";
 
 const products = [
   {
@@ -11,7 +12,8 @@ const products = [
     status: "Live" as const,
     description: "AI financial advisor that tracks spending behavior, provides real-time insights, and detects risks & opportunities.",
     features: ["Spending behavior tracking", "Real-time financial insights", "Risk & opportunity detection"],
-    link: "/finance",
+    link: toolLinks.financeAI,
+    external: true,
   },
   {
     name: "EmailAI",
@@ -19,7 +21,8 @@ const products = [
     status: "Beta" as const,
     description: "AI email intelligence that summarizes emails, detects deadlines and tasks, and generates daily action plans.",
     features: ["Smart email summaries", "Deadline & task detection", "Daily action plans"],
-    link: "/about",
+    link: toolLinks.emailAI,
+    external: true,
   },
   {
     name: "KidsAI",
@@ -27,7 +30,8 @@ const products = [
     status: "Live" as const,
     description: "AI learning and entertainment platform for kids — safe, personalized education combined with games.",
     features: ["Safe environment", "Personalized education", "Interactive games"],
-    link: "/kids",
+    link: toolLinks.kidsAI,
+    external: true,
   },
   {
     name: "SocialPulse",
@@ -35,7 +39,7 @@ const products = [
     status: "Beta" as const,
     description: "AI social media analytics agent with cross-platform analytics, trend discovery, and content idea generation.",
     features: ["Cross-platform analytics", "Trend discovery", "Algorithm change detection"],
-    link: "https://socialpulse.useaima.com",
+    link: toolLinks.socialPulse,
     external: true,
   },
   {
