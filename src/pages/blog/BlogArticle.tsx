@@ -142,12 +142,28 @@ export default function BlogArticle() {
         { "@type": "ListItem", position: 3, name: post.title, item: `${blogUrl}/${post.slug}` },
       ],
     },
+    ...(post.faqs?.length
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: post.faqs.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+              },
+            })),
+          },
+        ]
+      : []),
   ];
 
   return (
     <>
       <SEOHead
-        title={post.title}
+        title={post.seoTitle ?? post.title}
         description={post.description}
         path={`/${post.slug}`}
         siteOrigin={blogUrl}
@@ -290,6 +306,22 @@ export default function BlogArticle() {
                 ))}
               </div>
 
+              {post.faqs?.length ? (
+                <div id="article-faqs" className="mt-12 rounded-[1.75rem] border bg-card p-8 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Frequently Asked Questions</p>
+                  <div className="mt-6 space-y-4">
+                    {post.faqs.map((item) => (
+                      <div key={item.question} className="rounded-2xl border bg-muted/20 p-5">
+                        <h2 className="text-lg font-semibold tracking-tight">{item.question}</h2>
+                        <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                          <ToolMentionText text={item.answer} />
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               <div className="mt-12 rounded-[1.75rem] border bg-muted/20 p-8">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Key Takeaways</p>
                 <ul className="mt-6 space-y-4">
@@ -381,6 +413,11 @@ export default function BlogArticle() {
                         {section.label}
                       </a>
                     ))}
+                    {post.faqs?.length ? (
+                      <a href="#article-faqs" className="text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground">
+                        Frequently asked questions
+                      </a>
+                    ) : null}
                     <button
                       type="button"
                       onClick={scrollToComments}
