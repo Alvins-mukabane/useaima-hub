@@ -8,24 +8,94 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
-import { faqItems, blogUrl, siteDescription, siteEmail, siteName, siteUrl, toolLinks } from "@/content/siteContent";
+import {
+  brandKeywords,
+  faqItems,
+  blogUrl,
+  siteBrandSummary,
+  siteDescription,
+  siteEmail,
+  siteName,
+  siteTagline,
+  siteUrl,
+  toolLinks,
+} from "@/content/siteContent";
 
 const homeStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteName,
+    alternateName: ["Useaima", "USEAIMA AI"],
     url: siteUrl,
     logo: `${siteUrl}/android-chrome-512x512.png`,
+    image: `${siteUrl}/og-image.svg`,
+    description: siteDescription,
     email: siteEmail,
+    slogan: siteTagline,
     sameAs: [blogUrl],
+    hasPart: [
+      {
+        "@type": "SoftwareApplication",
+        name: "SocialPulse",
+        applicationCategory: "BusinessApplication",
+        url: toolLinks.socialPulse,
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "FinanceAI",
+        applicationCategory: "FinanceApplication",
+        url: toolLinks.financeAI,
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "KidsAI",
+        applicationCategory: "EducationalApplication",
+        url: toolLinks.kidsAI,
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "MailMind",
+        alternateName: "EmailAI",
+        applicationCategory: "ProductivityApplication",
+        url: toolLinks.emailAI,
+      },
+    ],
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteName,
+    alternateName: ["USEAIMA Official Website", "Useaima"],
     url: siteUrl,
     description: siteDescription,
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${blogUrl}/search?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "USEAIMA Official Website",
+    url: siteUrl,
+    description: siteBrandSummary,
+    about: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteName,
+      url: siteUrl,
+    },
   },
   {
     "@context": "https://schema.org",
@@ -56,17 +126,10 @@ const homeStructuredData = [
 const Index = () => (
   <>
     <SEOHead
-      title="USEAIMA | AI Systems for Everyday Decisions"
+      title="USEAIMA Official Website | AI Assistants for Everyday Decisions"
       description={siteDescription}
       path="/"
-      keywords={[
-        "AI platform",
-        "AI assistants",
-        "finance AI",
-        "health AI",
-        "kids AI",
-        "social media analytics",
-      ]}
+      keywords={[...brandKeywords]}
       alternateLinks={[
         {
           type: "application/rss+xml",

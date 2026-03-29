@@ -71,7 +71,7 @@ function syncAlternateLinks(alternateLinks: AlternateLink[]) {
 }
 
 function syncStructuredData(structuredData: JsonLd[]) {
-  document.head.querySelectorAll('script[data-seo-head="dynamic"]').forEach((node) => node.remove());
+  document.head.querySelectorAll('script[data-seo-head]').forEach((node) => node.remove());
 
   structuredData.forEach((entry, index) => {
     const script = document.createElement("script");

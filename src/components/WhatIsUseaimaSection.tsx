@@ -4,6 +4,7 @@ import { SectionHeader } from "./SectionHeader";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
+import { siteBrandSummary } from "@/content/siteContent";
 
 const pillars = [
   {
@@ -32,7 +33,7 @@ export function WhatIsUseaimaSection() {
       <div className="container">
         <SectionHeader
           title="What Is USEAIMA?"
-          subtitle="USEAIMA is an AI-powered platform that builds intelligent systems to help people make better decisions across finance, communication, health, learning, productivity, and digital growth."
+          subtitle="USEAIMA is the official platform behind the USEAIMA ecosystem, building intelligent systems that help people make better decisions across finance, communication, health, learning, productivity, and digital growth."
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -42,8 +43,9 @@ export function WhatIsUseaimaSection() {
               Built to assist, guide, and simplify
             </div>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
-              Instead of building tools that only display data, USEAIMA focuses on systems that think, analyze, and provide
-              actionable insights. The goal is to create AI products that feel like practical assistants for everyday life.
+              {siteBrandSummary} Instead of building tools that only display data, USEAIMA focuses on systems that think,
+              analyze, and provide actionable insights. The goal is to create AI products that feel like practical
+              assistants for everyday life.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" asChild>

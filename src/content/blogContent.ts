@@ -1,8 +1,8 @@
 import { blogUrl, siteName, toolLinks } from "@/content/siteContent";
 
-export const blogTitle = `${siteName} Blog`;
+export const blogTitle = `${siteName} Blog | Official USEAIMA Articles`;
 export const blogDescription =
-  "Learn AI, finance, social media, kids learning, and systems thinking through practical guides from the USEAIMA ecosystem.";
+  "The official USEAIMA blog publishes practical guides on AI, finance, social media, kids learning, and systems thinking across the USEAIMA ecosystem.";
 export const blogAuthor = "USEAIMA";
 
 export type BlogCategory = {

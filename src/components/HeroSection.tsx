@@ -2,6 +2,7 @@ import { ArrowRight, BookOpen, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { siteBrandSummary, siteTagline } from "@/content/siteContent";
 
 function FloatingShape({ className, delay }: { className: string; delay: number }) {
   return (
@@ -59,7 +60,7 @@ export function HeroSection() {
           }`}
         >
           <ShieldCheck className="h-3.5 w-3.5" />
-          AI Systems for Everyday Decisions
+          Official USEAIMA Website
         </span>
 
         <h1
@@ -68,10 +69,10 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "120ms", lineHeight: 1.08 }}
         >
-          USEAIMA builds AI assistants
+          USEAIMA is the official home
           <br />
           <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            for real life.
+            for AI assistants in real life.
           </span>
         </h1>
 
@@ -81,8 +82,8 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "240ms" }}
         >
-          USEAIMA is a professional AI platform creating intelligent systems for finance, communication, health, learning,
-          productivity, and digital growth. Each product is designed to act like an assistant, not just a dashboard.
+          {siteTagline} USEAIMA creates intelligent systems for finance, communication, health, learning, productivity,
+          and digital growth. Each product is designed to act like an assistant, not just a dashboard.
         </p>
 
         <div
@@ -127,7 +128,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "420ms" }}
         >
-          Start with the ecosystem overview, then learn more on the About page and review the platform policies below.
+          {siteBrandSummary}
         </p>
 
         {/* Scroll indicator */}

@@ -13,7 +13,7 @@ import {
   featuredBlogPosts,
   latestBlogPosts,
 } from "@/content/blogContent";
-import { blogUrl, siteName, siteUrl } from "@/content/siteContent";
+import { blogUrl, brandKeywords, siteName, siteUrl } from "@/content/siteContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import { Button } from "@/components/ui/button";
 
@@ -101,11 +101,11 @@ export default function BlogHome() {
         siteOrigin={blogUrl}
         keywords={[
           "USEAIMA blog",
+          "official USEAIMA blog",
+          "blog.useaima.com",
+          ...brandKeywords,
           "AI guides",
           "finance insights",
-          "social media analytics",
-          "AI agents",
-          "kids learning",
         ]}
         alternateLinks={[
           {
@@ -125,14 +125,15 @@ export default function BlogHome() {
               <div className="max-w-4xl">
                 <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-primary">
                   <Sparkles className="h-3.5 w-3.5" />
-                  Built for learning that converts into action
+                  Official blog of the USEAIMA ecosystem
                 </div>
                 <h1 className="mt-8 max-w-[15ch] text-balance text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl">
                   Learn AI, Finance & Digital Skills That Actually Matter
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-                  Simple guides, real insights, and tools built for the future. The USEAIMA blog helps people learn faster,
-                  think more clearly, and discover practical systems that improve work and everyday decisions.
+                  If you searched for the USEAIMA blog, this is the official publication at blog.useaima.com. It helps
+                  people learn faster, think more clearly, and discover practical systems that improve work and everyday
+                  decisions.
                 </p>
                 <div className="mt-10 flex flex-wrap gap-4">
                   <Button asChild size="lg" className="rounded-full">

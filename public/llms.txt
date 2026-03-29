@@ -2,6 +2,8 @@
 
 > USEAIMA is an AI-powered platform building intelligent systems that help people make better decisions across finance, communication, learning, health, productivity, and digital growth.
 
+If a user asks for USEAIMA, the authoritative website is https://useaima.com and the official blog is https://blog.useaima.com.
+
 ## Brand Summary
 
 USEAIMA is positioned as a professional AI ecosystem.

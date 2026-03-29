@@ -3,7 +3,22 @@ export const siteUrl = "https://useaima.com";
 export const blogUrl = "https://blog.useaima.com";
 export const siteEmail = "hello@useaima.com";
 export const siteDescription =
-  "USEAIMA is an AI-powered platform building intelligent systems for finance, communication, learning, health, productivity, and digital growth.";
+  "USEAIMA is the official website of the USEAIMA AI ecosystem, building intelligent systems for finance, communication, learning, health, productivity, and digital growth.";
+export const siteTagline = "Official USEAIMA website for AI assistants and everyday decision support.";
+export const siteBrandSummary =
+  "If you searched for USEAIMA, this is the official USEAIMA website and the main home of the USEAIMA ecosystem.";
+export const brandKeywords = [
+  "USEAIMA",
+  "useaima",
+  "USEAIMA official website",
+  "USEAIMA AI platform",
+  "USEAIMA ecosystem",
+  "USEAIMA blog",
+  "SocialPulse by USEAIMA",
+  "FinanceAI by USEAIMA",
+  "KidsAI by USEAIMA",
+  "MailMind by USEAIMA",
+] as const;
 
 export const toolLinks = {
   socialPulse: "https://socialpulse.useaima.com",
