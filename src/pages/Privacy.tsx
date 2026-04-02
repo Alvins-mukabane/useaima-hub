@@ -20,7 +20,7 @@ const sections = [
   },
   {
     title: "Information We May Collect",
-    body: "Depending on the product or feature, USEAIMA may collect account details, contact information, usage data, uploaded content, and technical information needed to operate, improve, and secure the platform.",
+    body: "Depending on the product or feature, aima may collect account details, contact information, usage data, uploaded content, and technical information needed to operate, improve, and secure the platform.",
   },
   {
     title: "How Information Is Used",
@@ -28,7 +28,7 @@ const sections = [
   },
   {
     title: "Data Sharing",
-    body: "USEAIMA does not sell personal data. Information may be shared only when necessary to operate the service, comply with legal obligations, protect users, or support essential infrastructure providers acting on our behalf.",
+    body: "aima does not sell personal data. Information may be shared only when necessary to operate the service, comply with legal obligations, protect users, or support essential infrastructure providers acting on our behalf.",
   },
   {
     title: "Security and Retention",
@@ -45,7 +45,7 @@ const Privacy = () => {
     <>
       <SEOHead
         title="Privacy Policy"
-        description="Read how USEAIMA approaches privacy, security, and responsible data handling across the platform."
+        description="Read how aima approaches privacy, security, and responsible data handling across the platform."
         path="/privacy-policy"
         structuredData={privacyStructuredData}
       />
@@ -55,7 +55,7 @@ const Privacy = () => {
           <div className="container max-w-3xl">
             <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">Privacy Policy</h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              This page explains the general privacy approach for USEAIMA and its products. It is intended to provide
+              This page explains the general privacy approach for aima and its products. It is intended to provide
               clarity, trust, and a straightforward understanding of how the platform handles information.
             </p>
 

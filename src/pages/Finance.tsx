@@ -22,17 +22,18 @@ const updates = [
   { date: "Jan 2026", title: "Tax optimization suggestions", tag: "Improvement" },
 ];
 
-const financeGuides = getPostsByProduct("FinanceAI").slice(0, 4);
+const financeGuides = getPostsByProduct("eva").slice(0, 4);
 
 const financeStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "FinanceAI",
+    name: "eva",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Web",
     url: toolLinks.financeAI,
-    description: "FinanceAI is the USEAIMA financial intelligence product for smarter spending reviews, insight summaries, and guided decisions.",
+    image: `${siteUrl}/eva-logo.png`,
+    description: "eva is the aima financial intelligence product for smarter spending reviews, insight summaries, and guided decisions.",
     publisher: {
       "@type": "Organization",
       name: siteName,
@@ -46,26 +47,47 @@ const Finance = () => {
   return (
     <>
       <SEOHead
-        title="FinanceAI"
-        description="Explore FinanceAI, the USEAIMA financial intelligence product for tracking spending, insights, risk detection, and smarter decisions."
+        title="eva | AI Financial Intelligence"
+        description="Explore eva, the aima financial intelligence product for tracking spending, insights, risk detection, and smarter decisions."
         path="/finance"
-        keywords={["FinanceAI", "AI finance assistant", "financial intelligence", "budget analysis"]}
+        image="/eva-logo.png"
+        keywords={["eva", "AI finance assistant", "financial intelligence", "budget analysis"]}
         structuredData={financeStructuredData}
       />
       <Navbar />
       <main>
         <section className="py-24">
           <div className="container">
-            <SectionHeader
-              title="FinanceAI"
-              subtitle="Your AI-powered financial advisor — tracking, insights, and smarter decisions in one place."
-            />
-            <div className="mb-10 flex justify-center">
-              <Button asChild className="rounded-full">
-                <a href={toolLinks.financeAI} target="_blank" rel="noreferrer">
-                  Open FinanceAI
-                </a>
-              </Button>
+            <div className="mx-auto max-w-4xl rounded-[2rem] border border-emerald-500/15 bg-[linear-gradient(135deg,rgba(16,185,129,0.12),rgba(255,255,255,0.98)),linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,1))] p-8 shadow-sm dark:border-emerald-400/20 dark:bg-[linear-gradient(135deg,rgba(16,185,129,0.18),rgba(15,23,42,0.95)),linear-gradient(180deg,rgba(15,23,42,0.88),rgba(15,23,42,0.95))] sm:p-10">
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
+                AIMA Finance Product
+              </div>
+              <img src="/eva-logo.png" alt="eva" className="mt-6 h-20 w-auto max-w-full object-contain sm:h-24" draggable="false" />
+              <h1 className="mt-8 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+                AI-powered financial intelligence that helps you understand, plan, and grow
+              </h1>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
+                eva is the finance experience inside aima. It tracks spending, detects unusual patterns, highlights opportunities,
+                and turns raw money data into decisions you can actually act on.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild className="rounded-full bg-emerald-600 text-white hover:bg-emerald-700">
+                  <a href={toolLinks.financeAI} target="_blank" rel="noreferrer">
+                    Open eva
+                  </a>
+                </Button>
+                <Button variant="outline" asChild className="rounded-full border-emerald-500/25">
+                  <a href="https://blog.useaima.com/category/finance" target="_blank" rel="noopener noreferrer">
+                    Explore finance guides
+                  </a>
+                </Button>
+              </div>
+            </div>
+            <div className="mt-16">
+              <SectionHeader
+                title="What eva helps you do"
+                subtitle="From daily awareness to long-term decision support, eva is designed to feel more like a financial copilot than a spreadsheet."
+              />
             </div>
             <div
               ref={ref}
@@ -107,8 +129,8 @@ const Finance = () => {
         <section className="py-24">
           <div className="container">
             <SectionHeader
-              title="FinanceAI Guides"
-              subtitle="Finance-related articles from the USEAIMA blog that explain the ideas behind FinanceAI, including autonomous finance, AI agents, and financial decision support."
+              title="eva Guides"
+              subtitle="Finance-related articles from the aima blog that explain the ideas behind eva, including autonomous finance, AI agents, and financial decision support."
             />
             <div className="grid gap-6 md:grid-cols-2">
               {financeGuides.map((post) => {

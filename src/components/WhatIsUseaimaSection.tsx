@@ -10,7 +10,7 @@ const pillars = [
   {
     title: "AI assistants, not static dashboards",
     description:
-      "USEAIMA is built to interpret information, surface actions, and guide decisions instead of simply displaying raw data.",
+      "aima is built to interpret information, surface actions, and guide decisions instead of simply displaying raw data.",
     icon: BrainCircuit,
   },
   {
@@ -27,13 +27,13 @@ const pillars = [
   },
 ];
 
-export function WhatIsUseaimaSection() {
+export function WhatIsaimaSection() {
   return (
-    <section id="what-is-useaima" className="py-24">
+    <section id="what-is-aima" className="py-24">
       <div className="container">
         <SectionHeader
-          title="What Is USEAIMA?"
-          subtitle="USEAIMA is the official platform behind the USEAIMA ecosystem, building intelligent systems that help people make better decisions across finance, communication, health, learning, productivity, and digital growth."
+          title="What Is aima?"
+          subtitle="aima is the official platform behind the aima ecosystem, building intelligent systems that help people make better decisions across finance, communication, health, learning, productivity, and digital growth."
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -43,7 +43,7 @@ export function WhatIsUseaimaSection() {
               Built to assist, guide, and simplify
             </div>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
-              {siteBrandSummary} Instead of building tools that only display data, USEAIMA focuses on systems that think,
+              {siteBrandSummary} Instead of building tools that only display data, aima focuses on systems that think,
               analyze, and provide actionable insights. The goal is to create AI products that feel like practical
               assistants for everyday life.
             </p>

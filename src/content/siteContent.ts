@@ -1,23 +1,23 @@
-export const siteName = "USEAIMA";
+export const siteName = "aima";
 export const siteUrl = "https://useaima.com";
 export const blogUrl = "https://blog.useaima.com";
 export const siteEmail = "hello@useaima.com";
 export const siteDescription =
-  "USEAIMA is the official website of the USEAIMA AI ecosystem, building intelligent systems for finance, communication, learning, health, productivity, and digital growth.";
-export const siteTagline = "Official USEAIMA website for AI assistants and everyday decision support.";
+  "aima is the official website of the aima AI ecosystem, building intelligent systems for finance, communication, learning, health, productivity, and digital growth.";
+export const siteTagline = "Official aima website for AI assistants and everyday decision support.";
 export const siteBrandSummary =
-  "If you searched for USEAIMA, this is the official USEAIMA website and the main home of the USEAIMA ecosystem.";
+  "If you searched for aima, this is the official aima website and the main home of the aima ecosystem.";
 export const brandKeywords = [
-  "USEAIMA",
+  "aima",
   "useaima",
-  "USEAIMA official website",
-  "USEAIMA AI platform",
-  "USEAIMA ecosystem",
-  "USEAIMA blog",
-  "SocialPulse by USEAIMA",
-  "FinanceAI by USEAIMA",
-  "KidsAI by USEAIMA",
-  "MailMind by USEAIMA",
+  "aima official website",
+  "aima AI platform",
+  "aima ecosystem",
+  "aima blog",
+  "ace by aima",
+  "eva by aima",
+  "ally by aima",
+  "MailMind by aima",
 ] as const;
 
 export const toolLinks = {
@@ -30,14 +30,14 @@ export const toolLinks = {
 
 export const faqItems = [
   {
-    question: "What is USEAIMA?",
+    question: "What is aima?",
     answer:
-      "USEAIMA is an AI-powered platform that builds intelligent systems designed to help people manage different aspects of life, including finance, communication, learning, health, and productivity. Each tool is designed to act like an assistant, not just a dashboard.",
+      "aima is an AI-powered platform that builds intelligent systems designed to help people manage different aspects of life, including finance, communication, learning, health, and productivity. Each tool is designed to act like an assistant, not just a dashboard.",
   },
   {
-    question: "What kind of tools does USEAIMA offer?",
+    question: "What kind of tools does aima offer?",
     answer:
-      "USEAIMA provides multiple AI-based applications such as FinanceAI for financial guidance, EmailAI for email intelligence, SocialPulse for social media analytics, KidsAI for learning and entertainment for kids, and HealthAI for health intelligence.",
+      "aima provides multiple AI-based applications such as eva for financial guidance, EmailAI for email intelligence, ace for social media analytics, ally for learning and entertainment for kids, and HealthAI for health intelligence.",
   },
   {
     question: "Are the tools free to use?",
@@ -47,22 +47,22 @@ export const faqItems = [
   {
     question: "How is my data handled?",
     answer:
-      "USEAIMA is designed with privacy in mind. User data is processed securely and is not shared without consent. The goal is to provide intelligent insights while maintaining trust and data protection.",
+      "aima is designed with privacy in mind. User data is processed securely and is not shared without consent. The goal is to provide intelligent insights while maintaining trust and data protection.",
   },
   {
     question: "Can I use multiple tools together?",
     answer:
-      "Yes. USEAIMA is built as an ecosystem, meaning you can use multiple tools together for a more integrated experience across areas like finance, communication, productivity, and digital growth.",
+      "Yes. aima is built as an ecosystem, meaning you can use multiple tools together for a more integrated experience across areas like finance, communication, productivity, and digital growth.",
   },
   {
-    question: "Who is USEAIMA for?",
+    question: "Who is aima for?",
     answer:
-      "USEAIMA is designed for students, professionals, content creators, developers, and anyone looking to improve productivity and decision-making using AI.",
+      "aima is designed for students, professionals, content creators, developers, and anyone looking to improve productivity and decision-making using AI.",
   },
   {
-    question: "Does USEAIMA replace human decision-making?",
+    question: "Does aima replace human decision-making?",
     answer:
-      "No. USEAIMA assists and guides decisions but does not replace human judgment. It provides insights, recommendations, and analysis to help users make better choices.",
+      "No. aima assists and guides decisions but does not replace human judgment. It provides insights, recommendations, and analysis to help users make better choices.",
   },
   {
     question: "How accurate are the AI recommendations?",
@@ -70,13 +70,13 @@ export const faqItems = [
       "The system is designed to provide useful and data-driven insights, but results may vary depending on the quality of the input data. Users should always review recommendations before acting on them.",
   },
   {
-    question: "Is USEAIMA a single app or multiple platforms?",
+    question: "Is aima a single app or multiple platforms?",
     answer:
-      "USEAIMA is a central platform that connects multiple AI tools. Each tool may run on its own subdomain or application, but all of them are part of one unified ecosystem.",
+      "aima is a central platform that connects multiple AI tools. Each tool may run on its own subdomain or application, but all of them are part of one unified ecosystem.",
   },
   {
     question: "How can I stay updated with new features?",
     answer:
-      "You can stay updated by visiting the USEAIMA blog, checking product pages like Finance, Health, and Kids, and following new product updates and changelogs across the platform.",
+      "You can stay updated by visiting the aima blog, checking product pages like Finance, Health, and Kids, and following new product updates and changelogs across the platform.",
   },
 ] as const;

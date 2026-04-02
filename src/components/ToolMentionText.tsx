@@ -6,9 +6,9 @@ type ToolMentionTextProps = {
 };
 
 const toolMentionMap = {
-  SocialPulse: toolLinks.socialPulse,
-  FinanceAI: toolLinks.financeAI,
-  KidsAI: toolLinks.kidsAI,
+  ace: toolLinks.socialPulse,
+  eva: toolLinks.financeAI,
+  ally: toolLinks.kidsAI,
   EmailAI: toolLinks.emailAI,
 } as const;
 

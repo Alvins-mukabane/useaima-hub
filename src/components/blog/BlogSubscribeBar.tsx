@@ -39,7 +39,7 @@ export function BlogSubscribeBar({ compact = false }: BlogSubscribeBarProps) {
       setEmail("");
       toast({
         title: "Subscription received",
-        description: "This email is now on the USEAIMA blog updates list.",
+        description: "This email is now on the aima blog updates list.",
       });
     } catch (error) {
       toast({
@@ -64,10 +64,10 @@ export function BlogSubscribeBar({ compact = false }: BlogSubscribeBarProps) {
           Daily Updates
         </p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight">
-          {compact ? "Get new blog updates in your inbox" : "Subscribe for daily USEAIMA blog notifications"}
+          {compact ? "Get new blog updates in your inbox" : "Subscribe for daily aima blog notifications"}
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Receive new articles, product updates, and ecosystem insights from the USEAIMA blog without having to check
+          Receive new articles, product updates, and ecosystem insights from the aima blog without having to check
           manually.
         </p>
       </div>
@@ -88,7 +88,7 @@ export function BlogSubscribeBar({ compact = false }: BlogSubscribeBarProps) {
       </form>
 
       <p className="mt-4 text-xs leading-6 text-muted-foreground">
-        By subscribing, readers opt in to blog updates and product notifications related to the USEAIMA ecosystem.
+        By subscribing, readers opt in to blog updates and product notifications related to the aima ecosystem.
       </p>
     </section>
   );

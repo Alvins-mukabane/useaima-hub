@@ -25,7 +25,7 @@ export default function BlogNotFound() {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">404</p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight">That article or page does not exist</h1>
             <p className="mt-4 text-lg leading-8 text-muted-foreground">
-              Head back to the USEAIMA blog homepage or browse by category.
+              Head back to the aima blog homepage or browse by category.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link to={getBlogRoute("/")} className="rounded-full border px-5 py-3 text-sm font-medium">

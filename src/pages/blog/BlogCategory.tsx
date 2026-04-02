@@ -51,10 +51,10 @@ export default function BlogCategory() {
     <>
       <SEOHead
         title={`${category.title} Articles`}
-        description={`${category.description} Browse practical ${category.title.toLowerCase()} guides on the USEAIMA blog.`}
+        description={`${category.description} Browse practical ${category.title.toLowerCase()} guides on the aima blog.`}
         path={canonicalPath}
         siteOrigin={blogUrl}
-        keywords={[category.title, "USEAIMA blog", "guides", "AI blog"]}
+        keywords={[category.title, "aima blog", "guides", "AI blog"]}
         structuredData={structuredData}
       />
       <BlogNavbar />
@@ -72,12 +72,12 @@ export default function BlogCategory() {
               <p className="mt-5 text-lg leading-8 text-muted-foreground">{category.description}</p>
               <div className="mt-8 flex flex-wrap gap-4 text-sm text-muted-foreground">
                 <span>{posts.length} articles</span>
-                <span>Practical breakdowns from the USEAIMA ecosystem</span>
+                <span>Practical breakdowns from the aima ecosystem</span>
               </div>
               <div className="mt-8 rounded-[1.5rem] border bg-card/80 p-5 shadow-sm">
                 <p className="text-sm leading-7 text-muted-foreground">
                   This category page is built to help readers move from explanation to action, with guides that connect
-                  learning, product thinking, and real USEAIMA tools.
+                  learning, product thinking, and real aima tools.
                 </p>
               </div>
             </div>
@@ -96,16 +96,16 @@ export default function BlogCategory() {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Built By {siteName}</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight">Learn first, then explore the products</h2>
               <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-                USEAIMA combines educational content, assistant-style tools, and a clearer product philosophy across
+                aima combines educational content, assistant-style tools, and a clearer product philosophy across
                 finance, digital growth, learning, and intelligent systems.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href={siteUrl} className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-                  Visit useaima.com
+                  Visit aima
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a href={`${siteUrl}/about`} className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-                  About USEAIMA
+                  About aima
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>

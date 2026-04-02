@@ -14,12 +14,12 @@ interface SearchItem {
 }
 
 const staticSearchData: SearchItem[] = [
-  { title: "What is USEAIMA?", description: "Overview of the USEAIMA platform and ecosystem", category: "Page", to: "/#what-is-useaima" },
-  { title: "FinanceAI", description: "AI financial advisor — tracks spending and provides insights", category: "Product", to: toolLinks.financeAI, external: true },
+  { title: "What is aima?", description: "Overview of the aima platform and ecosystem", category: "Page", to: "/#what-is-aima" },
+  { title: "eva", description: "AI financial advisor — tracks spending and provides insights", category: "Product", to: toolLinks.financeAI, external: true },
   { title: "EmailAI", description: "AI email intelligence — summarizes, detects deadlines, generates plans", category: "Product", to: toolLinks.emailAI, external: true },
-  { title: "KidsAI", description: "AI learning and entertainment platform for kids", category: "Product", to: toolLinks.kidsAI, external: true },
+  { title: "ally", description: "AI learning and entertainment platform for kids", category: "Product", to: toolLinks.kidsAI, external: true },
   {
-    title: "SocialPulse",
+    title: "ace",
     description: "AI social media analytics — trends, content ideas, algorithm detection",
     category: "Product",
     to: toolLinks.socialPulse,
@@ -29,10 +29,10 @@ const staticSearchData: SearchItem[] = [
   { title: "Finance", description: "AI-powered financial intelligence hub", category: "Page", to: "/finance" },
   { title: "Health", description: "AI in healthcare and preventive care", category: "Page", to: "/health" },
   { title: "Kids", description: "Safe AI for children's learning and fun", category: "Page", to: "/kids" },
-  { title: "About Us", description: "Learn about the USEAIMA mission, vision, and approach", category: "Page", to: "/about" },
-  { title: "Privacy Policy", description: "How USEAIMA handles user data and privacy", category: "Page", to: "/privacy-policy" },
-  { title: "Terms of Service", description: "Terms that govern use of the USEAIMA platform", category: "Page", to: "/terms-of-service" },
-  { title: "FAQs", description: "Frequently asked questions about USEAIMA", category: "Page", to: "/#faq" },
+  { title: "About Us", description: "Learn about the aima mission, vision, and approach", category: "Page", to: "/about" },
+  { title: "Privacy Policy", description: "How aima handles user data and privacy", category: "Page", to: "/privacy-policy" },
+  { title: "Terms of Service", description: "Terms that govern use of the aima platform", category: "Page", to: "/terms-of-service" },
+  { title: "FAQs", description: "Frequently asked questions about aima", category: "Page", to: "/#faq" },
 ];
 
 const searchData: SearchItem[] = [

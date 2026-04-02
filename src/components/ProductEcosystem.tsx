@@ -7,8 +7,12 @@ import { toolLinks } from "@/content/siteContent";
 
 const products = [
   {
-    name: "FinanceAI",
+    name: "eva",
     icon: DollarSign,
+    logoSrc: "/eva-logo.png",
+    logoFrameClass:
+      "flex min-h-16 flex-1 items-center rounded-2xl border border-emerald-500/15 bg-emerald-500/10 px-4 py-3 dark:border-emerald-400/20 dark:bg-emerald-400/10",
+    logoImageClass: "h-10 w-auto max-w-full object-contain",
     status: "Live" as const,
     description: "AI financial advisor that tracks spending behavior, provides real-time insights, and detects risks & opportunities.",
     features: ["Spending behavior tracking", "Real-time financial insights", "Risk & opportunity detection"],
@@ -25,8 +29,12 @@ const products = [
     external: true,
   },
   {
-    name: "KidsAI",
+    name: "ally",
     icon: Baby,
+    logoSrc: "/ally-logo.png",
+    logoFrameClass:
+      "flex min-h-16 flex-1 items-center rounded-2xl border border-violet-500/20 bg-violet-500/10 px-4 py-3 dark:border-violet-400/20 dark:bg-violet-400/10",
+    logoImageClass: "h-12 w-auto max-w-full object-contain",
     status: "Live" as const,
     description: "AI learning and entertainment platform for kids — safe, personalized education combined with games.",
     features: ["Safe environment", "Personalized education", "Interactive games"],
@@ -34,8 +42,12 @@ const products = [
     external: true,
   },
   {
-    name: "SocialPulse",
+    name: "ace",
     icon: BarChart3,
+    logoSrc: "/ace-logo.png",
+    logoFrameClass:
+      "flex min-h-16 flex-1 items-center rounded-2xl border border-amber-700/20 bg-[#2d1c1a] px-4 py-3 dark:border-amber-500/20 dark:bg-[#261715]",
+    logoImageClass: "h-11 w-auto max-w-full object-contain",
     status: "Beta" as const,
     description: "AI social media analytics agent with cross-platform analytics, trend discovery, and content idea generation.",
     features: ["Cross-platform analytics", "Trend discovery", "Algorithm change detection"],
@@ -63,7 +75,7 @@ export function ProductEcosystem() {
     <section id="products" className="py-24">
       <div className="container">
         <SectionHeader
-          title="The USEAIMA Ecosystem"
+          title="The aima Ecosystem"
           subtitle="A unified collection of AI-powered products built to help users understand context, take action, and make better decisions."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -79,6 +91,7 @@ export function ProductEcosystem() {
 function ProductCard({ product, index }: { product: (typeof products)[number]; index: number }) {
   const { ref, isVisible } = useScrollReveal();
   const Icon = product.icon;
+  const hasLogo = "logoSrc" in product;
 
   return (
     <div
@@ -89,9 +102,25 @@ function ProductCard({ product, index }: { product: (typeof products)[number]; i
       )}
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      <div className="mb-4 flex items-center justify-between">
-        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-200 group-hover:scale-105">
-          <Icon className="h-5 w-5" />
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <div
+          className={cn(
+            "transition-transform duration-200 group-hover:scale-[1.02]",
+            hasLogo
+              ? product.logoFrameClass
+              : "flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary"
+          )}
+        >
+          {hasLogo ? (
+            <img
+              src={product.logoSrc}
+              alt={product.name}
+              className={product.logoImageClass}
+              draggable="false"
+            />
+          ) : (
+            <Icon className="h-5 w-5" />
+          )}
         </div>
         <span className={cn("rounded-full px-2.5 py-0.5 text-xs font-medium", statusColors[product.status])}>
           {product.status}

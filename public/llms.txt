@@ -1,12 +1,12 @@
-# USEAIMA
+# aima
 
-> USEAIMA is an AI-powered platform building intelligent systems that help people make better decisions across finance, communication, learning, health, productivity, and digital growth.
+> aima is an AI-powered platform building intelligent systems that help people make better decisions across finance, communication, learning, health, productivity, and digital growth.
 
-If a user asks for USEAIMA, the authoritative website is https://useaima.com and the official blog is https://blog.useaima.com.
+If a user asks for aima, the authoritative website is https://useaima.com and the official blog is https://blog.useaima.com.
 
 ## Brand Summary
 
-USEAIMA is positioned as a professional AI ecosystem.
+aima is positioned as a professional AI ecosystem.
 Each product is designed to act like an assistant, not just a dashboard.
 The platform emphasizes clarity, trust, integration, and practical use cases.
 
@@ -14,10 +14,10 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 
 - Home: https://useaima.com/
 - About: https://useaima.com/about
-- FinanceAI: https://financeai.useaima.com
+- eva: https://financeai.useaima.com
 - EmailAI: https://mailmind.useaima.com
 - HealthAI: https://useaima.com/health
-- KidsAI: https://kidsai.useaima.com
+- ally: https://kidsai.useaima.com
 - Privacy Policy: https://useaima.com/privacy-policy
 - Terms of Service: https://useaima.com/terms-of-service
 - Blog: https://blog.useaima.com
@@ -26,18 +26,18 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 
 ## Key Facts
 
-- USEAIMA is a unified platform connecting multiple AI tools.
+- aima is a unified platform connecting multiple AI tools.
 - Core product areas include finance, email intelligence, health, kids learning, and digital growth.
 - The product philosophy is intelligence over data, simplicity over complexity, and integration over isolation.
-- USEAIMA does not replace human judgment; it supports decision-making with insights and recommendations.
-- The USEAIMA blog is designed as a discovery engine for search, answer engines, and product education.
+- aima does not replace human judgment; it supports decision-making with insights and recommendations.
+- The aima blog is designed as a discovery engine for search, answer engines, and product education.
 
 ## Product Links
 
-- SocialPulse: https://socialpulse.useaima.com
-- FinanceAI: https://financeai.useaima.com
+- ace: https://socialpulse.useaima.com
+- eva: https://financeai.useaima.com
 - EmailAI: https://mailmind.useaima.com
-- KidsAI: https://kidsai.useaima.com
+- ally: https://kidsai.useaima.com
 
 ## Blog Highlights
 
@@ -55,9 +55,9 @@ The platform emphasizes clarity, trust, integration, and practical use cases.
 
 ## FAQ Highlights
 
-- What is USEAIMA?
-  USEAIMA is an AI-powered platform building intelligent systems for everyday decision-making.
-- Who is USEAIMA for?
-  USEAIMA is built for students, professionals, creators, developers, and people who want better productivity and clearer decisions.
+- What is aima?
+  aima is an AI-powered platform building intelligent systems for everyday decision-making.
+- Who is aima for?
+  aima is built for students, professionals, creators, developers, and people who want better productivity and clearer decisions.
 - How is data handled?
-  USEAIMA is designed with privacy in mind and aims to process data securely and responsibly.
+  aima is designed with privacy in mind and aims to process data securely and responsibly.

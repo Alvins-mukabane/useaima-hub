@@ -51,16 +51,16 @@ const aboutStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About USEAIMA",
+    name: "About aima",
     url: `${siteUrl}/about`,
     description:
-      "Learn about USEAIMA, an AI-powered platform building intelligent systems for finance, communication, learning, health, productivity, and digital growth.",
+      "Learn about aima, an AI-powered platform building intelligent systems for finance, communication, learning, health, productivity, and digital growth.",
     isPartOf: siteUrl,
     about: {
       "@type": "Organization",
       name: siteName,
       url: siteUrl,
-      logo: `${siteUrl}/android-chrome-512x512.png`,
+      logo: `${siteUrl}/aima-mark.png`,
     },
   },
 ];
@@ -69,10 +69,10 @@ const About = () => {
   return (
     <>
       <SEOHead
-        title="About USEAIMA"
-        description="Learn what USEAIMA is, what the platform builds, and the vision behind its AI-powered ecosystem."
+        title="About aima"
+        description="Learn what aima is, what the platform builds, and the vision behind its AI-powered ecosystem."
         path="/about"
-        keywords={["about USEAIMA", "AI startup", "AI platform", "USEAIMA vision"]}
+        keywords={["about aima", "AI startup", "AI platform", "aima vision"]}
         structuredData={aboutStructuredData}
       />
       <Navbar />
@@ -83,15 +83,15 @@ const About = () => {
               <div className="rounded-3xl border bg-card p-8 shadow-sm sm:p-10">
                 <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
                   <Bot className="h-3.5 w-3.5" />
-                  About USEAIMA
+                  About aima
                 </div>
                 <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
                   Building AI systems that actively assist, guide, and improve everyday life
                 </h1>
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
-                  USEAIMA is a platform built to redefine how people interact with technology by creating AI systems that
+                  aima is a platform built to redefine how people interact with technology by creating AI systems that
                   actively assist, guide, and improve everyday life. Instead of building tools that only display data,
-                  USEAIMA focuses on systems that think, analyze, and provide actionable insights.
+                  aima focuses on systems that think, analyze, and provide actionable insights.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button asChild>
@@ -140,15 +140,15 @@ const About = () => {
                 <div className="mt-8 rounded-2xl border bg-background p-6">
                   <h3 className="font-semibold">The Bigger Picture</h3>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    USEAIMA is not just a collection of apps. It is an evolving ecosystem of AI agents that can understand
+                    aima is not just a collection of apps. It is an evolving ecosystem of AI agents that can understand
                     context, analyze behavior, suggest actions, and improve decision-making over time.
                   </p>
                 </div>
                 <div className="mt-6 rounded-2xl border bg-background p-6">
-                  <h3 className="font-semibold">Why USEAIMA Exists</h3>
+                  <h3 className="font-semibold">Why aima Exists</h3>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">
                     Most tools today show data but do not explain it, require manual effort, and do not adapt to users.
-                    USEAIMA exists to change that by building systems that understand, adapt, and act.
+                    aima exists to change that by building systems that understand, adapt, and act.
                   </p>
                 </div>
               </article>
@@ -189,7 +189,7 @@ const About = () => {
                   <h2 className="text-2xl font-semibold tracking-tight">Built By</h2>
                 </div>
                 <p className="mt-4 leading-7 text-muted-foreground">
-                  USEAIMA is built by an independent developer focused on AI systems, automation, and cloud and DevOps
+                  aima is built by an independent developer focused on AI systems, automation, and cloud and DevOps
                   engineering. The goal is to create practical, real-world AI solutions that go beyond theory and actually
                   help people.
                 </p>
@@ -203,7 +203,7 @@ const About = () => {
                   <h2 className="text-2xl font-semibold tracking-tight">Why This Matters</h2>
                 </div>
                 <p className="mt-4 leading-7 text-muted-foreground">
-                  Clear About, FAQ, and policy content helps users understand the platform quickly. USEAIMA is positioned to
+                  Clear About, FAQ, and policy content helps users understand the platform quickly. aima is positioned to
                   feel like a serious startup platform with clear thinking, visible trust signals, and a strong product
                   direction.
                 </p>

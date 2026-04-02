@@ -37,7 +37,7 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
         <div className="container flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center" aria-label="USEAIMA home">
+          <Link to="/" className="flex items-center" aria-label="aima home">
             <BrandLogo size="md" />
           </Link>
 

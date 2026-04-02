@@ -91,7 +91,7 @@ export function SEOHead({
   title,
   description,
   path,
-  image = `${siteUrl}/og-image.svg`,
+  image = `${siteUrl}/aima-mark.png`,
   type = "website",
   robots = "index, follow, max-image-preview:large",
   keywords,
@@ -116,7 +116,7 @@ export function SEOHead({
     upsertMeta('meta[name="application-name"]', { name: "application-name", content: siteName });
     upsertMeta('meta[name="format-detection"]', { name: "format-detection", content: "telephone=no" });
     upsertMeta('meta[name="referrer"]', { name: "referrer", content: "strict-origin-when-cross-origin" });
-    upsertMeta('meta[name="theme-color"]', { name: "theme-color", content: "#0f172a" });
+    upsertMeta('meta[name="theme-color"]', { name: "theme-color", content: "#4c2da8" });
     upsertMeta('meta[name="robots"]', { name: "robots", content: robots });
     upsertMeta('meta[name="googlebot"]', { name: "googlebot", content: robots });
     upsertMeta('meta[name="keywords"]', keywordContent ? { name: "keywords", content: keywordContent } : undefined);

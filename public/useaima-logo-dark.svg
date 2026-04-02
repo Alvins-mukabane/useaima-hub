@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 320" role="img" aria-labelledby="useaima-logo-dark-title useaima-logo-dark-desc">
-  <title id="useaima-logo-dark-title">USEAIMA logo for dark backgrounds</title>
-  <desc id="useaima-logo-dark-desc">The USEAIMA wordmark with its hexagonal circuit symbol on dark surfaces.</desc>
+  <title id="useaima-logo-dark-title">aima logo for dark backgrounds</title>
+  <desc id="useaima-logo-dark-desc">The aima wordmark with its hexagonal circuit symbol on dark surfaces.</desc>
   <defs>
     <linearGradient id="logo-dark-hex-gradient" x1="38" y1="268" x2="278" y2="40" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#16d6d0" />
@@ -50,6 +50,6 @@
     font-weight="800"
     letter-spacing="6"
   >
-    USEAIMA
+    aima
   </text>
 </svg>

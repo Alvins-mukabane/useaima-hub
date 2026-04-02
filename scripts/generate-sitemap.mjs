@@ -120,7 +120,7 @@ function buildRssFeed() {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
     "  <channel>",
-    "    <title>USEAIMA Blog</title>",
+    "    <title>aima Blog</title>",
     `    <link>${blogUrl}</link>`,
     `    <atom:link href="${blogUrl}/blog-feed.xml" rel="self" type="application/rss+xml" />`,
     "    <description>Simple guides, real insights, and tools built for the future.</description>",
@@ -143,9 +143,9 @@ function buildRssFeed() {
 
 function buildBlogLlms() {
   return [
-    "# USEAIMA Blog",
+    "# aima Blog",
     "",
-    "> The USEAIMA Blog publishes practical guides on AI agents, finance, creator growth, safe learning systems, and operational product design.",
+    "> The aima Blog publishes practical guides on AI agents, finance, creator growth, safe learning systems, and operational product design.",
     "",
     "## Primary URLs",
     "",
@@ -155,10 +155,10 @@ function buildBlogLlms() {
     "",
     "## Summary",
     "",
-    "- This blog is part of the broader USEAIMA ecosystem.",
+    "- This blog is part of the broader aima ecosystem.",
     "- The blog is public, indexable, and intended for search engines, answer engines, and AI retrieval systems.",
     "- The goal is to help readers learn useful digital skills, trust the brand, and discover practical AI-powered products.",
-    "- Featured products include SocialPulse, FinanceAI, and KidsAI.",
+    "- Featured products include ace, eva, and ally.",
     "",
     "## Editorial Themes",
     "",
@@ -170,10 +170,10 @@ function buildBlogLlms() {
     "",
     "## Product Links",
     "",
-    "- USEAIMA: https://useaima.com",
-    "- SocialPulse: https://socialpulse.useaima.com",
-    "- FinanceAI: https://financeai.useaima.com",
-    "- KidsAI: https://kidsai.useaima.com",
+    "- aima: https://useaima.com",
+    "- ace: https://socialpulse.useaima.com",
+    "- eva: https://financeai.useaima.com",
+    "- ally: https://kidsai.useaima.com",
     "",
   ].join("\n");
 }

@@ -44,7 +44,7 @@ export function BlogArticleCard({ post, variant = "latest" }: BlogArticleCardPro
                   <span
                     className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur"
                   >
-                    USEAIMA
+                    aima
                   </span>
                 )}
               </div>

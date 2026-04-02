@@ -19,14 +19,15 @@ const kidsStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "KidsAI",
+    name: "ally",
     url: toolLinks.kidsAI,
+    image: `${siteUrl}/ally-logo.png`,
     provider: {
       "@type": "Organization",
       name: siteName,
       url: siteUrl,
     },
-    description: "KidsAI is the USEAIMA learning and entertainment product designed to be safe, personalized, and engaging for children.",
+    description: "ally is the aima learning and entertainment product designed to be safe, personalized, and engaging for children.",
   },
 ];
 
@@ -35,26 +36,47 @@ const Kids = () => {
   return (
     <>
       <SEOHead
-        title="KidsAI"
-        description="Discover KidsAI, the USEAIMA learning and entertainment experience built to be safe, personalized, and engaging for children."
+        title="ally | Safe AI Learning for Kids"
+        description="Discover ally, the aima learning and entertainment experience built to be safe, personalized, and engaging for children."
         path="/kids"
-        keywords={["KidsAI", "AI learning for kids", "safe AI for children", "children's education technology"]}
+        image="/ally-logo.png"
+        keywords={["ally", "AI learning for kids", "safe AI for children", "children's education technology"]}
         structuredData={kidsStructuredData}
       />
       <Navbar />
       <main>
         <section className="py-24">
           <div className="container">
-            <SectionHeader
-              title="KidsAI"
-              subtitle="Safe, personalized AI learning and entertainment — designed for curious young minds."
-            />
-            <div className="mb-10 flex justify-center">
-              <Button asChild className="rounded-full">
-                <a href={toolLinks.kidsAI} target="_blank" rel="noreferrer">
-                  Open KidsAI
-                </a>
-              </Button>
+            <div className="mx-auto max-w-4xl rounded-[2rem] border border-violet-500/20 bg-[linear-gradient(135deg,rgba(139,92,246,0.16),rgba(255,255,255,0.98)),radial-gradient(circle_at_top_right,rgba(250,204,21,0.18),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,255,255,1))] p-8 shadow-sm dark:border-violet-400/20 dark:bg-[linear-gradient(135deg,rgba(139,92,246,0.2),rgba(23,16,39,0.95)),radial-gradient(circle_at_top_right,rgba(250,204,21,0.14),transparent_32%),linear-gradient(180deg,rgba(23,16,39,0.9),rgba(23,16,39,0.96))] sm:p-10">
+              <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-violet-700 dark:text-violet-300">
+                AIMA Kids Product
+              </div>
+              <img src="/ally-logo.png" alt="ally" className="mt-6 h-20 w-auto max-w-full object-contain sm:h-24" draggable="false" />
+              <h1 className="mt-8 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+                Safe, playful AI learning designed for curious young minds
+              </h1>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
+                ally is the kids learning experience inside aima. It combines safety, guided exploration, playful education,
+                and parent-friendly trust signals in one friendly product.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild className="rounded-full bg-violet-600 text-white hover:bg-violet-700">
+                  <a href={toolLinks.kidsAI} target="_blank" rel="noreferrer">
+                    Open ally
+                  </a>
+                </Button>
+                <Button variant="outline" asChild className="rounded-full border-violet-500/25">
+                  <a href="https://blog.useaima.com/category/kids-learning" target="_blank" rel="noopener noreferrer">
+                    Explore learning guides
+                  </a>
+                </Button>
+              </div>
+            </div>
+            <div className="mt-16">
+              <SectionHeader
+                title="What ally helps families do"
+                subtitle="ally brings together safety, personalized learning, and playful exploration so children can learn with more structure and joy."
+              />
             </div>
             <div
               ref={ref}
@@ -64,7 +86,7 @@ const Kids = () => {
                 const Icon = f.icon;
                 return (
                   <div key={i} className="rounded-xl border bg-card p-6 transition-shadow hover:shadow-md">
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-600 dark:text-violet-300">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="font-semibold">{f.title}</h3>

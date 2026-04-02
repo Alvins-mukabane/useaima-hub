@@ -106,7 +106,7 @@ export default function BlogArticle() {
         "@type": "Organization",
         name: siteName,
         url: siteUrl,
-        logo: `${siteUrl}/android-chrome-512x512.png`,
+        logo: `${siteUrl}/aima-mark.png`,
       },
       mainEntityOfPage: {
         "@type": "WebPage",
@@ -176,7 +176,7 @@ export default function BlogArticle() {
         alternateLinks={[
           {
             type: "application/rss+xml",
-            title: "USEAIMA Blog Feed",
+            title: "aima Blog Feed",
             href: `${blogUrl}/blog-feed.xml`,
           },
         ]}

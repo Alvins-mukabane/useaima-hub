@@ -1,9 +1,21 @@
 import { cn } from "@/lib/utils";
 
 const sizeClasses = {
-  sm: "h-8",
-  md: "h-9",
-  lg: "h-11",
+  sm: {
+    icon: "h-8 w-8",
+    wordmark: "text-lg",
+    gap: "gap-2.5",
+  },
+  md: {
+    icon: "h-9 w-9",
+    wordmark: "text-[1.35rem]",
+    gap: "gap-3",
+  },
+  lg: {
+    icon: "h-11 w-11",
+    wordmark: "text-[1.7rem]",
+    gap: "gap-3.5",
+  },
 } as const;
 
 type BrandLogoProps = {
@@ -16,13 +28,20 @@ export function BrandLogo({ className, iconOnly = false, size = "md" }: BrandLog
   const sizeClass = sizeClasses[size];
 
   if (iconOnly) {
-    return <img src="/useaima-mark.svg" alt="USEAIMA" className={cn(sizeClass, "w-auto shrink-0", className)} draggable="false" />;
+    return <img src="/aima-mark.png" alt="aima" className={cn(sizeClass.icon, "shrink-0 rounded-[22%] object-cover", className)} draggable="false" />;
   }
 
   return (
-    <span className={cn("inline-flex items-center", className)}>
-      <img src="/useaima-logo.svg" alt="USEAIMA" className={cn(sizeClass, "w-auto shrink-0 dark:hidden")} draggable="false" />
-      <img src="/useaima-logo-dark.svg" alt="USEAIMA" className={cn(sizeClass, "hidden w-auto shrink-0 dark:block")} draggable="false" />
+    <span className={cn("inline-flex items-center", sizeClass.gap, className)}>
+      <img src="/aima-mark.png" alt="aima" className={cn(sizeClass.icon, "shrink-0 rounded-[22%] object-cover")} draggable="false" />
+      <span
+        className={cn(
+          sizeClass.wordmark,
+          "font-semibold lowercase tracking-[-0.08em] text-foreground"
+        )}
+      >
+        aima
+      </span>
     </span>
   );
 }

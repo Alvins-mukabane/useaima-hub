@@ -44,11 +44,11 @@ export default function BlogSearch() {
     <>
       <SEOHead
         title={query ? `Search: ${query}` : "Search Articles"}
-        description={query ? `Search results for "${query}" on the USEAIMA blog.` : blogDescription}
+        description={query ? `Search results for "${query}" on the aima blog.` : blogDescription}
         path="/search"
         siteOrigin={blogUrl}
         robots="noindex, follow"
-        keywords={query ? [query, "USEAIMA blog search"] : ["USEAIMA blog search", "AI articles"]}
+        keywords={query ? [query, "aima blog search"] : ["aima blog search", "AI articles"]}
       />
       <BlogNavbar />
       <main>

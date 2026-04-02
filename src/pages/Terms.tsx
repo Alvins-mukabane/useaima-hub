@@ -20,11 +20,11 @@ const sections = [
   },
   {
     title: "Product Availability",
-    body: "Some features may be experimental, in beta, limited, or changed over time. USEAIMA may update, improve, suspend, or remove features as the platform evolves.",
+    body: "Some features may be experimental, in beta, limited, or changed over time. aima may update, improve, suspend, or remove features as the platform evolves.",
   },
   {
     title: "No Professional Advice",
-    body: "USEAIMA may provide recommendations, analysis, and insights, but it does not replace professional financial, legal, medical, educational, or other licensed advice. Users remain responsible for reviewing outputs and making final decisions.",
+    body: "aima may provide recommendations, analysis, and insights, but it does not replace professional financial, legal, medical, educational, or other licensed advice. Users remain responsible for reviewing outputs and making final decisions.",
   },
   {
     title: "Accounts and Access",
@@ -32,11 +32,11 @@ const sections = [
   },
   {
     title: "Intellectual Property",
-    body: "The USEAIMA brand, site content, interface design, and platform materials are protected by applicable intellectual property rights. Users may not copy, resell, misuse, or reverse-engineer platform materials except where allowed by law.",
+    body: "The aima brand, site content, interface design, and platform materials are protected by applicable intellectual property rights. Users may not copy, resell, misuse, or reverse-engineer platform materials except where allowed by law.",
   },
   {
     title: "Limitation of Liability",
-    body: "The platform is provided on an as-available basis. While USEAIMA aims to provide useful and reliable systems, no output should be treated as guaranteed, error-free, or universally applicable. Users should exercise judgment when relying on platform recommendations.",
+    body: "The platform is provided on an as-available basis. While aima aims to provide useful and reliable systems, no output should be treated as guaranteed, error-free, or universally applicable. Users should exercise judgment when relying on platform recommendations.",
   },
 ];
 
@@ -45,7 +45,7 @@ const Terms = () => {
     <>
       <SEOHead
         title="Terms of Service"
-        description="Read the terms that govern use of the USEAIMA platform, products, and AI-powered recommendations."
+        description="Read the terms that govern use of the aima platform, products, and AI-powered recommendations."
         path="/terms-of-service"
         structuredData={termsStructuredData}
       />
@@ -55,7 +55,7 @@ const Terms = () => {
           <div className="container max-w-3xl">
             <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">Terms of Service</h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              These terms provide a clear baseline for how USEAIMA products are offered and how users are expected to use
+              These terms provide a clear baseline for how aima products are offered and how users are expected to use
               the platform responsibly.
             </p>
 

@@ -7,7 +7,7 @@ const trustPoints = [
   {
     title: "Clear platform positioning",
     description:
-      "Visitors should understand immediately that USEAIMA is a platform of AI assistants for real-life decisions, not a vague experiment.",
+      "Visitors should understand immediately that aima is a platform of AI assistants for real-life decisions, not a vague experiment.",
     icon: ShieldCheck,
   },
   {
@@ -53,7 +53,7 @@ export function TrustSection() {
           <div>
             <h3 className="text-lg font-semibold">Explore the important pages</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Learn what USEAIMA is, how the platform works, and the policies that support a professional user experience.
+              Learn what aima is, how the platform works, and the policies that support a professional user experience.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

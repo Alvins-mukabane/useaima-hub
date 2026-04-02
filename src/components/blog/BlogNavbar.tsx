@@ -33,7 +33,7 @@ export function BlogNavbar() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
       <div className="container flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-          <Link to={getBlogRoute("/")} className="inline-flex items-center" aria-label="USEAIMA blog home">
+          <Link to={getBlogRoute("/")} className="inline-flex items-center" aria-label="aima blog home">
             <BrandLogo size="md" />
           </Link>
 

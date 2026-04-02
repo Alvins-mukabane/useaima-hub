@@ -1,9 +1,9 @@
 import { blogUrl, siteName, toolLinks } from "@/content/siteContent";
 
-export const blogTitle = `${siteName} Blog | Official USEAIMA Articles`;
+export const blogTitle = `${siteName} Blog | Official aima Articles`;
 export const blogDescription =
-  "The official USEAIMA blog publishes practical guides on AI, finance, social media, kids learning, and systems thinking across the USEAIMA ecosystem.";
-export const blogAuthor = "USEAIMA";
+  "The official aima blog publishes practical guides on AI, finance, social media, kids learning, and systems thinking across the aima ecosystem.";
+export const blogAuthor = "aima";
 
 export type BlogCategory = {
   slug: string;
@@ -75,16 +75,16 @@ export const blogCategories: BlogCategory[] = [
     title: "Social Media",
     description: "Analytics, creator workflows, and content strategy that lead to action instead of noise.",
     emoji: "📱",
-    gradient: "from-fuchsia-500 via-rose-500 to-orange-500",
-    badgeClassName: "bg-rose-500/10 text-rose-700 dark:text-rose-300",
+    gradient: "from-amber-300 via-amber-500 to-amber-700",
+    badgeClassName: "bg-amber-700/10 text-amber-800 dark:text-amber-300",
   },
   {
     slug: "kids-learning",
     title: "Kids & Learning",
     description: "Safe AI, practical learning design, and better digital experiences for children and families.",
     emoji: "🧒",
-    gradient: "from-amber-400 via-orange-400 to-pink-400",
-    badgeClassName: "bg-orange-500/10 text-orange-700 dark:text-orange-300",
+    gradient: "from-violet-500 via-violet-400 to-amber-300",
+    badgeClassName: "bg-violet-500/10 text-violet-700 dark:text-violet-300",
   },
   {
     slug: "dev-systems",
@@ -98,22 +98,28 @@ export const blogCategories: BlogCategory[] = [
 
 export const blogProducts = [
   {
-    name: "SocialPulse",
+    name: "ace",
+    logoSrc: "/ace-logo.png",
+    surfaceClass: "border-amber-700/20 bg-[#2d1c1a] text-amber-50",
     description: "Turn social data into decisions with insight-led analytics, trend detection, and content clarity.",
     href: toolLinks.socialPulse,
-    label: "Try SocialPulse",
+    label: "Try ace",
   },
   {
-    name: "FinanceAI",
+    name: "eva",
+    logoSrc: "/eva-logo.png",
+    surfaceClass: "border-emerald-500/20 bg-emerald-500/10",
     description: "Build a smarter personal finance workflow with tracking, analysis, and guided financial insights.",
     href: toolLinks.financeAI,
-    label: "Explore FinanceAI",
+    label: "Explore eva",
   },
   {
-    name: "KidsAI",
+    name: "ally",
+    logoSrc: "/ally-logo.png",
+    surfaceClass: "border-violet-500/20 bg-violet-500/10",
     description: "Design safer, more engaging AI-powered learning experiences for children and families.",
     href: toolLinks.kidsAI,
-    label: "Discover KidsAI",
+    label: "Discover ally",
   },
 ];
 
@@ -144,7 +150,7 @@ export const blogPosts: BlogPost[] = [
       "financial AI tools",
       "future of finance",
       "intelligent systems",
-      "FinanceAI",
+      "eva",
     ],
     summary:
       "AI agents are intelligent systems that can observe data, make decisions, and take actions independently to achieve specific goals. In finance, they make autonomous finance possible by tracking money in real time, spotting unusual patterns, and recommending better decisions before problems grow.",
@@ -154,7 +160,7 @@ export const blogPosts: BlogPost[] = [
       "AI agents can observe, decide, and act instead of only responding to prompts.",
       "Autonomous finance uses AI agents to monitor spending, detect risks, and suggest actions in real time.",
       "AI finance assistants reduce manual tracking, delayed decisions, and information overload.",
-      "FinanceAI shows how agent-style finance tools can turn financial data into actionable guidance.",
+      "eva shows how agent-style finance tools can turn financial data into actionable guidance.",
     ],
     sections: [
       {
@@ -162,7 +168,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "AI is no longer just a tool you use. It is becoming something that works for you independently. From managing emails to analyzing markets, a new type of system is emerging: AI agents.",
           "These systems are not just responsive. They are proactive, autonomous, and decision-driven. That is why they matter so much in 2026, especially in finance where small delays and missed patterns can have real consequences.",
-          "In this guide, you will learn what AI agents are, how they work in simple terms, why they are transforming finance, and how tools like FinanceAI make autonomous finance practical.",
+          "In this guide, you will learn what AI agents are, how they work in simple terms, why they are transforming finance, and how tools like eva make autonomous finance practical.",
         ],
       },
       {
@@ -233,9 +239,9 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Introducing FinanceAI",
+        heading: "Introducing eva",
         paragraphs: [
-          "FinanceAI is designed to bring AI agent capabilities into personal finance. Instead of forcing users to manage money manually, it is built to track spending automatically, detect unusual behavior, send intelligent alerts, and suggest improvements.",
+          "eva is designed to bring AI agent capabilities into personal finance. Instead of forcing users to manage money manually, it is built to track spending automatically, detect unusual behavior, send intelligent alerts, and suggest improvements.",
           "A useful finance agent does not just report what happened. It adds meaning. For example, it can explain that food spending is running far above normal and show why correcting now matters for the monthly target.",
           "That is the difference between raw data and autonomous finance. The system is not just recording transactions. It is helping the user make clearer money decisions sooner.",
         ],
@@ -251,12 +257,12 @@ export const blogPosts: BlogPost[] = [
         heading: "The Bigger Picture: AI Agents Everywhere",
         paragraphs: [
           "AI agents are not limited to finance. The same model is expanding into email management, content strategy, and education. Once people understand how valuable agent-style systems are in one area, it becomes easier to see the same pattern across the rest of digital life.",
-          "That wider ecosystem is already visible inside USEAIMA. SocialPulse focuses on social media intelligence, KidsAI focuses on learning and safer AI experiences, and FinanceAI focuses on financial intelligence. Each one is designed around assistance rather than passive reporting.",
+          "That wider ecosystem is already visible inside aima. ace focuses on social media intelligence, ally focuses on learning and safer AI experiences, and eva focuses on financial intelligence. Each one is designed around assistance rather than passive reporting.",
         ],
         bullets: [
-          "SocialPulse for social media intelligence.",
-          "KidsAI for learning and safe AI support.",
-          "FinanceAI for financial intelligence.",
+          "ace for social media intelligence.",
+          "ally for learning and safe AI support.",
+          "eva for financial intelligence.",
         ],
       },
       {
@@ -280,13 +286,13 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     inlineCallout:
-      "FinanceAI turns autonomous finance into a practical experience by tracking money patterns, spotting anomalies, and recommending useful next actions.",
+      "eva turns autonomous finance into a practical experience by tracking money patterns, spotting anomalies, and recommending useful next actions.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
       description:
-        "FinanceAI is the USEAIMA finance assistant built to track spending automatically, detect unusual behavior, and turn financial activity into actionable guidance.",
-      label: "Try FinanceAI",
+        "eva is the aima finance assistant built to track spending automatically, detect unusual behavior, and turn financial activity into actionable guidance.",
+      label: "Try eva",
     },
     faqs: [
       {
@@ -352,7 +358,7 @@ export const blogPosts: BlogPost[] = [
       "KYA stands for Know Your Agent, not Know Your Activity.",
       "KYC verifies the human user, while KYA verifies the software agent acting on the user's behalf.",
       "Trusted agentic finance needs identity, permissions, policy boundaries, and auditability.",
-      "FinanceAI fits this shift by helping users understand behavior and anomalies while the broader ecosystem moves toward agent-aware financial controls.",
+      "eva fits this shift by helping users understand behavior and anomalies while the broader ecosystem moves toward agent-aware financial controls.",
     ],
     sections: [
       {
@@ -433,11 +439,11 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Where FinanceAI Fits",
+        heading: "Where eva Fits",
         paragraphs: [
-          "FinanceAI fits this broader direction by helping users understand financial behavior, spot anomalies, and get clearer guidance from their money data. It is part of the move from reactive finance tools toward assistant-style financial intelligence.",
-          "It is important to be precise here: KYA is about trusted agent identity and control, while FinanceAI today is focused on insight, spending awareness, and anomaly visibility for users. Those ideas are connected, but they are not the same thing.",
-          "In other words, FinanceAI reflects the user side of this shift by helping people see behavioral patterns earlier, while the future of agentic finance will increasingly require KYA-style controls at the system level too.",
+          "eva fits this broader direction by helping users understand financial behavior, spot anomalies, and get clearer guidance from their money data. It is part of the move from reactive finance tools toward assistant-style financial intelligence.",
+          "It is important to be precise here: KYA is about trusted agent identity and control, while eva today is focused on insight, spending awareness, and anomaly visibility for users. Those ideas are connected, but they are not the same thing.",
+          "In other words, eva reflects the user side of this shift by helping people see behavioral patterns earlier, while the future of agentic finance will increasingly require KYA-style controls at the system level too.",
         ],
         bullets: [
           "Behavior monitoring and spending awareness.",
@@ -463,11 +469,11 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "KYC verifies the human. KYA verifies the agent acting for that human.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
       description:
-        "FinanceAI helps users understand spending behavior and anomaly signals now, while the broader future of autonomous finance moves toward stronger Know Your Agent controls.",
-      label: "Explore FinanceAI",
+        "eva helps users understand spending behavior and anomaly signals now, while the broader future of autonomous finance moves toward stronger Know Your Agent controls.",
+      label: "Explore eva",
     },
     faqs: [
       {
@@ -522,7 +528,7 @@ export const blogPosts: BlogPost[] = [
       "AI payment systems",
       "intelligent finance infrastructure",
       "future of fintech AI",
-      "FinanceAI",
+      "eva",
     ],
     summary:
       "A2A, AP2, and KYA describe three important layers of the agent economy: communication between agents, payment execution for agents, and trust controls for agents. Together, they point toward a future where financial systems can coordinate, transact, and enforce policy with much less human friction.",
@@ -532,7 +538,7 @@ export const blogPosts: BlogPost[] = [
       "A2A is the communication layer that lets AI agents coordinate directly.",
       "AP2 is the payment layer that allows agents to initiate and complete financial actions more safely.",
       "KYA is the trust layer that verifies which agent is acting and what it is allowed to do.",
-      "FinanceAI fits this direction by representing an early financial assistant that can evolve alongside agent communication, payment, and trust infrastructure.",
+      "eva fits this direction by representing an early financial assistant that can evolve alongside agent communication, payment, and trust infrastructure.",
     ],
     sections: [
       {
@@ -604,10 +610,10 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Where FinanceAI Fits",
+        heading: "Where eva Fits",
         paragraphs: [
-          "FinanceAI is not just a tracker. It is part of the shift toward assistant-style financial systems. Today it helps users understand spending, detect anomalies, and make better decisions with more context.",
-          "The long-term direction is what makes this especially interesting. A system like FinanceAI can evolve toward deeper integration with financial infrastructure, stronger agent communication patterns, and tighter trust controls as the wider agent economy matures.",
+          "eva is not just a tracker. It is part of the shift toward assistant-style financial systems. Today it helps users understand spending, detect anomalies, and make better decisions with more context.",
+          "The long-term direction is what makes this especially interesting. A system like eva can evolve toward deeper integration with financial infrastructure, stronger agent communication patterns, and tighter trust controls as the wider agent economy matures.",
           "That does not mean claiming full autonomous execution today. It means recognizing the path: better monitoring now, better coordination next, and stronger agent-aware finance systems over time.",
         ],
         bullets: [
@@ -635,11 +641,11 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "A2A enables agent coordination, AP2 enables agent payments, and KYA enables agent trust.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
       description:
-        "FinanceAI is the USEAIMA finance assistant that helps users understand financial behavior today while moving toward the more connected agent economy described by A2A, AP2, and KYA.",
-      label: "Try FinanceAI",
+        "eva is the aima finance assistant that helps users understand financial behavior today while moving toward the more connected agent economy described by A2A, AP2, and KYA.",
+      label: "Try eva",
     },
     faqs: [
       {
@@ -673,7 +679,7 @@ export const blogPosts: BlogPost[] = [
     title: "Agent-to-Agent (A2A) Payments: The Future of Autonomous Commerce in 2026",
     seoTitle: "Agent-to-Agent Payments Explained (A2A) - The Future of AI Commerce",
     description:
-      "Learn how A2A payments work, why they matter in 2026, and how AI agents will transact autonomously. Discover risks, opportunities, and how FinanceAI helps.",
+      "Learn how A2A payments work, why they matter in 2026, and how AI agents will transact autonomously. Discover risks, opportunities, and how eva helps.",
     excerpt:
       "A2A payments let AI agents transact directly with other agents, turning financial recommendations into autonomous execution across subscriptions, commerce, and operations.",
     categorySlug: "finance",
@@ -692,7 +698,7 @@ export const blogPosts: BlogPost[] = [
       "AI fintech",
       "future of payments 2026",
       "AI finance agents",
-      "FinanceAI",
+      "eva",
     ],
     summary:
       "Agent-to-Agent payments are transactions executed between autonomous systems rather than directly by humans. They matter because they move finance from manual confirmation toward real-time, policy-driven execution handled by AI agents.",
@@ -702,7 +708,7 @@ export const blogPosts: BlogPost[] = [
       "A2A payments let AI agents transact directly with other agents or systems.",
       "They reduce friction, delay, and repetitive manual financial work.",
       "Autonomous payments depend on trust, permissions, and strong monitoring.",
-      "FinanceAI fits this direction by helping users build the insight layer that can evolve toward more intelligent financial automation.",
+      "eva fits this direction by helping users build the insight layer that can evolve toward more intelligent financial automation.",
     ],
     sections: [
       {
@@ -782,11 +788,11 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "How FinanceAI Fits Into This Future",
+        heading: "How eva Fits Into This Future",
         paragraphs: [
-          "FinanceAI is already building part of the foundation for this future by helping users track spending behavior, detect wasteful patterns, receive alerts, and make better financial decisions with more context.",
+          "eva is already building part of the foundation for this future by helping users track spending behavior, detect wasteful patterns, receive alerts, and make better financial decisions with more context.",
           "That is the right starting point. Autonomous payments should not begin with blind execution. They should begin with clearer understanding of behavior, stronger anomaly detection, and more confidence in the system's recommendations.",
-          "Over time, a system like FinanceAI can evolve toward more automated financial coordination, more intelligent subscription management, and more human-in-the-loop A2A payment experiences.",
+          "Over time, a system like eva can evolve toward more automated financial coordination, more intelligent subscription management, and more human-in-the-loop A2A payment experiences.",
         ],
         bullets: [
           "Today: spending visibility, anomaly detection, and guidance.",
@@ -812,11 +818,11 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "A2A payments move finance from human-operated transactions toward rule-based execution between intelligent systems.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
       description:
-        "FinanceAI helps users start with insight, move toward automation, and prepare for more autonomous finance workflows over time.",
-      label: "Explore FinanceAI",
+        "eva helps users start with insight, move toward automation, and prepare for more autonomous finance workflows over time.",
+      label: "Explore eva",
     },
     faqs: [
       {
@@ -832,8 +838,8 @@ export const blogPosts: BlogPost[] = [
         answer: "Parts of the stack already exist today, but the broader autonomous commerce model is still maturing across infrastructure, trust, and regulation.",
       },
       {
-        question: "How does FinanceAI relate to A2A payments?",
-        answer: "FinanceAI helps users understand financial behavior and anomaly patterns today, which forms part of the foundation for more autonomous financial workflows later.",
+        question: "How does eva relate to A2A payments?",
+        answer: "eva helps users understand financial behavior and anomaly patterns today, which forms part of the foundation for more autonomous financial workflows later.",
       },
     ],
     relatedSlugs: [
@@ -866,7 +872,7 @@ export const blogPosts: BlogPost[] = [
       "saving money",
       "financial planning",
       "finance basics 2026",
-      "FinanceAI",
+      "eva",
     ],
     summary:
       "Personal finance is how you manage income, expenses, savings, investments, and protection in everyday life. It matters because better money systems reduce stress, increase control, and create stronger long-term financial outcomes.",
@@ -876,7 +882,7 @@ export const blogPosts: BlogPost[] = [
       "Personal finance is the system you use to manage income, spending, saving, investing, and protection.",
       "Most money problems come from low visibility, emotional decisions, and inconsistent habits.",
       "A simple beginner plan is often more useful than a complicated financial system.",
-      "FinanceAI can help people track spending, notice waste, and improve consistency with less manual effort.",
+      "eva can help people track spending, notice waste, and improve consistency with less manual effort.",
     ],
     sections: [
       {
@@ -948,9 +954,9 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Introducing FinanceAI",
+        heading: "Introducing eva",
         paragraphs: [
-          "FinanceAI is part of that shift. Instead of manually managing every detail, users can rely on a system that monitors spending patterns, detects unnecessary expenses, sends alerts, and recommends ways to improve financial behavior.",
+          "eva is part of that shift. Instead of manually managing every detail, users can rely on a system that monitors spending patterns, detects unnecessary expenses, sends alerts, and recommends ways to improve financial behavior.",
           "That makes it feel less like a passive dashboard and more like a personal finance assistant that helps users understand their money and build better habits.",
         ],
         bullets: [
@@ -992,11 +998,11 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "Personal finance gets easier when you can clearly see your habits, reduce waste, and make better decisions consistently.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
       description:
-        "FinanceAI helps beginners and growing users understand spending, catch waste earlier, and improve money habits with less manual effort.",
-      label: "Try FinanceAI",
+        "eva helps beginners and growing users understand spending, catch waste earlier, and improve money habits with less manual effort.",
+      label: "Try eva",
     },
     faqs: [
       {
@@ -1095,20 +1101,20 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "What USEAIMA is building",
+        heading: "What aima is building",
         paragraphs: [
-          "USEAIMA is built around this exact shift. Instead of adding more disconnected tools, the ecosystem is designed around assistants that actually help with decisions and next actions.",
-          "SocialPulse focuses on social media intelligence, FinanceAI focuses on financial clarity, and KidsAI focuses on safe and structured learning. Together, they reflect the move from isolated apps toward a connected assistant model.",
+          "aima is built around this exact shift. Instead of adding more disconnected tools, the ecosystem is designed around assistants that actually help with decisions and next actions.",
+          "ace focuses on social media intelligence, eva focuses on financial clarity, and ally focuses on safe and structured learning. Together, they reflect the move from isolated apps toward a connected assistant model.",
         ],
       },
     ],
     inlineCallout:
       "The real software question is no longer which app should I open. It is what do I want done.",
     productCta: {
-      name: "USEAIMA Ecosystem",
+      name: "aima Ecosystem",
       href: "https://useaima.com/#products",
       description:
-        "Explore how USEAIMA is building assistant-style products across social media, finance, and learning instead of more disconnected dashboards.",
+        "Explore how aima is building assistant-style products across social media, finance, and learning instead of more disconnected dashboards.",
       label: "Explore the Ecosystem",
     },
     relatedSlugs: [
@@ -1131,7 +1137,7 @@ export const blogPosts: BlogPost[] = [
     featured: true,
     eyebrow: "Traffic Magnet",
     thumbnailClassName: "from-fuchsia-500 via-rose-500 to-orange-400",
-    tags: ["social media views", "content strategy", "algorithm", "creator growth", "SocialPulse"],
+    tags: ["social media views", "content strategy", "algorithm", "creator growth", "ace"],
     summary:
       "Most low-view social media content fails because it does not win attention early, maintain retention, or build on clear data. Growth improves when creators stop guessing and start analyzing patterns.",
     simpleExplanation:
@@ -1191,21 +1197,21 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "How SocialPulse fits",
+        heading: "How ace fits",
         paragraphs: [
-          "SocialPulse is built for exactly this problem. It helps users analyze content performance, spot trends earlier, discover content ideas, and build a stronger growth strategy without relying only on guesswork.",
-          "If the goal is to turn content creation into a system rather than a gamble, tools like SocialPulse are part of the shift from manual analytics to assistant-style growth support.",
+          "ace is built for exactly this problem. It helps users analyze content performance, spot trends earlier, discover content ideas, and build a stronger growth strategy without relying only on guesswork.",
+          "If the goal is to turn content creation into a system rather than a gamble, tools like ace are part of the shift from manual analytics to assistant-style growth support.",
         ],
       },
     ],
     inlineCallout:
       "Once you understand the system and use data well, social growth stops feeling random and starts feeling repeatable.",
     productCta: {
-      name: "SocialPulse",
+      name: "ace",
       href: toolLinks.socialPulse,
       description:
-        "Use SocialPulse to analyze content performance, surface trend opportunities, and make smarter decisions about what to post next.",
-      label: "Try SocialPulse",
+        "Use ace to analyze content performance, surface trend opportunities, and make smarter decisions about what to post next.",
+      label: "Try ace",
     },
     relatedSlugs: [
       "what-creators-should-measure-before-posting-again",
@@ -1256,19 +1262,19 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Where USEAIMA fits",
+        heading: "Where aima fits",
         paragraphs: [
-          "USEAIMA is built around this assistant model. Whether the task is understanding finances, reviewing social performance, or creating safer learning experiences, the goal is the same: reduce guesswork and help people move faster with more confidence.",
+          "aima is built around this assistant model. Whether the task is understanding finances, reviewing social performance, or creating safer learning experiences, the goal is the same: reduce guesswork and help people move faster with more confidence.",
         ],
       },
     ],
     inlineCallout:
       "Agentic products become valuable when they shorten the path between seeing a signal and taking the next step.",
     productCta: {
-      name: "SocialPulse",
+      name: "ace",
       href: toolLinks.socialPulse,
-      description: "Instead of guessing what content worked, SocialPulse helps translate performance signals into next actions.",
-      label: "Try SocialPulse",
+      description: "Instead of guessing what content worked, ace helps translate performance signals into next actions.",
+      label: "Try ace",
     },
     relatedSlugs: ["what-are-ai-agents", "choosing-ai-tools-that-reduce-work", "why-ai-products-need-operational-clarity"],
   },
@@ -1315,19 +1321,19 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Why this matters for USEAIMA",
+        heading: "Why this matters for aima",
         paragraphs: [
-          "USEAIMA is designed around ecosystems rather than isolated tools. That makes it easier to create products that support decisions across finance, productivity, learning, and digital growth without trapping users inside disconnected interfaces.",
+          "aima is designed around ecosystems rather than isolated tools. That makes it easier to create products that support decisions across finance, productivity, learning, and digital growth without trapping users inside disconnected interfaces.",
         ],
       },
     ],
     inlineCallout:
       "Software should not make users interpret five dashboards before taking one action.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
-      description: "FinanceAI is designed to help users interpret patterns and make better financial decisions with less manual effort.",
-      label: "Explore FinanceAI",
+      description: "eva is designed to help users interpret patterns and make better financial decisions with less manual effort.",
+      label: "Explore eva",
     },
     relatedSlugs: ["what-are-ai-agents", "what-is-agentic-ai-and-why-it-matters", "weekly-finance-review-with-ai"],
   },
@@ -1383,10 +1389,10 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "Better finance systems help users notice what changed and decide what to do next.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
-      description: "FinanceAI can support a repeatable review process with clearer spending insights, risk signals, and context-aware summaries.",
-      label: "Explore FinanceAI",
+      description: "eva can support a repeatable review process with clearer spending insights, risk signals, and context-aware summaries.",
+      label: "Explore eva",
     },
     relatedSlugs: ["what-is-kya-know-your-agent", "what-are-ai-agents", "why-most-budgets-fail-and-what-to-track-instead"],
   },
@@ -1441,10 +1447,10 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "Tracking better signals is often more powerful than building a more complicated budget.",
     productCta: {
-      name: "FinanceAI",
+      name: "eva",
       href: toolLinks.financeAI,
-      description: "FinanceAI is designed around pattern recognition and actionable clarity, not just record keeping.",
-      label: "See FinanceAI",
+      description: "eva is designed around pattern recognition and actionable clarity, not just record keeping.",
+      label: "See eva",
     },
     relatedSlugs: ["weekly-finance-review-with-ai", "what-is-agentic-ai-and-why-it-matters"],
   },
@@ -1499,10 +1505,10 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "The best content systems learn from the previous post before publishing the next one.",
     productCta: {
-      name: "SocialPulse",
+      name: "ace",
       href: toolLinks.socialPulse,
-      description: "SocialPulse helps creators understand what signals matter and where the next content decision should come from.",
-      label: "Try SocialPulse",
+      description: "ace helps creators understand what signals matter and where the next content decision should come from.",
+      label: "Try ace",
     },
     relatedSlugs: ["social-media-analytics-that-lead-to-action", "choosing-ai-tools-that-reduce-work"],
   },
@@ -1557,10 +1563,10 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "Strong analytics do not stop at explanation. They shorten the time to the next experiment.",
     productCta: {
-      name: "SocialPulse",
+      name: "ace",
       href: toolLinks.socialPulse,
-      description: "SocialPulse is built to surface content opportunities, trend signals, and clearer next steps for teams and creators.",
-      label: "Open SocialPulse",
+      description: "ace is built to surface content opportunities, trend signals, and clearer next steps for teams and creators.",
+      label: "Open ace",
     },
     relatedSlugs: ["what-creators-should-measure-before-posting-again", "what-is-agentic-ai-and-why-it-matters"],
   },
@@ -1606,19 +1612,19 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Why this matters to USEAIMA",
+        heading: "Why this matters to aima",
         paragraphs: [
-          "KidsAI is part of the wider USEAIMA vision of building assistants that are useful, understandable, and responsible. For children, that responsibility needs to be visible at every touchpoint.",
+          "ally is part of the wider aima vision of building assistants that are useful, understandable, and responsible. For children, that responsibility needs to be visible at every touchpoint.",
         ],
       },
     ],
     inlineCallout:
       "Trust in learning products comes from visible design choices, not marketing promises.",
     productCta: {
-      name: "KidsAI",
+      name: "ally",
       href: toolLinks.kidsAI,
-      description: "KidsAI is designed around safe, engaging, and practical AI-supported learning experiences.",
-      label: "Discover KidsAI",
+      description: "ally is designed around safe, engaging, and practical AI-supported learning experiences.",
+      label: "Discover ally",
     },
     relatedSlugs: ["what-is-agentic-ai-and-why-it-matters", "why-ai-products-need-operational-clarity"],
   },
@@ -1673,10 +1679,10 @@ export const blogPosts: BlogPost[] = [
     inlineCallout:
       "Operational clarity is part of the user experience because reliability changes how people trust the product.",
     productCta: {
-      name: "USEAIMA",
+      name: "aima",
       href: "https://useaima.com/about",
-      description: "USEAIMA is being built as an ecosystem of practical AI systems with clearer product intent and stronger trust signals.",
-      label: "About USEAIMA",
+      description: "aima is being built as an ecosystem of practical AI systems with clearer product intent and stronger trust signals.",
+      label: "About aima",
     },
     relatedSlugs: ["what-is-agentic-ai-and-why-it-matters", "designing-safe-ai-learning-for-kids"],
   },

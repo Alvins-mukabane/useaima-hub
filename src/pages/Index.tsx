@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { WhatIsUseaimaSection } from "@/components/WhatIsUseaimaSection";
+import { WhatIsaimaSection } from "@/components/WhatIsUseaimaSection";
 import { ProductEcosystem } from "@/components/ProductEcosystem";
 import { TrustSection } from "@/components/TrustSection";
 import { BlogPreview } from "@/components/BlogPreview";
@@ -26,10 +26,10 @@ const homeStructuredData = [
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteName,
-    alternateName: ["Useaima", "USEAIMA AI"],
+    alternateName: ["aima", "aima AI"],
     url: siteUrl,
-    logo: `${siteUrl}/android-chrome-512x512.png`,
-    image: `${siteUrl}/og-image.svg`,
+    logo: `${siteUrl}/aima-mark.png`,
+    image: `${siteUrl}/aima-mark.png`,
     description: siteDescription,
     email: siteEmail,
     slogan: siteTagline,
@@ -37,19 +37,19 @@ const homeStructuredData = [
     hasPart: [
       {
         "@type": "SoftwareApplication",
-        name: "SocialPulse",
+        name: "ace",
         applicationCategory: "BusinessApplication",
         url: toolLinks.socialPulse,
       },
       {
         "@type": "SoftwareApplication",
-        name: "FinanceAI",
+        name: "eva",
         applicationCategory: "FinanceApplication",
         url: toolLinks.financeAI,
       },
       {
         "@type": "SoftwareApplication",
-        name: "KidsAI",
+        name: "ally",
         applicationCategory: "EducationalApplication",
         url: toolLinks.kidsAI,
       },
@@ -66,7 +66,7 @@ const homeStructuredData = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteName,
-    alternateName: ["USEAIMA Official Website", "Useaima"],
+    alternateName: ["aima Official Website", "aima"],
     url: siteUrl,
     description: siteDescription,
     publisher: {
@@ -83,7 +83,7 @@ const homeStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "USEAIMA Official Website",
+    name: "aima Official Website",
     url: siteUrl,
     description: siteBrandSummary,
     about: {
@@ -113,10 +113,10 @@ const homeStructuredData = [
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "FinanceAI", url: toolLinks.financeAI },
+      { "@type": "ListItem", position: 1, name: "eva", url: toolLinks.financeAI },
       { "@type": "ListItem", position: 2, name: "EmailAI", url: toolLinks.emailAI },
-      { "@type": "ListItem", position: 3, name: "KidsAI", url: toolLinks.kidsAI },
-      { "@type": "ListItem", position: 4, name: "SocialPulse", url: toolLinks.socialPulse },
+      { "@type": "ListItem", position: 3, name: "ally", url: toolLinks.kidsAI },
+      { "@type": "ListItem", position: 4, name: "ace", url: toolLinks.socialPulse },
       { "@type": "ListItem", position: 5, name: "HealthAI", url: `${siteUrl}/health` },
       { "@type": "ListItem", position: 6, name: "Blog", url: blogUrl },
     ],
@@ -126,14 +126,14 @@ const homeStructuredData = [
 const Index = () => (
   <>
     <SEOHead
-      title="USEAIMA Official Website | AI Assistants for Everyday Decisions"
+      title="aima Official Website | AI Assistants for Everyday Decisions"
       description={siteDescription}
       path="/"
       keywords={[...brandKeywords]}
       alternateLinks={[
         {
           type: "application/rss+xml",
-          title: "USEAIMA Blog Feed",
+          title: "aima Blog Feed",
           href: `${blogUrl}/blog-feed.xml`,
         },
       ]}
@@ -142,7 +142,7 @@ const Index = () => (
     <Navbar />
     <main>
       <HeroSection />
-      <WhatIsUseaimaSection />
+      <WhatIsaimaSection />
       <ProductEcosystem />
       <TrustSection />
       <BlogPreview />

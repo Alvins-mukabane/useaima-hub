@@ -6,10 +6,10 @@ const sections = [
   {
     title: "Products",
     links: [
-      { label: "FinanceAI", to: toolLinks.financeAI, external: true },
+      { label: "eva", to: toolLinks.financeAI, external: true },
       { label: "EmailAI", to: toolLinks.emailAI, external: true },
-      { label: "KidsAI", to: toolLinks.kidsAI, external: true },
-      { label: "SocialPulse", to: toolLinks.socialPulse, external: true },
+      { label: "ally", to: toolLinks.kidsAI, external: true },
+      { label: "ace", to: toolLinks.socialPulse, external: true },
       { label: "HealthAI", to: "/health" },
     ],
   },
@@ -66,7 +66,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} USEAIMA. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} aima. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/about" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
               About Us

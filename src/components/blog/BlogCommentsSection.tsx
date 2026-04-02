@@ -161,7 +161,7 @@ export function BlogCommentsSection({ slug, title, articleUrl }: BlogCommentsSec
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs leading-6 text-muted-foreground">
-            New comments can notify the USEAIMA team by email and Slack, so keep the discussion thoughtful and specific.
+            New comments can notify the aima team by email and Slack, so keep the discussion thoughtful and specific.
           </p>
           <Button type="submit" className="rounded-full" disabled={submitting}>
             {submitting ? (

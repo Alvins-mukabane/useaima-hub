@@ -25,7 +25,7 @@ const healthStructuredData = [
       name: siteName,
       url: siteUrl,
     },
-    description: "HealthAI is the upcoming USEAIMA health intelligence experience focused on preventive insights and better health decision support.",
+    description: "HealthAI is the upcoming aima health intelligence experience focused on preventive insights and better health decision support.",
   },
 ];
 
@@ -35,7 +35,7 @@ const Health = () => {
     <>
       <SEOHead
         title="HealthAI"
-        description="Learn about HealthAI, the upcoming USEAIMA health intelligence product focused on preventive insights and smarter recommendations."
+        description="Learn about HealthAI, the upcoming aima health intelligence product focused on preventive insights and smarter recommendations."
         path="/health"
         keywords={["HealthAI", "AI health assistant", "preventive health insights", "health intelligence"]}
         structuredData={healthStructuredData}

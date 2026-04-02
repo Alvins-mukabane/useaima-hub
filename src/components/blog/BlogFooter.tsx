@@ -25,7 +25,7 @@ export function BlogFooter() {
                 href="https://useaima.com/about"
                 className="rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-background"
               >
-                About USEAIMA
+                About aima
               </a>
               <a
                 href="https://blog.useaima.com/blog-feed.xml"
@@ -59,7 +59,7 @@ export function BlogFooter() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">Built By USEAIMA</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">Built By aima</h3>
             <div className="mt-5 space-y-4">
               {blogProducts.map((product) => (
                 <a
@@ -67,7 +67,10 @@ export function BlogFooter() {
                   href={product.href}
                   className="block rounded-2xl border bg-card p-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
                 >
-                  <p className="font-semibold">{product.name}</p>
+                  <div className={`flex min-h-16 items-center rounded-2xl border px-4 py-3 ${product.surfaceClass}`}>
+                    <img src={product.logoSrc} alt={product.name} className="h-9 w-auto max-w-full object-contain" draggable="false" />
+                  </div>
+                  <p className="mt-4 font-semibold">{product.name}</p>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.description}</p>
                   <span className="mt-4 inline-flex text-sm font-medium text-primary">{product.label}</span>
                 </a>
@@ -77,7 +80,7 @@ export function BlogFooter() {
         </div>
 
         <div className="mt-12 border-t pt-6 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} USEAIMA Blog. Built for learning, trust, and product discovery.
+          © {new Date().getFullYear()} aima Blog. Built for learning, trust, and product discovery.
         </div>
       </div>
     </footer>
