@@ -16,7 +16,7 @@ const pillars = [
   {
     title: "One ecosystem across real life",
     description:
-      "Finance, communication, health, learning, and digital growth tools are designed to work together as a unified platform.",
+      "Finance, communication, productivity, and digital growth tools are designed to work together as a unified platform.",
     icon: Layers3,
   },
   {
@@ -33,7 +33,7 @@ export function WhatIsaimaSection() {
       <div className="container">
         <SectionHeader
           title="What Is aima?"
-          subtitle="aima is the official platform behind the aima ecosystem, building intelligent systems that help people make better decisions across finance, communication, health, learning, productivity, and digital growth."
+          subtitle="aima is the official platform behind the aima ecosystem, building intelligent systems that help people make better decisions across finance, communication, productivity, and digital growth."
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">

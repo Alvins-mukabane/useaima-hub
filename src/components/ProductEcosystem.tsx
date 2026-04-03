@@ -1,4 +1,4 @@
-import { DollarSign, Mail, Baby, BarChart3, HeartPulse, ArrowRight } from "lucide-react";
+import { DollarSign, Mail, BarChart3, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SectionHeader } from "./SectionHeader";
 import { cn } from "@/lib/utils";
@@ -13,33 +13,24 @@ const products = [
     logoFrameClass:
       "flex min-h-16 flex-1 items-center rounded-2xl border border-emerald-500/15 bg-emerald-500/10 px-4 py-3 dark:border-emerald-400/20 dark:bg-emerald-400/10",
     logoImageClass: "h-10 w-auto max-w-full object-contain",
+    logoWidth: 547,
+    logoHeight: 374,
     status: "Live" as const,
     description: "AI financial advisor that tracks spending behavior, provides real-time insights, and detects risks & opportunities.",
     features: ["Spending behavior tracking", "Real-time financial insights", "Risk & opportunity detection"],
     link: toolLinks.financeAI,
     external: true,
+    ctaLabel: "Open eva",
   },
   {
-    name: "EmailAI",
+    name: "MailMind",
     icon: Mail,
     status: "Beta" as const,
     description: "AI email intelligence that summarizes emails, detects deadlines and tasks, and generates daily action plans.",
     features: ["Smart email summaries", "Deadline & task detection", "Daily action plans"],
     link: toolLinks.emailAI,
     external: true,
-  },
-  {
-    name: "ally",
-    icon: Baby,
-    logoSrc: "/ally-logo.png",
-    logoFrameClass:
-      "flex min-h-16 flex-1 items-center rounded-2xl border border-violet-500/20 bg-violet-500/10 px-4 py-3 dark:border-violet-400/20 dark:bg-violet-400/10",
-    logoImageClass: "h-12 w-auto max-w-full object-contain",
-    status: "Live" as const,
-    description: "AI learning and entertainment platform for kids — safe, personalized education combined with games.",
-    features: ["Safe environment", "Personalized education", "Interactive games"],
-    link: toolLinks.kidsAI,
-    external: true,
+    ctaLabel: "Open MailMind",
   },
   {
     name: "ace",
@@ -48,26 +39,20 @@ const products = [
     logoFrameClass:
       "flex min-h-16 flex-1 items-center rounded-2xl border border-amber-700/20 bg-[#2d1c1a] px-4 py-3 dark:border-amber-500/20 dark:bg-[#261715]",
     logoImageClass: "h-11 w-auto max-w-full object-contain",
+    logoWidth: 712,
+    logoHeight: 465,
     status: "Beta" as const,
     description: "AI social media analytics agent with cross-platform analytics, trend discovery, and content idea generation.",
     features: ["Cross-platform analytics", "Trend discovery", "Algorithm change detection"],
     link: toolLinks.socialPulse,
     external: true,
-  },
-  {
-    name: "HealthAI",
-    icon: HeartPulse,
-    status: "Coming Soon" as const,
-    description: "AI health intelligence system with preventive health insights and smart recommendations.",
-    features: ["Preventive health insights", "Smart recommendations", "Health tracking"],
-    link: "/health",
+    ctaLabel: "Open ace",
   },
 ];
 
 const statusColors = {
   Live: "bg-primary/10 text-primary",
   Beta: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-  "Coming Soon": "bg-muted text-muted-foreground",
 };
 
 export function ProductEcosystem() {
@@ -114,9 +99,14 @@ function ProductCard({ product, index }: { product: (typeof products)[number]; i
           {hasLogo ? (
             <img
               src={product.logoSrc}
-              alt={product.name}
+              alt=""
+              aria-hidden="true"
+              width={product.logoWidth}
+              height={product.logoHeight}
               className={product.logoImageClass}
               draggable="false"
+              loading="lazy"
+              decoding="async"
             />
           ) : (
             <Icon className="h-5 w-5" />
@@ -142,15 +132,16 @@ function ProductCard({ product, index }: { product: (typeof products)[number]; i
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
+          aria-label={product.ctaLabel}
         >
-          {product.status === "Coming Soon" ? "Learn More" : "Explore"} <ArrowRight className="h-3.5 w-3.5" />
+          {product.ctaLabel} <ArrowRight className="h-3.5 w-3.5" />
         </a>
       ) : (
         <Link
           to={product.link}
           className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
         >
-          {product.status === "Coming Soon" ? "Learn More" : "Explore"} <ArrowRight className="h-3.5 w-3.5" />
+          {product.ctaLabel} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       )}
     </div>

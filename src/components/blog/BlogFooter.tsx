@@ -68,7 +68,17 @@ export function BlogFooter() {
                   className="block rounded-2xl border bg-card p-4 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
                 >
                   <div className={`flex min-h-16 items-center rounded-2xl border px-4 py-3 ${product.surfaceClass}`}>
-                    <img src={product.logoSrc} alt={product.name} className="h-9 w-auto max-w-full object-contain" draggable="false" />
+                    <img
+                      src={product.logoSrc}
+                      alt=""
+                      aria-hidden="true"
+                      width={product.logoWidth}
+                      height={product.logoHeight}
+                      className="h-9 w-auto max-w-full object-contain"
+                      draggable="false"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <p className="mt-4 font-semibold">{product.name}</p>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.description}</p>

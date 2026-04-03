@@ -2,7 +2,7 @@ import { blogUrl, siteName, toolLinks } from "@/content/siteContent";
 
 export const blogTitle = `${siteName} Blog | Official aima Articles`;
 export const blogDescription =
-  "The official aima blog publishes practical guides on AI, finance, social media, kids learning, and systems thinking across the aima ecosystem.";
+  "The official aima blog publishes practical guides on AI, finance, social media, and systems thinking across the aima ecosystem.";
 export const blogAuthor = "aima";
 
 export type BlogCategory = {
@@ -79,14 +79,6 @@ export const blogCategories: BlogCategory[] = [
     badgeClassName: "bg-amber-700/10 text-amber-800 dark:text-amber-300",
   },
   {
-    slug: "kids-learning",
-    title: "Kids & Learning",
-    description: "Safe AI, practical learning design, and better digital experiences for children and families.",
-    emoji: "🧒",
-    gradient: "from-violet-500 via-violet-400 to-amber-300",
-    badgeClassName: "bg-violet-500/10 text-violet-700 dark:text-violet-300",
-  },
-  {
     slug: "dev-systems",
     title: "Dev & Systems",
     description: "Infrastructure, operations, product systems, and the engineering discipline behind useful AI.",
@@ -101,6 +93,8 @@ export const blogProducts = [
     name: "ace",
     logoSrc: "/ace-logo.png",
     surfaceClass: "border-amber-700/20 bg-[#2d1c1a] text-amber-50",
+    logoWidth: 712,
+    logoHeight: 465,
     description: "Turn social data into decisions with insight-led analytics, trend detection, and content clarity.",
     href: toolLinks.socialPulse,
     label: "Try ace",
@@ -108,18 +102,12 @@ export const blogProducts = [
   {
     name: "eva",
     logoSrc: "/eva-logo.png",
+    logoWidth: 547,
+    logoHeight: 374,
     surfaceClass: "border-emerald-500/20 bg-emerald-500/10",
     description: "Build a smarter personal finance workflow with tracking, analysis, and guided financial insights.",
     href: toolLinks.financeAI,
     label: "Explore eva",
-  },
-  {
-    name: "ally",
-    logoSrc: "/ally-logo.png",
-    surfaceClass: "border-violet-500/20 bg-violet-500/10",
-    description: "Design safer, more engaging AI-powered learning experiences for children and families.",
-    href: toolLinks.kidsAI,
-    label: "Discover ally",
   },
 ];
 
@@ -256,12 +244,12 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The Bigger Picture: AI Agents Everywhere",
         paragraphs: [
-          "AI agents are not limited to finance. The same model is expanding into email management, content strategy, and education. Once people understand how valuable agent-style systems are in one area, it becomes easier to see the same pattern across the rest of digital life.",
-          "That wider ecosystem is already visible inside aima. ace focuses on social media intelligence, ally focuses on learning and safer AI experiences, and eva focuses on financial intelligence. Each one is designed around assistance rather than passive reporting.",
+          "AI agents are not limited to finance. The same model is expanding into email management, content strategy, and communication workflows. Once people understand how valuable agent-style systems are in one area, it becomes easier to see the same pattern across the rest of digital life.",
+          "That wider ecosystem is already visible inside aima. ace focuses on social media intelligence, MailMind focuses on inbox clarity, and eva focuses on financial intelligence. Each one is designed around assistance rather than passive reporting.",
         ],
         bullets: [
           "ace for social media intelligence.",
-          "ally for learning and safe AI support.",
+          "MailMind for inbox clarity and follow-up support.",
           "eva for financial intelligence.",
         ],
       },
@@ -1104,7 +1092,7 @@ export const blogPosts: BlogPost[] = [
         heading: "What aima is building",
         paragraphs: [
           "aima is built around this exact shift. Instead of adding more disconnected tools, the ecosystem is designed around assistants that actually help with decisions and next actions.",
-          "ace focuses on social media intelligence, eva focuses on financial clarity, and ally focuses on safe and structured learning. Together, they reflect the move from isolated apps toward a connected assistant model.",
+          "ace focuses on social media intelligence, eva focuses on financial clarity, and MailMind focuses on inbox clarity and follow-up. Together, they reflect the move from isolated apps toward a connected assistant model.",
         ],
       },
     ],
@@ -1569,64 +1557,6 @@ export const blogPosts: BlogPost[] = [
       label: "Open ace",
     },
     relatedSlugs: ["what-creators-should-measure-before-posting-again", "what-is-agentic-ai-and-why-it-matters"],
-  },
-  {
-    slug: "designing-safe-ai-learning-for-kids",
-    title: "Designing Safe AI Learning Experiences for Kids",
-    description: "A practical look at safe AI learning design for children, parents, and education-focused product builders.",
-    excerpt: "Safe AI for kids is not only about content filtering. It is about designing the whole experience around trust, age-appropriateness, and transparency.",
-    categorySlug: "kids-learning",
-    publishedAt: "2026-03-19",
-    updatedAt: "2026-03-24",
-    readingTime: "6 min read",
-    featured: false,
-    eyebrow: "Learning Design",
-    thumbnailClassName: "from-amber-400 via-orange-400 to-pink-400",
-    tags: ["kids AI", "learning", "safety"],
-    summary:
-      "Safe AI learning starts with experience design, not just moderation. Children need age-appropriate responses, clear boundaries, and systems that help parents understand what the product is doing.",
-    simpleExplanation:
-      "If you build AI for kids, safety has to be built into the full experience. It cannot be an afterthought added at the end.",
-    keyTakeaways: [
-      "Safety for kids includes tone, pacing, transparency, and control.",
-      "Parents need visibility and trust, not vague claims.",
-      "AI learning experiences should support curiosity without creating confusion.",
-    ],
-    sections: [
-      {
-        heading: "Safety is more than filtering",
-        paragraphs: [
-          "Content filtering matters, but it is not enough. Safe products for children also need boundaries around conversation style, progression, and the kinds of actions the system encourages.",
-        ],
-      },
-      {
-        heading: "Design for children and parents",
-        paragraphs: [
-          "The product should feel approachable to children while remaining transparent to parents. That balance is what turns a clever demo into a trustworthy learning environment.",
-        ],
-        bullets: [
-          "Use age-appropriate language and pacing.",
-          "Show parents what the child is interacting with.",
-          "Create simple controls and visible guardrails.",
-          "Support learning goals instead of endless engagement loops.",
-        ],
-      },
-      {
-        heading: "Why this matters to aima",
-        paragraphs: [
-          "ally is part of the wider aima vision of building assistants that are useful, understandable, and responsible. For children, that responsibility needs to be visible at every touchpoint.",
-        ],
-      },
-    ],
-    inlineCallout:
-      "Trust in learning products comes from visible design choices, not marketing promises.",
-    productCta: {
-      name: "ally",
-      href: toolLinks.kidsAI,
-      description: "ally is designed around safe, engaging, and practical AI-supported learning experiences.",
-      label: "Discover ally",
-    },
-    relatedSlugs: ["what-is-agentic-ai-and-why-it-matters", "why-ai-products-need-operational-clarity"],
   },
   {
     slug: "why-ai-products-need-operational-clarity",

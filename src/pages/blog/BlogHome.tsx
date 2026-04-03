@@ -288,7 +288,17 @@ export default function BlogHome() {
                 >
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">aima Product</p>
                   <div className={`mt-4 flex min-h-20 items-center rounded-[1.35rem] border px-4 py-4 ${product.surfaceClass}`}>
-                    <img src={product.logoSrc} alt={product.name} className="h-11 w-auto max-w-full object-contain" draggable="false" />
+                    <img
+                      src={product.logoSrc}
+                      alt=""
+                      aria-hidden="true"
+                      width={product.logoWidth}
+                      height={product.logoHeight}
+                      className="h-11 w-auto max-w-full object-contain"
+                      draggable="false"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <h3 className="mt-5 text-2xl font-semibold">{product.name}</h3>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">{product.description}</p>

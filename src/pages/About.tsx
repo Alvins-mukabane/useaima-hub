@@ -16,14 +16,6 @@ const focusAreas = [
     description: "Turning emails and messages into structured insights, tasks, priorities, and actions.",
   },
   {
-    title: "Learning and Kids",
-    description: "Creating safe, engaging, and practical AI-powered learning environments for different ages and needs.",
-  },
-  {
-    title: "Health",
-    description: "Exploring intelligent systems for personal health awareness, prevention, and better decision support.",
-  },
-  {
     title: "Digital Growth",
     description: "Providing creators, marketers, and operators with tools powered by actionable data and AI insight.",
   },
@@ -54,7 +46,7 @@ const aboutStructuredData = [
     name: "About aima",
     url: `${siteUrl}/about`,
     description:
-      "Learn about aima, an AI-powered platform building intelligent systems for finance, communication, learning, health, productivity, and digital growth.",
+      "Learn about aima, an AI-powered platform building intelligent systems for finance, communication, productivity, and digital growth.",
     isPartOf: siteUrl,
     about: {
       "@type": "Organization",
@@ -76,7 +68,7 @@ const About = () => {
         structuredData={aboutStructuredData}
       />
       <Navbar />
-      <main>
+      <main id="main-content">
         <section className="py-24">
           <div className="container">
             <div className="mx-auto max-w-4xl">

@@ -8,8 +8,6 @@ import { ScrollToHash } from "@/components/ScrollToHash";
 import { isBlogHost } from "@/lib/siteMode";
 import Index from "./pages/Index";
 import Finance from "./pages/Finance";
-import Health from "./pages/Health";
-import Kids from "./pages/Kids";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -46,8 +44,6 @@ const App = () => {
                 <>
                   <Route path="/" element={<Index />} />
                   <Route path="/finance" element={<Finance />} />
-                  <Route path="/health" element={<Health />} />
-                  <Route path="/kids" element={<Kids />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/terms-of-service" element={<Terms />} />

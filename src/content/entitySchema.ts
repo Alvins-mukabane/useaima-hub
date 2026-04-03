@@ -2,7 +2,7 @@ import { blogUrl, siteDescription, siteName, siteTagline, siteUrl, toolLinks } f
 
 export type StructuredDataEntry = Record<string, unknown>;
 
-export type AgentKey = "ace" | "eva" | "ally" | "mailmind" | "healthai";
+export type AgentKey = "ace" | "eva" | "mailmind";
 
 export type AgentProfile = {
   key: AgentKey;
@@ -31,19 +31,7 @@ export const agentProfiles: AgentProfile[] = [
     description: "AI finance assistant for spending visibility, anomaly detection, and decision support.",
     utilityTldr: "eva helps users understand spending, spot risks early, and turn financial signals into next-step guidance.",
     previewLabel: "Agent Preview",
-    relatedKeys: ["ace", "ally", "healthai"],
-  },
-  {
-    key: "ally",
-    name: "ally",
-    applicationCategory: "EducationalApplication",
-    pageHref: `${siteUrl}/kids`,
-    toolHref: toolLinks.kidsAI,
-    logoPath: "/ally-logo.png",
-    description: "Safe AI learning assistant for children and families with trust-first interaction design.",
-    utilityTldr: "ally combines safe AI exploration, guided learning, and parent-friendly trust controls for children.",
-    previewLabel: "Agent Preview",
-    relatedKeys: ["eva", "ace", "healthai"],
+    relatedKeys: ["ace", "mailmind"],
   },
   {
     key: "ace",
@@ -55,7 +43,7 @@ export const agentProfiles: AgentProfile[] = [
     description: "AI social media intelligence agent for content analysis, trend detection, and growth decisions.",
     utilityTldr: "ace turns social analytics into practical next steps for creators, marketers, and growth-focused teams.",
     previewLabel: "Agent Preview",
-    relatedKeys: ["eva", "ally", "mailmind"],
+    relatedKeys: ["eva", "mailmind"],
   },
   {
     key: "mailmind",
@@ -63,23 +51,11 @@ export const agentProfiles: AgentProfile[] = [
     applicationCategory: "ProductivityApplication",
     pageHref: `${siteUrl}/#products`,
     toolHref: toolLinks.emailAI,
-    logoPath: "/aima-mark.png",
+    logoPath: "/aima-mark-128.png",
     description: "AI inbox intelligence for summaries, tasks, and structured follow-up actions.",
     utilityTldr: "MailMind turns inbox overload into digestible priorities, follow-up tasks, and faster communication decisions.",
     previewLabel: "Agent Preview",
-    relatedKeys: ["eva", "ace", "ally"],
-  },
-  {
-    key: "healthai",
-    name: "HealthAI",
-    applicationCategory: "HealthApplication",
-    pageHref: `${siteUrl}/health`,
-    toolHref: `${siteUrl}/health`,
-    logoPath: "/aima-mark.png",
-    description: "Upcoming preventive health intelligence experience for more proactive health decisions.",
-    utilityTldr: "HealthAI is the preventive intelligence layer in aima, focused on clearer health awareness and healthier routines.",
-    previewLabel: "Check Status",
-    relatedKeys: ["eva", "ally", "mailmind"],
+    relatedKeys: ["eva", "ace"],
   },
 ];
 
@@ -326,16 +302,8 @@ export function inferRelevantAgentKeys(
     add("ace");
   }
 
-  if (categorySlug === "kids-learning" || /ally|kids|children|learning|education|parent/.test(haystack)) {
-    add("ally");
-  }
-
   if (/mailmind|email|inbox|communication|messages/.test(haystack)) {
     add("mailmind");
-  }
-
-  if (categorySlug === "health" || /health|wellness|nutrition|preventive|medical/.test(haystack)) {
-    add("healthai");
   }
 
   if (matches.length === 0 && categorySlug === "ai-agents") {

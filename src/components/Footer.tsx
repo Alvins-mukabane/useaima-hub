@@ -7,10 +7,8 @@ const sections = [
     title: "Products",
     links: [
       { label: "eva", to: toolLinks.financeAI, external: true },
-      { label: "EmailAI", to: toolLinks.emailAI, external: true },
-      { label: "ally", to: toolLinks.kidsAI, external: true },
+      { label: "MailMind", to: toolLinks.emailAI, external: true },
       { label: "ace", to: toolLinks.socialPulse, external: true },
-      { label: "HealthAI", to: "/health" },
     ],
   },
   {
@@ -44,7 +42,7 @@ export function Footer() {
           </div>
           {sections.map((s) => (
             <div key={s.title}>
-              <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground/70">{s.title}</h4>
+              <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">{s.title}</h4>
               <ul className="space-y-2">
                 {s.links.map((l) =>
                   "external" in l ? (

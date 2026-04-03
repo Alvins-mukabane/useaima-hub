@@ -10,8 +10,6 @@ const links = [
   { label: "Home", to: "/" },
   { label: "Blog", to: "https://blog.useaima.com", external: true },
   { label: "Finance", to: "/finance" },
-  { label: "Health", to: "/health" },
-  { label: "Kids", to: "/kids" },
   { label: "FAQs", to: "/#faq" },
   { label: "About Us", to: "/about" },
 ];
@@ -35,6 +33,12 @@ export function Navbar() {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-foreground focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center" aria-label="aima home">

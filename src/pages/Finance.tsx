@@ -57,7 +57,7 @@ const Finance = () => {
         structuredData={financeStructuredData}
       />
       <Navbar />
-      <main>
+      <main id="main-content">
         <section className="py-24">
           <div className="container">
             <SemanticBreadcrumbs items={financeBreadcrumbs} className="mb-8" />
@@ -65,7 +65,15 @@ const Finance = () => {
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
                 AIMA Finance Product
               </div>
-              <img src="/eva-logo.png" alt="eva" className="mt-6 h-20 w-auto max-w-full object-contain sm:h-24" draggable="false" />
+              <img
+                src="/eva-logo.png"
+                alt="eva logo"
+                width={547}
+                height={374}
+                className="mt-6 h-20 w-auto max-w-full object-contain sm:h-24"
+                draggable="false"
+                decoding="async"
+              />
               <h1 className="mt-8 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
                 AI-powered financial intelligence that helps you understand, plan, and grow
               </h1>

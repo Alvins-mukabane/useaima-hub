@@ -3,7 +3,7 @@ export const siteUrl = "https://useaima.com";
 export const blogUrl = "https://blog.useaima.com";
 export const siteEmail = "hello@useaima.com";
 export const siteDescription =
-  "aima is the official website of the aima AI ecosystem, building intelligent systems for finance, communication, learning, health, productivity, and digital growth.";
+  "aima is the official website of the aima AI ecosystem, building intelligent systems for finance, communication, productivity, and digital growth.";
 export const siteTagline = "Official aima website for AI assistants and everyday decision support.";
 export const siteBrandSummary =
   "If you searched for aima, this is the official aima website and the main home of the aima ecosystem.";
@@ -16,28 +16,25 @@ export const brandKeywords = [
   "aima blog",
   "ace by aima",
   "eva by aima",
-  "ally by aima",
   "MailMind by aima",
 ] as const;
 
 export const toolLinks = {
   socialPulse: "https://socialpulse.useaima.com",
   financeAI: "https://financeai.useaima.com",
-  kidsAI: "https://kidsai.useaima.com",
   emailAI: "https://mailmind.useaima.com",
-  healthAI: "https://useaima.com/health",
 } as const;
 
 export const faqItems = [
   {
     question: "What is aima?",
     answer:
-      "aima is an AI-powered platform that builds intelligent systems designed to help people manage different aspects of life, including finance, communication, learning, health, and productivity. Each tool is designed to act like an assistant, not just a dashboard.",
+      "aima is an AI-powered platform that builds intelligent systems designed to help people manage finance, communication, productivity, and digital growth. Each tool is designed to act like an assistant, not just a dashboard.",
   },
   {
     question: "What kind of tools does aima offer?",
     answer:
-      "aima provides multiple AI-based applications such as eva for financial guidance, EmailAI for email intelligence, ace for social media analytics, ally for learning and entertainment for kids, and HealthAI for health intelligence.",
+      "aima provides multiple AI-based applications such as eva for financial guidance, MailMind for email intelligence, and ace for social media analytics.",
   },
   {
     question: "Are the tools free to use?",
@@ -77,6 +74,6 @@ export const faqItems = [
   {
     question: "How can I stay updated with new features?",
     answer:
-      "You can stay updated by visiting the aima blog, checking product pages like Finance, Health, and Kids, and following new product updates and changelogs across the platform.",
+      "You can stay updated by visiting the aima blog, checking product pages like Finance, and following new product updates and changelogs across the platform.",
   },
 ] as const;

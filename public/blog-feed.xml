@@ -6,7 +6,7 @@
     <atom:link href="https://blog.useaima.com/blog-feed.xml" rel="self" type="application/rss+xml" />
     <description>Simple guides, real insights, and tools built for the future.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2026 14:02:38 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 14:52:50 GMT</lastBuildDate>
     <item>
       <title>What Are AI Agents? The Complete Beginner Guide to Autonomous Finance in 2026</title>
       <link>https://blog.useaima.com/what-are-ai-agents</link>
@@ -97,13 +97,6 @@
       <guid>https://blog.useaima.com/social-media-analytics-that-lead-to-action</guid>
       <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
       <description>How to move from passive analytics dashboards to real social decisions and better content plans.</description>
-    </item>
-    <item>
-      <title>Designing Safe AI Learning Experiences for Kids</title>
-      <link>https://blog.useaima.com/designing-safe-ai-learning-for-kids</link>
-      <guid>https://blog.useaima.com/designing-safe-ai-learning-for-kids</guid>
-      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
-      <description>A practical look at safe AI learning design for children, parents, and trust-first product teams.</description>
     </item>
   </channel>
 </rss>

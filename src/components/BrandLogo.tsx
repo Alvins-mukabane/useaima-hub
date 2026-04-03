@@ -28,12 +28,31 @@ export function BrandLogo({ className, iconOnly = false, size = "md" }: BrandLog
   const sizeClass = sizeClasses[size];
 
   if (iconOnly) {
-    return <img src="/aima-mark.png" alt="aima" className={cn(sizeClass.icon, "shrink-0 rounded-[22%] object-cover", className)} draggable="false" />;
+    return (
+      <img
+        src="/aima-mark-128.png"
+        alt="aima"
+        width={128}
+        height={128}
+        className={cn(sizeClass.icon, "shrink-0 rounded-[22%] object-cover", className)}
+        draggable="false"
+        decoding="async"
+      />
+    );
   }
 
   return (
     <span className={cn("inline-flex items-center", sizeClass.gap, className)}>
-      <img src="/aima-mark.png" alt="aima" className={cn(sizeClass.icon, "shrink-0 rounded-[22%] object-cover")} draggable="false" />
+      <img
+        src="/aima-mark-128.png"
+        alt=""
+        aria-hidden="true"
+        width={128}
+        height={128}
+        className={cn(sizeClass.icon, "shrink-0 rounded-[22%] object-cover")}
+        draggable="false"
+        decoding="async"
+      />
       <span
         className={cn(
           sizeClass.wordmark,

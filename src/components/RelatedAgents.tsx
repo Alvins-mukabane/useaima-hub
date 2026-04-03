@@ -5,10 +5,8 @@ import { cn } from "@/lib/utils";
 
 const tones = {
   eva: "border-emerald-500/20 bg-emerald-500/10",
-  ally: "border-violet-500/20 bg-violet-500/10",
   ace: "border-amber-700/20 bg-amber-700/10",
   mailmind: "border-sky-500/20 bg-sky-500/10",
-  healthai: "border-teal-500/20 bg-teal-500/10",
 } as const;
 
 type RelatedAgentsProps = {
@@ -41,7 +39,16 @@ export function RelatedAgents({ primaryAgentKey, className }: RelatedAgentsProps
             className={cn("rounded-[1.5rem] border p-6 shadow-sm", tones[agent.key])}
           >
             <div className="flex items-center gap-3">
-              <img src={agent.logoPath} alt={agent.name} className="h-12 w-12 rounded-2xl object-contain" />
+              <img
+                src={agent.logoPath}
+                alt=""
+                aria-hidden="true"
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-2xl object-contain"
+                loading="lazy"
+                decoding="async"
+              />
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                   {index === 0 ? "Primary next step" : "Related agent"}

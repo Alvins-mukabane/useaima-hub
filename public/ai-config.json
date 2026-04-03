@@ -35,25 +35,11 @@
       "summary": "Helps users monitor spending, detect anomalies, and make clearer money decisions faster."
     },
     {
-      "name": "ally",
-      "category": "AI learning assistant for kids",
-      "pageUrl": "https://useaima.com/kids",
-      "toolUrl": "https://kidsai.useaima.com",
-      "summary": "Combines safe AI exploration, guided learning, and parent-friendly trust signals for children."
-    },
-    {
       "name": "MailMind",
       "category": "AI email assistant",
       "pageUrl": "https://useaima.com/#products",
       "toolUrl": "https://mailmind.useaima.com",
       "summary": "Turns inbox overload into summaries, priorities, and actionable follow-up tasks."
-    },
-    {
-      "name": "HealthAI",
-      "category": "AI health intelligence",
-      "pageUrl": "https://useaima.com/health",
-      "toolUrl": "https://useaima.com/health",
-      "summary": "An upcoming health intelligence experience focused on preventive awareness and clearer next steps."
     }
   ],
   "discovery": {
@@ -104,13 +90,6 @@
         "category": "social-media",
         "product": "ace",
         "description": "A practical reach and retention guide for creators, teams, and marketers who want better performance."
-      },
-      {
-        "title": "Designing Safe AI Learning Experiences for Kids",
-        "url": "https://blog.useaima.com/designing-safe-ai-learning-for-kids",
-        "category": "kids-learning",
-        "product": "ally",
-        "description": "A practical look at safe AI learning design for children, parents, and trust-first product teams."
       }
     ]
   },

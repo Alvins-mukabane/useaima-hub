@@ -70,11 +70,9 @@ const homeStructuredData = [
     "@type": "ItemList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "eva", url: toolLinks.financeAI },
-      { "@type": "ListItem", position: 2, name: "EmailAI", url: toolLinks.emailAI },
-      { "@type": "ListItem", position: 3, name: "ally", url: toolLinks.kidsAI },
-      { "@type": "ListItem", position: 4, name: "ace", url: toolLinks.socialPulse },
-      { "@type": "ListItem", position: 5, name: "HealthAI", url: `${siteUrl}/health` },
-      { "@type": "ListItem", position: 6, name: "Blog", url: blogUrl },
+      { "@type": "ListItem", position: 2, name: "MailMind", url: toolLinks.emailAI },
+      { "@type": "ListItem", position: 3, name: "ace", url: toolLinks.socialPulse },
+      { "@type": "ListItem", position: 4, name: "Blog", url: blogUrl },
     ],
   },
 ];
@@ -96,7 +94,7 @@ const Index = () => (
       structuredData={homeStructuredData}
     />
     <Navbar />
-    <main>
+    <main id="main-content">
       <HeroSection />
       <WhatIsaimaSection />
       <ProductEcosystem />

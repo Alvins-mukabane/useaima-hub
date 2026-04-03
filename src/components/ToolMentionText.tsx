@@ -8,7 +8,7 @@ type ToolMentionTextProps = {
 const toolMentionMap = {
   ace: toolLinks.socialPulse,
   eva: toolLinks.financeAI,
-  ally: toolLinks.kidsAI,
+  MailMind: toolLinks.emailAI,
   EmailAI: toolLinks.emailAI,
 } as const;
 
