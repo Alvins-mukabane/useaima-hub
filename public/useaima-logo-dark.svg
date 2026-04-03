@@ -3,15 +3,14 @@
   <desc id="useaima-logo-dark-desc">The aima wordmark with its hexagonal circuit symbol on dark surfaces.</desc>
   <defs>
     <linearGradient id="logo-dark-hex-gradient" x1="38" y1="268" x2="278" y2="40" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#16d6d0" />
-      <stop offset="0.38" stop-color="#3d90f1" />
-      <stop offset="0.72" stop-color="#6547d6" />
-      <stop offset="1" stop-color="#9b4de8" />
+      <stop offset="0" stop-color="#ab6f2b" />
+      <stop offset="0.42" stop-color="#dd8a2c" />
+      <stop offset="1" stop-color="#f59f0a" />
     </linearGradient>
     <linearGradient id="logo-dark-circuit-gradient" x1="58" y1="262" x2="232" y2="76" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#19c9d0" />
-      <stop offset="0.46" stop-color="#36a1eb" />
-      <stop offset="1" stop-color="#7249db" />
+      <stop offset="0" stop-color="#dd8a2c" />
+      <stop offset="0.46" stop-color="#f59f0a" />
+      <stop offset="1" stop-color="#ab6f2b" />
     </linearGradient>
   </defs>
   <g transform="translate(12 28)">
@@ -44,7 +43,7 @@
   <text
     x="348"
     y="205"
-    fill="#f7fbff"
+    fill="#ede9e6"
     font-family="'Avenir Next', Montserrat, 'Segoe UI', Arial, sans-serif"
     font-size="150"
     font-weight="800"

@@ -12,22 +12,22 @@ export const blogListingCategories = {
   "ai-agents": {
     slug: "ai-agents",
     title: "AI & Agents",
-    badgeClassName: "bg-sky-500/10 text-sky-700 dark:text-sky-300",
+    badgeClassName: "bg-primary/10 text-primary",
   },
   finance: {
     slug: "finance",
     title: "Finance",
-    badgeClassName: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+    badgeClassName: "bg-success/10 text-success",
   },
   "social-media": {
     slug: "social-media",
     title: "Social Media",
-    badgeClassName: "bg-amber-700/10 text-amber-800 dark:text-amber-300",
+    badgeClassName: "bg-accent/20 text-accent-foreground",
   },
   "dev-systems": {
     slug: "dev-systems",
     title: "Dev & Systems",
-    badgeClassName: "bg-slate-500/10 text-slate-700 dark:text-slate-300",
+    badgeClassName: "bg-secondary text-secondary-foreground",
   },
 } as const;
 

@@ -12,7 +12,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(76,45,168,0.14),transparent_48%),linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,1))] dark:bg-[radial-gradient(circle_at_top,rgba(76,45,168,0.18),transparent_45%),linear-gradient(180deg,rgba(15,23,42,0.95),rgba(15,23,42,1))]">
+    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(221,138,44,0.18),transparent_44%),radial-gradient(circle_at_bottom_right,rgba(171,111,43,0.2),transparent_34%),linear-gradient(180deg,rgba(14,12,11,0.98),rgba(14,12,11,1))]">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
@@ -22,11 +22,11 @@ export function HeroSection() {
       />
 
       {/* Gradient line accent */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-px w-[60%] bg-gradient-to-r from-transparent via-violet-500/40 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[60%] -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
 
       <div className="container relative flex min-h-[72vh] flex-col items-center justify-center py-20 text-center sm:min-h-[85vh] sm:py-24">
         <span
-          className={`mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/5 px-4 py-1.5 text-xs font-medium tracking-wide text-violet-700 dark:text-violet-300 transition-all duration-700 ease-out ${
+          className={`mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-wide text-primary transition-all duration-700 ease-out ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -42,7 +42,7 @@ export function HeroSection() {
         >
           aima is the official home
           <br />
-          <span className="bg-gradient-to-r from-violet-700 via-sky-600 to-amber-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-foreground via-primary to-warning bg-clip-text text-transparent">
             for AI assistants in real life.
           </span>
         </h1>
@@ -63,7 +63,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "300ms" }}
         >
-          {["Dark-purple-led identity", "Linked AI ecosystem", "Privacy-minded product design"].map((item) => (
+          {["SocialPulse-led brand system", "Connected AI ecosystem", "Privacy-minded product design"].map((item) => (
             <span key={item} className="rounded-full border bg-background/70 px-3 py-1.5">
               {item}
             </span>

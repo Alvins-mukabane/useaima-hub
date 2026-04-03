@@ -123,7 +123,7 @@ export function SEOHead({
     upsertMeta('meta[name="language"]', { name: "language", content: "en-US" });
     upsertMeta('meta[name="format-detection"]', { name: "format-detection", content: "telephone=no" });
     upsertMeta('meta[name="referrer"]', { name: "referrer", content: "strict-origin-when-cross-origin" });
-    upsertMeta('meta[name="theme-color"]', { name: "theme-color", content: "#4c2da8" });
+    upsertMeta('meta[name="theme-color"]', { name: "theme-color", content: "#0e0c0b" });
     upsertMeta('meta[name="robots"]', { name: "robots", content: robots });
     upsertMeta('meta[name="googlebot"]', { name: "googlebot", content: robots });
     upsertMeta('meta[name="keywords"]', keywordContent ? { name: "keywords", content: keywordContent } : undefined);

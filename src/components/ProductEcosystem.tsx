@@ -11,7 +11,7 @@ const products = [
     icon: DollarSign,
     logoSrc: "/eva-logo.png",
     logoFrameClass:
-      "flex min-h-16 flex-1 items-center rounded-2xl border border-emerald-500/15 bg-emerald-500/10 px-4 py-3 dark:border-emerald-400/20 dark:bg-emerald-400/10",
+      "flex min-h-16 flex-1 items-center rounded-2xl border border-primary/15 bg-secondary/80 px-4 py-3 shadow-inner",
     logoImageClass: "h-10 w-auto max-w-full object-contain",
     logoWidth: 547,
     logoHeight: 374,
@@ -37,7 +37,7 @@ const products = [
     icon: BarChart3,
     logoSrc: "/ace-logo.png",
     logoFrameClass:
-      "flex min-h-16 flex-1 items-center rounded-2xl border border-amber-700/20 bg-[#2d1c1a] px-4 py-3 dark:border-amber-500/20 dark:bg-[#261715]",
+      "flex min-h-16 flex-1 items-center rounded-2xl border border-primary/20 bg-secondary px-4 py-3 shadow-inner",
     logoImageClass: "h-11 w-auto max-w-full object-contain",
     logoWidth: 712,
     logoHeight: 465,
@@ -52,7 +52,7 @@ const products = [
 
 const statusColors = {
   Live: "bg-primary/10 text-primary",
-  Beta: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  Beta: "bg-accent/20 text-accent-foreground",
 };
 
 export function ProductEcosystem() {

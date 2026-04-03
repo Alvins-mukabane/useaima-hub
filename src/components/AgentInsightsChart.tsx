@@ -19,19 +19,19 @@ type InsightSeries = {
 
 const palette = {
   eva: {
-    bar: "from-emerald-500 to-lime-400",
-    chip: "border-emerald-500/20 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
-    active: "border-emerald-500/30 bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
+    bar: "from-primary to-warning",
+    chip: "border-primary/20 bg-primary/10 text-primary",
+    active: "border-primary/30 bg-primary/15 text-primary",
   },
   ace: {
-    bar: "from-amber-700 to-amber-400",
-    chip: "border-amber-700/20 bg-amber-700/10 text-amber-800 dark:text-amber-300",
-    active: "border-amber-700/30 bg-amber-700/12 text-amber-800 dark:text-amber-300",
+    bar: "from-accent to-primary",
+    chip: "border-accent/25 bg-accent/15 text-accent-foreground",
+    active: "border-accent/35 bg-accent/20 text-accent-foreground",
   },
   mailmind: {
-    bar: "from-sky-500 to-blue-400",
-    chip: "border-sky-500/20 bg-sky-500/10 text-sky-700 dark:text-sky-300",
-    active: "border-sky-500/30 bg-sky-500/12 text-sky-700 dark:text-sky-300",
+    bar: "from-warning to-primary",
+    chip: "border-warning/20 bg-warning/10 text-warning",
+    active: "border-warning/35 bg-warning/15 text-warning",
   },
 } as const;
 

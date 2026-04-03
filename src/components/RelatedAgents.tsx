@@ -4,9 +4,9 @@ import { AgentKey, getAgentByKey, getRelatedAgents } from "@/content/entitySchem
 import { cn } from "@/lib/utils";
 
 const tones = {
-  eva: "border-emerald-500/20 bg-emerald-500/10",
-  ace: "border-amber-700/20 bg-amber-700/10",
-  mailmind: "border-sky-500/20 bg-sky-500/10",
+  eva: "border-primary/20 bg-primary/10",
+  ace: "border-accent/30 bg-accent/15",
+  mailmind: "border-warning/20 bg-warning/10",
 } as const;
 
 type RelatedAgentsProps = {

@@ -61,8 +61,8 @@ const Finance = () => {
         <section className="py-24">
           <div className="container">
             <SemanticBreadcrumbs items={financeBreadcrumbs} className="mb-8" />
-            <div className="mx-auto max-w-4xl rounded-[2rem] border border-emerald-500/15 bg-[linear-gradient(135deg,rgba(16,185,129,0.12),rgba(255,255,255,0.98)),linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,1))] p-8 shadow-sm dark:border-emerald-400/20 dark:bg-[linear-gradient(135deg,rgba(16,185,129,0.18),rgba(15,23,42,0.95)),linear-gradient(180deg,rgba(15,23,42,0.88),rgba(15,23,42,0.95))] sm:p-10">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
+            <div className="mx-auto max-w-4xl rounded-[2rem] border border-primary/15 bg-[linear-gradient(135deg,rgba(221,138,44,0.16),rgba(25,22,21,0.96)),linear-gradient(180deg,rgba(25,22,21,0.94),rgba(14,12,11,1))] p-8 shadow-sm sm:p-10">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-primary">
                 AIMA Finance Product
               </div>
               <img
@@ -82,12 +82,12 @@ const Finance = () => {
                 and turns raw money data into decisions you can actually act on.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild className="rounded-full bg-emerald-600 text-white hover:bg-emerald-700">
+                <Button asChild className="rounded-full">
                   <a href={toolLinks.financeAI} target="_blank" rel="noreferrer">
                     Open eva
                   </a>
                 </Button>
-                <Button variant="outline" asChild className="rounded-full border-emerald-500/25">
+                <Button variant="outline" asChild className="rounded-full border-primary/25">
                   <a href="https://blog.useaima.com/category/finance" target="_blank" rel="noopener noreferrer">
                     Explore finance guides
                   </a>
@@ -106,7 +106,7 @@ const Finance = () => {
                   }}
                   highlights={features.slice(0, 3).map((feature) => feature.title)}
                   note="Best for visitors who want to validate the product in under 30 seconds."
-                  actionClassName="bg-emerald-600 text-white hover:bg-emerald-700"
+                  actionClassName="bg-primary text-primary-foreground hover:bg-primary/90"
                 />
               </div>
             ) : null}

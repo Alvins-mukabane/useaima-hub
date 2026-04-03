@@ -119,7 +119,7 @@ export default function BlogHome() {
       <BlogNavbar />
       <main>
         <section className="relative overflow-hidden border-b">
-          <div className="absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.16),transparent_36%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.16),transparent_34%),radial-gradient(circle_at_bottom,rgba(14,165,233,0.10),transparent_28%),linear-gradient(180deg,rgba(15,23,42,0.05),transparent)]" />
+          <div className="absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(circle_at_top_left,rgba(221,138,44,0.18),transparent_38%),radial-gradient(circle_at_top_right,rgba(171,111,43,0.2),transparent_34%),radial-gradient(circle_at_bottom,rgba(245,159,10,0.12),transparent_28%),linear-gradient(180deg,rgba(14,12,11,0.08),transparent)]" />
           <div className="container relative py-24 lg:py-28">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
               <div className="max-w-4xl">

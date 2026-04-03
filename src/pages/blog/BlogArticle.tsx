@@ -205,7 +205,7 @@ export default function BlogArticle() {
       <main>
         <div className="sticky top-[73px] z-40 h-1 bg-border/40">
           <div
-            className="h-full bg-gradient-to-r from-primary via-sky-500 to-emerald-400 transition-[width] duration-200"
+            className="h-full bg-gradient-to-r from-primary via-accent to-warning transition-[width] duration-200"
             style={{ width: `${readingProgress}%` }}
           />
         </div>
@@ -284,7 +284,7 @@ export default function BlogArticle() {
 
               <div
                 id="blog-article-content"
-                className="prose prose-slate max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-p:text-foreground/90 prose-p:leading-8 prose-li:leading-8 dark:prose-invert"
+                className="prose prose-invert max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:text-foreground prose-p:text-foreground/90 prose-li:text-foreground/85 prose-p:leading-8 prose-li:leading-8"
               >
                 {post.sections.map((section, index) => (
                   <div key={section.heading}>

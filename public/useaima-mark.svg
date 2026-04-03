@@ -3,15 +3,14 @@
   <desc id="useaima-mark-desc">A hexagonal circuit-inspired logo for aima.</desc>
   <defs>
     <linearGradient id="useaima-hex-gradient" x1="36" y1="212" x2="220" y2="38" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#16d6d0" />
-      <stop offset="0.38" stop-color="#3d90f1" />
-      <stop offset="0.72" stop-color="#6547d6" />
-      <stop offset="1" stop-color="#9b4de8" />
+      <stop offset="0" stop-color="#ab6f2b" />
+      <stop offset="0.42" stop-color="#dd8a2c" />
+      <stop offset="1" stop-color="#f59f0a" />
     </linearGradient>
     <linearGradient id="useaima-circuit-gradient" x1="54" y1="208" x2="188" y2="68" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#19c9d0" />
-      <stop offset="0.46" stop-color="#36a1eb" />
-      <stop offset="1" stop-color="#7249db" />
+      <stop offset="0" stop-color="#dd8a2c" />
+      <stop offset="0.46" stop-color="#f59f0a" />
+      <stop offset="1" stop-color="#ab6f2b" />
     </linearGradient>
   </defs>
   <path

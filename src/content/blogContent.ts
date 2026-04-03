@@ -59,32 +59,32 @@ export const blogCategories: BlogCategory[] = [
     title: "AI & Agents",
     description: "Practical AI systems, agent design, and assistant workflows that improve real work.",
     emoji: "🧠",
-    gradient: "from-sky-500 via-blue-500 to-indigo-500",
-    badgeClassName: "bg-sky-500/10 text-sky-700 dark:text-sky-300",
+    gradient: "from-primary via-accent to-warning",
+    badgeClassName: "bg-primary/10 text-primary",
   },
   {
     slug: "finance",
     title: "Finance",
     description: "Clear frameworks for better money decisions, financial systems, and AI-assisted analysis.",
     emoji: "💰",
-    gradient: "from-emerald-500 via-teal-500 to-lime-500",
-    badgeClassName: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+    gradient: "from-success via-primary to-warning",
+    badgeClassName: "bg-success/10 text-success",
   },
   {
     slug: "social-media",
     title: "Social Media",
     description: "Analytics, creator workflows, and content strategy that lead to action instead of noise.",
     emoji: "📱",
-    gradient: "from-amber-300 via-amber-500 to-amber-700",
-    badgeClassName: "bg-amber-700/10 text-amber-800 dark:text-amber-300",
+    gradient: "from-accent via-primary to-warning",
+    badgeClassName: "bg-accent/20 text-accent-foreground",
   },
   {
     slug: "dev-systems",
     title: "Dev & Systems",
     description: "Infrastructure, operations, product systems, and the engineering discipline behind useful AI.",
     emoji: "⚙️",
-    gradient: "from-slate-600 via-slate-500 to-cyan-500",
-    badgeClassName: "bg-slate-500/10 text-slate-700 dark:text-slate-300",
+    gradient: "from-secondary via-accent to-primary",
+    badgeClassName: "bg-secondary text-secondary-foreground",
   },
 ];
 
@@ -92,7 +92,7 @@ export const blogProducts = [
   {
     name: "ace",
     logoSrc: "/ace-logo.png",
-    surfaceClass: "border-amber-700/20 bg-[#2d1c1a] text-amber-50",
+    surfaceClass: "border-primary/20 bg-secondary text-foreground",
     logoWidth: 712,
     logoHeight: 465,
     description: "Turn social data into decisions with insight-led analytics, trend detection, and content clarity.",
@@ -104,7 +104,7 @@ export const blogProducts = [
     logoSrc: "/eva-logo.png",
     logoWidth: 547,
     logoHeight: 374,
-    surfaceClass: "border-emerald-500/20 bg-emerald-500/10",
+    surfaceClass: "border-success/20 bg-success/10 text-foreground",
     description: "Build a smarter personal finance workflow with tracking, analysis, and guided financial insights.",
     href: toolLinks.financeAI,
     label: "Explore eva",
@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min read",
     featured: true,
     eyebrow: "Beginner Guide",
-    thumbnailClassName: "from-violet-500 via-sky-500 to-emerald-400",
+    thumbnailClassName: "from-primary via-accent to-warning",
     tags: [
       "AI agents",
       "autonomous finance",
@@ -325,7 +325,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min read",
     featured: true,
     eyebrow: "Financial Security",
-    thumbnailClassName: "from-emerald-500 via-cyan-500 to-sky-600",
+    thumbnailClassName: "from-success via-primary to-warning",
     tags: [
       "KYA meaning",
       "Know Your Agent",
@@ -505,7 +505,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min read",
     featured: true,
     eyebrow: "Agent Economy",
-    thumbnailClassName: "from-sky-600 via-cyan-500 to-emerald-500",
+    thumbnailClassName: "from-primary via-warning to-success",
     tags: [
       "A2A AI",
       "AP2 agent payment protocol",
@@ -677,7 +677,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min read",
     featured: false,
     eyebrow: "Payments Infrastructure",
-    thumbnailClassName: "from-cyan-600 via-sky-500 to-emerald-500",
+    thumbnailClassName: "from-accent via-primary to-success",
     tags: [
       "agent to agent payments",
       "A2A payments",
@@ -852,7 +852,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min read",
     featured: false,
     eyebrow: "Finance Basics",
-    thumbnailClassName: "from-emerald-500 via-lime-500 to-teal-500",
+    thumbnailClassName: "from-success via-primary to-accent",
     tags: [
       "personal finance",
       "money management",
@@ -1030,7 +1030,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     featured: true,
     eyebrow: "Future of Software",
-    thumbnailClassName: "from-sky-500 via-cyan-500 to-emerald-500",
+    thumbnailClassName: "from-primary via-accent to-success",
     tags: ["AI assistants", "apps vs AI", "productivity", "automation", "future of software"],
     summary:
       "AI assistants are replacing app-first workflows by helping users focus on goals rather than manually operating tools. That shift matters because it reduces context switching and makes software more outcome-driven.",
@@ -1124,7 +1124,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     featured: true,
     eyebrow: "Traffic Magnet",
-    thumbnailClassName: "from-fuchsia-500 via-rose-500 to-orange-400",
+    thumbnailClassName: "from-accent via-primary to-warning",
     tags: ["social media views", "content strategy", "algorithm", "creator growth", "ace"],
     summary:
       "Most low-view social media content fails because it does not win attention early, maintain retention, or build on clear data. Growth improves when creators stop guessing and start analyzing patterns.",
@@ -1218,7 +1218,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     featured: true,
     eyebrow: "AI Systems",
-    thumbnailClassName: "from-sky-500 via-indigo-500 to-cyan-400",
+    thumbnailClassName: "from-secondary via-accent to-primary",
     tags: ["agentic AI", "assistants", "productivity"],
     summary:
       "Agentic AI matters because it turns intent into progress. Instead of showing raw information and leaving all the interpretation to the user, it understands context, suggests next steps, and helps complete meaningful work.",
@@ -1277,7 +1277,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min read",
     featured: true,
     eyebrow: "Product Strategy",
-    thumbnailClassName: "from-cyan-500 via-sky-500 to-blue-700",
+    thumbnailClassName: "from-secondary via-primary to-warning",
     tags: ["AI tools", "software evaluation", "decision making"],
     summary:
       "The best AI tools remove friction. They connect to a real workflow, explain why their recommendations matter, and help the user act without creating a new layer of complexity.",
@@ -1336,7 +1336,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     featured: true,
     eyebrow: "Finance Workflows",
-    thumbnailClassName: "from-emerald-500 via-teal-500 to-lime-400",
+    thumbnailClassName: "from-success via-primary to-warning",
     tags: ["finance", "budgeting", "habits"],
     summary:
       "A weekly finance review works because it is lightweight, consistent, and focused on decisions. AI becomes useful when it highlights changes, surfaces risks, and helps users respond without getting lost in spreadsheets.",
@@ -1395,7 +1395,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min read",
     featured: false,
     eyebrow: "Financial Clarity",
-    thumbnailClassName: "from-emerald-500 via-green-500 to-teal-700",
+    thumbnailClassName: "from-success via-accent to-secondary",
     tags: ["budgeting", "finance systems", "habits"],
     summary:
       "Budgets fail when they ask for too much precision and provide too little guidance. Tracking trend changes, recurring costs, and cash flow pressure points often leads to better behavior than forcing perfect budget lines.",
@@ -1453,7 +1453,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min read",
     featured: true,
     eyebrow: "Creator Growth",
-    thumbnailClassName: "from-fuchsia-500 via-rose-500 to-orange-400",
+    thumbnailClassName: "from-accent via-primary to-warning",
     tags: ["social media", "creators", "analytics"],
     summary:
       "Creators should review why a post worked, who responded, how the first hours performed, and what pattern is worth repeating. The goal is not more metrics. The goal is better creative decisions.",
@@ -1511,7 +1511,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     featured: false,
     eyebrow: "Social Systems",
-    thumbnailClassName: "from-rose-500 via-orange-400 to-amber-400",
+    thumbnailClassName: "from-accent via-primary to-warning",
     tags: ["analytics", "social strategy", "decision support"],
     summary:
       "Action-focused analytics highlight the patterns behind performance and tie them to a concrete next move. The best systems help teams decide what to repeat, what to test, and where attention is being wasted.",
@@ -1569,7 +1569,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 min read",
     featured: false,
     eyebrow: "Systems Thinking",
-    thumbnailClassName: "from-slate-700 via-slate-500 to-cyan-500",
+    thumbnailClassName: "from-secondary via-accent to-primary",
     tags: ["operations", "AI products", "systems"],
     summary:
       "Operational clarity matters because AI systems are only trustworthy when teams understand what the product should do, what it should never do, and how decisions should escalate when confidence is low.",

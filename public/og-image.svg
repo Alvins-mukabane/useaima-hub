@@ -3,31 +3,30 @@
   <desc id="og-desc">A aima social preview image featuring the brand logo and tagline.</desc>
   <defs>
     <linearGradient id="og-bg-gradient" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#f9fcff" />
-      <stop offset="1" stop-color="#eef7ff" />
+      <stop offset="0" stop-color="#0e0c0b" />
+      <stop offset="1" stop-color="#191615" />
     </linearGradient>
     <radialGradient id="og-glow-left" cx="0" cy="0" r="1" gradientTransform="translate(260 470) rotate(28) scale(360 260)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#3dd1f0" stop-opacity="0.28" />
-      <stop offset="1" stop-color="#3dd1f0" stop-opacity="0" />
+      <stop offset="0" stop-color="#dd8a2c" stop-opacity="0.24" />
+      <stop offset="1" stop-color="#dd8a2c" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="og-glow-right" cx="0" cy="0" r="1" gradientTransform="translate(880 180) rotate(-12) scale(300 220)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#8c55ef" stop-opacity="0.24" />
-      <stop offset="1" stop-color="#8c55ef" stop-opacity="0" />
+      <stop offset="0" stop-color="#ab6f2b" stop-opacity="0.24" />
+      <stop offset="1" stop-color="#ab6f2b" stop-opacity="0" />
     </radialGradient>
     <linearGradient id="og-hex-gradient" x1="52" y1="284" x2="294" y2="54" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#16d6d0" />
-      <stop offset="0.38" stop-color="#3d90f1" />
-      <stop offset="0.72" stop-color="#6547d6" />
-      <stop offset="1" stop-color="#9b4de8" />
+      <stop offset="0" stop-color="#ab6f2b" />
+      <stop offset="0.42" stop-color="#dd8a2c" />
+      <stop offset="1" stop-color="#f59f0a" />
     </linearGradient>
     <linearGradient id="og-circuit-gradient" x1="72" y1="280" x2="246" y2="94" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#19c9d0" />
-      <stop offset="0.46" stop-color="#36a1eb" />
-      <stop offset="1" stop-color="#7249db" />
+      <stop offset="0" stop-color="#dd8a2c" />
+      <stop offset="0.46" stop-color="#f59f0a" />
+      <stop offset="1" stop-color="#ab6f2b" />
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#og-bg-gradient)" rx="36" />
-  <rect x="24" y="24" width="1152" height="582" fill="none" rx="28" stroke="#d7e7f8" />
+  <rect x="24" y="24" width="1152" height="582" fill="none" rx="28" stroke="#3a2b1f" />
   <ellipse cx="260" cy="470" rx="320" ry="220" fill="url(#og-glow-left)" />
   <ellipse cx="890" cy="180" rx="280" ry="210" fill="url(#og-glow-right)" />
 
@@ -62,7 +61,7 @@
   <text
     x="500"
     y="310"
-    fill="#14284d"
+    fill="#ede9e6"
     font-family="'Avenir Next', Montserrat, 'Segoe UI', Arial, sans-serif"
     font-size="120"
     font-weight="800"
@@ -73,7 +72,7 @@
   <text
     x="500"
     y="390"
-    fill="#47617f"
+    fill="#c9b49a"
     font-family="'Avenir Next', Montserrat, 'Segoe UI', Arial, sans-serif"
     font-size="42"
     font-weight="500"
