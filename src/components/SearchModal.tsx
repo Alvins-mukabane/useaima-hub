@@ -136,7 +136,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
           {filtered.map((item) => {
             const inner = (
               <div className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-accent/60 group cursor-pointer">
-                <span className={cn("shrink-0 rounded-md px-2 py-0.5 text-[11px] font-medium", categoryColor[item.category])}>
+                <span className={cn("shrink-0 rounded-md px-2 py-0.5 text-xs font-medium", categoryColor[item.category])}>
                   {item.category}
                 </span>
                 <div className="min-w-0 flex-1">
@@ -159,10 +159,10 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
         </div>
 
         <div className="border-t border-border px-4 py-2">
-          <p className="text-[11px] text-muted-foreground">
-            <kbd className="rounded border border-border bg-muted px-1 py-0.5 text-[10px]">ESC</kbd> to close
+          <p className="text-xs text-muted-foreground">
+            <kbd className="rounded border border-border bg-muted px-1 py-0.5 text-xs">ESC</kbd> to close
             {" · "}
-            <kbd className="rounded border border-border bg-muted px-1 py-0.5 text-[10px]">⌘K</kbd> to toggle
+            <kbd className="rounded border border-border bg-muted px-1 py-0.5 text-xs">⌘K</kbd> to toggle
           </p>
         </div>
       </div>

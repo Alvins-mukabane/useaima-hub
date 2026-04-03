@@ -1,12 +1,16 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { AgentInsightsChart } from "@/components/AgentInsightsChart";
+import { AtomicUtilityBlock } from "@/components/AtomicUtilityBlock";
+import { SemanticBreadcrumbs } from "@/components/SemanticBreadcrumbs";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
+import { createBreadcrumbStructuredData, getAgentByKey, getAgentStructuredData } from "@/content/entitySchema";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { DollarSign, TrendingUp, Shield, BarChart3, ArrowRight } from "lucide-react";
-import { siteName, siteUrl, toolLinks } from "@/content/siteContent";
+import { toolLinks } from "@/content/siteContent";
 import { getBlogPostUrl, getCategoryBySlug, getPostsByProduct } from "@/content/blogContent";
 
 const features = [
@@ -23,23 +27,21 @@ const updates = [
 ];
 
 const financeGuides = getPostsByProduct("eva").slice(0, 4);
+const financeAgent = getAgentByKey("eva");
+const financeBreadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/#products" },
+  { label: "eva", href: "/finance" },
+];
 
 const financeStructuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "eva",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    url: toolLinks.financeAI,
-    image: `${siteUrl}/eva-logo.png`,
-    description: "eva is the aima financial intelligence product for smarter spending reviews, insight summaries, and guided decisions.",
-    publisher: {
-      "@type": "Organization",
-      name: siteName,
-      url: siteUrl,
-    },
-  },
+  getAgentStructuredData("eva"),
+  createBreadcrumbStructuredData(
+    financeBreadcrumbs.map((item) => ({
+      label: item.label,
+      href: new URL(item.href, "https://useaima.com").toString(),
+    })),
+  ),
 ];
 
 const Finance = () => {
@@ -58,6 +60,7 @@ const Finance = () => {
       <main>
         <section className="py-24">
           <div className="container">
+            <SemanticBreadcrumbs items={financeBreadcrumbs} className="mb-8" />
             <div className="mx-auto max-w-4xl rounded-[2rem] border border-emerald-500/15 bg-[linear-gradient(135deg,rgba(16,185,129,0.12),rgba(255,255,255,0.98)),linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,1))] p-8 shadow-sm dark:border-emerald-400/20 dark:bg-[linear-gradient(135deg,rgba(16,185,129,0.18),rgba(15,23,42,0.95)),linear-gradient(180deg,rgba(15,23,42,0.88),rgba(15,23,42,0.95))] sm:p-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
                 AIMA Finance Product
@@ -82,6 +85,29 @@ const Finance = () => {
                   </a>
                 </Button>
               </div>
+            </div>
+            {financeAgent ? (
+              <div className="mx-auto mt-8 max-w-4xl">
+                <AtomicUtilityBlock
+                  title="Quick Summary for eva"
+                  tldr={financeAgent.utilityTldr}
+                  action={{
+                    label: financeAgent.previewLabel,
+                    href: financeAgent.toolHref,
+                    external: true,
+                  }}
+                  highlights={features.slice(0, 3).map((feature) => feature.title)}
+                  note="Best for visitors who want to validate the product in under 30 seconds."
+                  actionClassName="bg-emerald-600 text-white hover:bg-emerald-700"
+                />
+              </div>
+            ) : null}
+            <div className="mx-auto mt-8 max-w-4xl">
+              <AgentInsightsChart
+                agentKey="eva"
+                title="eva utility snapshot"
+                description="Interactive bars keep the finance page grounded in practical outcomes like cost savings, anomaly response, and review efficiency."
+              />
             </div>
             <div className="mt-16">
               <SectionHeader

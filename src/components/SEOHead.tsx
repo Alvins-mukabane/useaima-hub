@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { siteName, siteUrl } from "@/content/siteContent";
+import { baseStructuredData, dedupeStructuredData } from "@/content/entitySchema";
 
 type JsonLd = Record<string, unknown>;
 
@@ -107,13 +108,19 @@ export function SEOHead({
   const absoluteImage = image.startsWith("http://") || image.startsWith("https://") ? image : normalizeUrl(siteOrigin, image);
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   const keywordContent = keywords?.length ? keywords.join(", ") : "";
+  const mergedStructuredData = useMemo(
+    () => dedupeStructuredData([...baseStructuredData, ...structuredData]),
+    [structuredData],
+  );
 
   useEffect(() => {
     document.title = fullTitle;
+    document.documentElement.lang = "en-US";
 
     upsertMeta('meta[name="description"]', { name: "description", content: description });
     upsertMeta('meta[name="author"]', { name: "author", content: authorName ?? siteName });
     upsertMeta('meta[name="application-name"]', { name: "application-name", content: siteName });
+    upsertMeta('meta[name="language"]', { name: "language", content: "en-US" });
     upsertMeta('meta[name="format-detection"]', { name: "format-detection", content: "telephone=no" });
     upsertMeta('meta[name="referrer"]', { name: "referrer", content: "strict-origin-when-cross-origin" });
     upsertMeta('meta[name="theme-color"]', { name: "theme-color", content: "#4c2da8" });
@@ -157,7 +164,7 @@ export function SEOHead({
 
     upsertLink('link[rel="canonical"]', { rel: "canonical", href: absoluteUrl });
     syncAlternateLinks(alternateLinks);
-    syncStructuredData(structuredData);
+    syncStructuredData(mergedStructuredData);
   }, [
     absoluteImage,
     absoluteUrl,
@@ -166,11 +173,11 @@ export function SEOHead({
     description,
     fullTitle,
     keywordContent,
+    mergedStructuredData,
     modifiedTime,
     publishedTime,
     robots,
     section,
-    structuredData,
     type,
   ]);
 

@@ -8,15 +8,13 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
+import { organizationSchemaId } from "@/content/entitySchema";
 import {
   brandKeywords,
   faqItems,
   blogUrl,
   siteBrandSummary,
   siteDescription,
-  siteEmail,
-  siteName,
-  siteTagline,
   siteUrl,
   toolLinks,
 } from "@/content/siteContent";
@@ -24,55 +22,15 @@ import {
 const homeStructuredData = [
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteName,
-    alternateName: ["aima", "aima AI"],
-    url: siteUrl,
-    logo: `${siteUrl}/aima-mark.png`,
-    image: `${siteUrl}/aima-mark.png`,
-    description: siteDescription,
-    email: siteEmail,
-    slogan: siteTagline,
-    sameAs: [blogUrl],
-    hasPart: [
-      {
-        "@type": "SoftwareApplication",
-        name: "ace",
-        applicationCategory: "BusinessApplication",
-        url: toolLinks.socialPulse,
-      },
-      {
-        "@type": "SoftwareApplication",
-        name: "eva",
-        applicationCategory: "FinanceApplication",
-        url: toolLinks.financeAI,
-      },
-      {
-        "@type": "SoftwareApplication",
-        name: "ally",
-        applicationCategory: "EducationalApplication",
-        url: toolLinks.kidsAI,
-      },
-      {
-        "@type": "SoftwareApplication",
-        name: "MailMind",
-        alternateName: "EmailAI",
-        applicationCategory: "ProductivityApplication",
-        url: toolLinks.emailAI,
-      },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteUrl}#website`,
     name: siteName,
     alternateName: ["aima Official Website", "aima"],
     url: siteUrl,
+    inLanguage: "en-US",
     description: siteDescription,
     publisher: {
-      "@type": "Organization",
-      name: siteName,
-      url: siteUrl,
+      "@id": organizationSchemaId,
     },
     potentialAction: {
       "@type": "SearchAction",
@@ -83,18 +41,15 @@ const homeStructuredData = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": `${siteUrl}#homepage`,
     name: "aima Official Website",
     url: siteUrl,
     description: siteBrandSummary,
     about: {
-      "@type": "Organization",
-      name: siteName,
-      url: siteUrl,
+      "@id": organizationSchemaId,
     },
     isPartOf: {
-      "@type": "WebSite",
-      name: siteName,
-      url: siteUrl,
+      "@id": `${siteUrl}#website`,
     },
   },
   {

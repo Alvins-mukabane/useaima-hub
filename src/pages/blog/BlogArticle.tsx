@@ -1,18 +1,28 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BookOpenCheck, Layers3, Lightbulb, Sparkles } from "lucide-react";
+import { ArrowRight, Layers3, Lightbulb, Sparkles } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
+import { AgentInsightsChart } from "@/components/AgentInsightsChart";
+import { AtomicUtilityBlock } from "@/components/AtomicUtilityBlock";
+import { RelatedAgents } from "@/components/RelatedAgents";
+import { SemanticBreadcrumbs } from "@/components/SemanticBreadcrumbs";
 import { BlogCommentsSection } from "@/components/blog/BlogCommentsSection";
 import { BlogEngagementBar } from "@/components/blog/BlogEngagementBar";
 import { BlogSubscribeBar } from "@/components/blog/BlogSubscribeBar";
 import { SEOHead } from "@/components/SEOHead";
 import { ToolMentionText } from "@/components/ToolMentionText";
 import { Button } from "@/components/ui/button";
+import {
+  createBreadcrumbStructuredData,
+  getAgentByKey,
+  getPrimaryAgentKey,
+  getProtocolContext,
+  organizationSchemaId,
+} from "@/content/entitySchema";
 import { cn } from "@/lib/utils";
-import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
 import { BlogFooter } from "@/components/blog/BlogFooter";
 import { BlogNavbar } from "@/components/blog/BlogNavbar";
-import { blogAuthor, blogTitle, getBlogPostUrl, getCategoriesForPost, getCategoryBySlug, getPostBySlug, getRelatedPosts } from "@/content/blogContent";
-import { blogUrl, siteName, siteUrl } from "@/content/siteContent";
+import { blogAuthor, getBlogPostUrl, getCategoriesForPost, getCategoryBySlug, getPostBySlug } from "@/content/blogContent";
+import { blogUrl, siteUrl } from "@/content/siteContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import BlogNotFound from "./BlogNotFound";
 
@@ -34,27 +44,41 @@ function toSectionId(value: string) {
 export default function BlogArticle() {
   const { slug = "" } = useParams();
   const post = getPostBySlug(slug);
-
-  if (!post) {
-    return <BlogNotFound />;
-  }
-
-  const category = getCategoryBySlug(post.categorySlug);
-  const postCategories = getCategoriesForPost(post);
-  const relatedPosts = getRelatedPosts(post);
   const [activePanel, setActivePanel] = useState<ArticlePanel>("summary");
   const [readingProgress, setReadingProgress] = useState(0);
-  const articleUrl = getBlogPostUrl(post.slug);
+  const articleUrl = getBlogPostUrl(post?.slug ?? slug);
+  const category = post ? getCategoryBySlug(post.categorySlug) : undefined;
+  const postCategories = useMemo(() => (post ? getCategoriesForPost(post) : []), [post]);
+  const primaryAgentKey = getPrimaryAgentKey({
+    title: post?.title,
+    tags: post?.tags,
+    categorySlug: post?.categorySlug,
+    productName: post?.productCta.name,
+    excerpt: post?.excerpt,
+  });
+  const primaryAgent = getAgentByKey(primaryAgentKey);
+  const protocolContext = getProtocolContext(post?.title ?? "", post?.tags ?? []);
+  const breadcrumbItems = useMemo(
+    () => [
+      { label: "Home", href: siteUrl },
+      { label: "Blog", href: blogUrl },
+      ...(category ? [{ label: category.title, href: `${blogUrl}/category/${category.slug}` }] : []),
+      ...(protocolContext ? [{ label: protocolContext.label, href: protocolContext.href }] : []),
+      ...(primaryAgent && !protocolContext ? [{ label: primaryAgent.name, href: primaryAgent.pageHref }] : []),
+      { label: post?.title ?? "Article" },
+    ],
+    [category, post?.title, primaryAgent, protocolContext],
+  );
   const sectionLinks = useMemo(
-    () => post.sections.map((section) => ({ id: toSectionId(section.heading), label: section.heading })),
-    [post.sections]
+    () => post?.sections.map((section) => ({ id: toSectionId(section.heading), label: section.heading })) ?? [],
+    [post]
   );
 
   const panelCopy = useMemo(
     () => ({
-      summary: post.summary,
-      simple: post.simpleExplanation,
-      takeaways: post.keyTakeaways.join(" "),
+      summary: post?.summary ?? "",
+      simple: post?.simpleExplanation ?? "",
+      takeaways: post?.keyTakeaways.join(" ") ?? "",
     }),
     [post]
   );
@@ -80,11 +104,15 @@ export default function BlogArticle() {
       window.removeEventListener("scroll", updateReadingProgress);
       window.removeEventListener("resize", updateReadingProgress);
     };
-  }, [post.slug]);
+  }, [post?.slug]);
 
   const scrollToComments = () => {
     document.getElementById("comments")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  if (!post) {
+    return <BlogNotFound />;
+  }
 
   const structuredData = [
     {
@@ -95,7 +123,7 @@ export default function BlogArticle() {
       abstract: post.summary,
       datePublished: post.publishedAt,
       dateModified: post.updatedAt,
-      inLanguage: "en",
+      inLanguage: "en-US",
       isAccessibleForFree: true,
       author: {
         "@type": "Organization",
@@ -103,10 +131,7 @@ export default function BlogArticle() {
         url: blogUrl,
       },
       publisher: {
-        "@type": "Organization",
-        name: siteName,
-        url: siteUrl,
-        logo: `${siteUrl}/aima-mark.png`,
+        "@id": organizationSchemaId,
       },
       mainEntityOfPage: {
         "@type": "WebPage",
@@ -120,28 +145,22 @@ export default function BlogArticle() {
         name: item.title,
         description: item.description,
       })),
-      mentions: [
-        {
-          "@type": "Organization",
-          name: post.productCta.name,
-          url: post.productCta.href,
-        },
-      ],
+      mentions: primaryAgent
+        ? [
+            {
+              "@type": "SoftwareApplication",
+              name: primaryAgent.name,
+              url: primaryAgent.toolHref,
+            },
+          ]
+        : [],
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: blogTitle, item: blogUrl },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: category?.title ?? "Articles",
-          item: category ? `${blogUrl}/category/${category.slug}` : blogUrl,
-        },
-        { "@type": "ListItem", position: 3, name: post.title, item: `${blogUrl}/${post.slug}` },
-      ],
-    },
+    createBreadcrumbStructuredData(
+      [...breadcrumbItems.slice(0, -1), { label: post.title, href: articleUrl }].map((item) => ({
+        label: item.label,
+        href: item.href ?? articleUrl,
+      })),
+    ),
     ...(post.faqs?.length
       ? [
           {
@@ -193,19 +212,7 @@ export default function BlogArticle() {
         <section className="border-b bg-muted/20 py-16">
           <div className="container">
             <div className="max-w-4xl">
-              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                <Link to={getBlogRoute("/")} className="hover:text-foreground">
-                  Blog
-                </Link>
-                {category && (
-                  <>
-                    <span>/</span>
-                    <Link to={getBlogRoute(`/category/${category.slug}`)} className="hover:text-foreground">
-                      {category.title}
-                    </Link>
-                  </>
-                )}
-              </div>
+              <SemanticBreadcrumbs items={breadcrumbItems} />
 
               <div className={cn("mt-8 rounded-[2rem] bg-gradient-to-br p-8 text-white shadow-xl", post.thumbnailClassName)}>
                 <div className="flex flex-wrap gap-2">
@@ -228,20 +235,28 @@ export default function BlogArticle() {
                 </div>
               </div>
 
-              <div className="mt-8 grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
-                <div className="rounded-[1.75rem] border bg-card/85 p-6 shadow-sm backdrop-blur">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Answer-First Summary</p>
-                  <p className="mt-4 text-base leading-8 text-foreground/90">{post.summary}</p>
-                </div>
-                <div className="rounded-[1.75rem] border bg-card/85 p-6 shadow-sm backdrop-blur">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">What You’ll Get</p>
-                  <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
-                    {post.keyTakeaways.slice(0, 3).map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="mt-8">
+                <AtomicUtilityBlock
+                  title="Quick Summary"
+                  tldr={post.summary}
+                  action={{
+                    label: primaryAgent?.previewLabel ?? "Agent Preview",
+                    href: primaryAgent?.toolHref ?? post.productCta.href,
+                    external: true,
+                  }}
+                  highlights={post.keyTakeaways}
+                  note={`This guide points readers toward ${primaryAgent?.name ?? post.productCta.name} as the clearest next step.`}
+                />
               </div>
+              {primaryAgent ? (
+                <div className="mt-8">
+                  <AgentInsightsChart
+                    agentKey={primaryAgent.key}
+                    title={`${primaryAgent.name} utility snapshot`}
+                    description="Interactive signal views increase time on page while reinforcing the value of the product connected to this article."
+                  />
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
@@ -346,19 +361,9 @@ export default function BlogArticle() {
                 </Button>
               </div>
 
-              {relatedPosts.length > 0 ? (
-                <div className="mt-16">
-                  <div className="flex items-center gap-3">
-                    <BookOpenCheck className="h-5 w-5 text-primary" />
-                    <h2 className="text-2xl font-semibold tracking-tight">Related articles</h2>
-                  </div>
-                  <div className="mt-8 grid gap-6 md:grid-cols-2">
-                    {relatedPosts.map((relatedPost) => (
-                      <BlogArticleCard key={relatedPost.slug} post={relatedPost} variant="compact" />
-                    ))}
-                  </div>
-                </div>
-              ) : null}
+              <div className="mt-16">
+                <RelatedAgents primaryAgentKey={primaryAgentKey} />
+              </div>
 
               <BlogCommentsSection slug={post.slug} title={post.title} articleUrl={articleUrl} />
 

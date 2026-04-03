@@ -1,12 +1,16 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { AgentInsightsChart } from "@/components/AgentInsightsChart";
+import { AtomicUtilityBlock } from "@/components/AtomicUtilityBlock";
+import { SemanticBreadcrumbs } from "@/components/SemanticBreadcrumbs";
 import { SectionHeader } from "@/components/SectionHeader";
 import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
+import { createBreadcrumbStructuredData, getAgentByKey, getAgentStructuredData } from "@/content/entitySchema";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { ShieldCheck, Gamepad2, GraduationCap, Heart } from "lucide-react";
-import { siteName, siteUrl, toolLinks } from "@/content/siteContent";
+import { toolLinks } from "@/content/siteContent";
 
 const features = [
   { icon: ShieldCheck, title: "Safe Environment", desc: "Every interaction is filtered and age-appropriate. Parental controls built in from day one." },
@@ -16,19 +20,18 @@ const features = [
 ];
 
 const kidsStructuredData = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "ally",
-    url: toolLinks.kidsAI,
-    image: `${siteUrl}/ally-logo.png`,
-    provider: {
-      "@type": "Organization",
-      name: siteName,
-      url: siteUrl,
-    },
-    description: "ally is the aima learning and entertainment product designed to be safe, personalized, and engaging for children.",
-  },
+  getAgentStructuredData("ally"),
+  createBreadcrumbStructuredData([
+    { label: "Home", href: "https://useaima.com/" },
+    { label: "Products", href: "https://useaima.com/#products" },
+    { label: "ally", href: "https://useaima.com/kids" },
+  ]),
+];
+const allyAgent = getAgentByKey("ally");
+const kidsBreadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/#products" },
+  { label: "ally", href: "/kids" },
 ];
 
 const Kids = () => {
@@ -47,6 +50,7 @@ const Kids = () => {
       <main>
         <section className="py-24">
           <div className="container">
+            <SemanticBreadcrumbs items={kidsBreadcrumbs} className="mb-8" />
             <div className="mx-auto max-w-4xl rounded-[2rem] border border-violet-500/20 bg-[linear-gradient(135deg,rgba(139,92,246,0.16),rgba(255,255,255,0.98)),radial-gradient(circle_at_top_right,rgba(250,204,21,0.18),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,255,255,1))] p-8 shadow-sm dark:border-violet-400/20 dark:bg-[linear-gradient(135deg,rgba(139,92,246,0.2),rgba(23,16,39,0.95)),radial-gradient(circle_at_top_right,rgba(250,204,21,0.14),transparent_32%),linear-gradient(180deg,rgba(23,16,39,0.9),rgba(23,16,39,0.96))] sm:p-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-violet-700 dark:text-violet-300">
                 AIMA Kids Product
@@ -71,6 +75,29 @@ const Kids = () => {
                   </a>
                 </Button>
               </div>
+            </div>
+            {allyAgent ? (
+              <div className="mx-auto mt-8 max-w-4xl">
+                <AtomicUtilityBlock
+                  title="Quick Summary for ally"
+                  tldr={allyAgent.utilityTldr}
+                  action={{
+                    label: allyAgent.previewLabel,
+                    href: allyAgent.toolHref,
+                    external: true,
+                  }}
+                  highlights={features.slice(0, 3).map((feature) => feature.title)}
+                  note="This gives new visitors a fast answer plus a direct way to validate the product."
+                  actionClassName="bg-violet-600 text-white hover:bg-violet-700"
+                />
+              </div>
+            ) : null}
+            <div className="mx-auto mt-8 max-w-4xl">
+              <AgentInsightsChart
+                agentKey="ally"
+                title="ally trust and learning snapshot"
+                description="These interactive signals reinforce the main promise quickly: safer sessions, clearer parent trust, and better learning momentum."
+              />
             </div>
             <div className="mt-16">
               <SectionHeader

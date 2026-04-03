@@ -74,7 +74,7 @@ export function Navbar() {
             >
               <Search className="h-3.5 w-3.5" />
               <span className="hidden lg:inline">Search</span>
-              <kbd className="hidden rounded border border-border bg-background px-1 py-0.5 text-[10px] lg:inline">⌘K</kbd>
+              <kbd className="hidden rounded border border-border bg-background px-1 py-0.5 text-xs lg:inline">⌘K</kbd>
             </button>
             <ThemeToggle />
           </nav>
