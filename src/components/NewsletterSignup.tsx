@@ -11,7 +11,7 @@ export function NewsletterSignup() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { ref, isVisible } = useScrollReveal();
+  const { ref, isVisible, shouldAnimate } = useScrollReveal();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +34,8 @@ export function NewsletterSignup() {
       <div
         ref={ref}
         className={cn(
-          "container mx-auto max-w-xl text-center opacity-0",
+          "container mx-auto max-w-xl text-center",
+          shouldAnimate ? "opacity-0" : "opacity-100",
           isVisible && "animate-fade-in"
         )}
       >

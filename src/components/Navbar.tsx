@@ -1,10 +1,15 @@
-import { useState, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Search } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import { SearchModal } from "./SearchModal";
 import { BrandLogo } from "./BrandLogo";
 import { cn } from "@/lib/utils";
+
+const SearchModal = lazy(() =>
+  import("./SearchModal").then((module) => ({
+    default: module.SearchModal,
+  })),
+);
 
 const links = [
   { label: "Home", to: "/" },
@@ -17,7 +22,13 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchMounted, setSearchMounted] = useState(false);
   const location = useLocation();
+
+  const openSearch = () => {
+    setSearchMounted(true);
+    setSearchOpen(true);
+  };
 
   // Cmd/Ctrl+K to open search
   useEffect(() => {
@@ -39,7 +50,7 @@ export function Navbar() {
       >
         Skip to main content
       </a>
-      <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
+      <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 md:bg-background/80 md:backdrop-blur-lg">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center" aria-label="aima home">
             <BrandLogo size="md" />
@@ -72,7 +83,7 @@ export function Navbar() {
               )
             )}
             <button
-              onClick={() => setSearchOpen(true)}
+              onClick={openSearch}
               className="ml-1 flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground active:scale-[0.97]"
               aria-label="Search"
             >
@@ -85,7 +96,7 @@ export function Navbar() {
 
           {/* Mobile */}
           <div className="flex items-center gap-2 md:hidden">
-            <button onClick={() => setSearchOpen(true)} className="p-2 text-muted-foreground hover:text-foreground" aria-label="Search">
+            <button onClick={openSearch} className="p-2 text-muted-foreground hover:text-foreground" aria-label="Search">
               <Search className="h-5 w-5" />
             </button>
             <ThemeToggle />
@@ -124,7 +135,11 @@ export function Navbar() {
         )}
       </header>
 
-      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {searchMounted ? (
+        <Suspense fallback={null}>
+          <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
+        </Suspense>
+      ) : null}
     </>
   );
 }

@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Search, X, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { getBlogPostUrl, latestBlogPosts } from "@/content/blogContent";
+import { getLightweightBlogPostUrl, searchBlogSuggestions } from "@/content/blogListings";
 import { toolLinks } from "@/content/siteContent";
 
 interface SearchItem {
@@ -33,11 +33,11 @@ const staticSearchData: SearchItem[] = [
 
 const searchData: SearchItem[] = [
   ...staticSearchData,
-  ...latestBlogPosts.slice(0, 5).map((post) => ({
+  ...searchBlogSuggestions.map((post) => ({
     title: post.title,
     description: post.description,
     category: "Blog",
-    to: getBlogPostUrl(post.slug),
+    to: getLightweightBlogPostUrl(post.slug),
     external: true,
   })),
 ];
@@ -81,21 +81,6 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
     if (!open) setQuery("");
   }, [open]);
 
-  // Cmd/Ctrl+K shortcut
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        if (open) onClose();
-        else {
-          // parent controls open state
-        }
-      }
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, [open, onClose]);
-
   if (!open) return null;
 
   const categoryColor: Record<string, string> = {
@@ -106,7 +91,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh]">
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-background/70 md:backdrop-blur-sm" onClick={onClose} />
       <div className="relative w-full max-w-lg rounded-xl border border-border bg-card shadow-2xl animate-fade-in mx-4">
         <div className="flex items-center gap-3 border-b border-border px-4 py-3">
           <Search className="h-4 w-4 shrink-0 text-muted-foreground" />

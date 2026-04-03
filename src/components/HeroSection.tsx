@@ -4,17 +4,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { siteBrandSummary, siteTagline } from "@/content/siteContent";
 
-function FloatingShape({ className, delay }: { className: string; delay: number }) {
-  return (
-    <div
-      className={className}
-      style={{
-        transitionDelay: `${delay}ms`,
-      }}
-    />
-  );
-}
-
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -23,30 +12,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
-      {/* Animated background shapes */}
-      <FloatingShape
-        className="pointer-events-none absolute -top-32 left-1/4 h-[480px] w-[480px] rounded-full bg-violet-700/10 blur-[100px]"
-        delay={0}
-      />
-      <FloatingShape
-        className="pointer-events-none absolute top-20 right-[10%] h-[320px] w-[320px] rounded-full bg-sky-500/10 blur-[80px]"
-        delay={3000}
-      />
-      <FloatingShape
-        className="pointer-events-none absolute -bottom-20 left-[15%] h-[260px] w-[260px] rounded-full bg-amber-300/30 blur-[90px]"
-        delay={6000}
-      />
-      <FloatingShape
-        className="pointer-events-none absolute bottom-10 right-[18%] h-[220px] w-[220px] rounded-full bg-emerald-400/15 blur-[80px]"
-        delay={1800}
-      />
-      <FloatingShape
-        className="pointer-events-none absolute top-1/3 left-[6%] h-[180px] w-[180px] rounded-full bg-orange-900/10 blur-[70px]"
-        delay={4500}
-      />
-
-      {/* Grid pattern overlay */}
+    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(76,45,168,0.14),transparent_48%),linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,1))] dark:bg-[radial-gradient(circle_at_top,rgba(76,45,168,0.18),transparent_45%),linear-gradient(180deg,rgba(15,23,42,0.95),rgba(15,23,42,1))]">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
@@ -58,7 +24,7 @@ export function HeroSection() {
       {/* Gradient line accent */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-px w-[60%] bg-gradient-to-r from-transparent via-violet-500/40 to-transparent" />
 
-      <div className="container relative flex min-h-[85vh] flex-col items-center justify-center py-24 text-center">
+      <div className="container relative flex min-h-[72vh] flex-col items-center justify-center py-20 text-center sm:min-h-[85vh] sm:py-24">
         <span
           className={`mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/5 px-4 py-1.5 text-xs font-medium tracking-wide text-violet-700 dark:text-violet-300 transition-all duration-700 ease-out ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

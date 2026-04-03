@@ -79,13 +79,14 @@ function PillarCard({
   icon: typeof BrainCircuit;
   index: number;
 }) {
-  const { ref, isVisible } = useScrollReveal();
+  const { ref, isVisible, shouldAnimate } = useScrollReveal();
 
   return (
     <article
       ref={ref}
       className={cn(
-        "rounded-2xl border bg-card p-6 shadow-sm opacity-0 transition-shadow hover:shadow-md",
+        "rounded-2xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md",
+        shouldAnimate ? "opacity-0" : "opacity-100",
         isVisible && "animate-fade-in",
       )}
       style={{ animationDelay: `${index * 80}ms` }}

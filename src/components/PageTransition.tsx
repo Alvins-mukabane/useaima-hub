@@ -20,7 +20,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     <div
       className={cn(
         "transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
-        show ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-3 blur-[2px]"
+        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
       )}
     >
       {displayChildren}

@@ -8,12 +8,13 @@ interface Props {
 }
 
 export function SectionHeader({ title, subtitle, className }: Props) {
-  const { ref, isVisible } = useScrollReveal();
+  const { ref, isVisible, shouldAnimate } = useScrollReveal();
   return (
     <div
       ref={ref}
       className={cn(
-        "mx-auto mb-12 max-w-2xl text-center opacity-0",
+        "mx-auto mb-12 max-w-2xl text-center",
+        shouldAnimate ? "opacity-0" : "opacity-100",
         isVisible && "animate-fade-in",
         className
       )}

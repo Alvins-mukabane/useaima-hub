@@ -3,9 +3,13 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SectionHeader } from "./SectionHeader";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { getBlogPostUrl, latestBlogPosts, getCategoryBySlug } from "@/content/blogContent";
+import {
+  getLightweightBlogPostUrl,
+  getListingCategoryBySlug,
+  homepageBlogPreviewPosts,
+} from "@/content/blogListings";
 
-const posts = latestBlogPosts.slice(0, 4);
+const posts = homepageBlogPreviewPosts;
 
 export function BlogPreview() {
   return (
@@ -30,14 +34,15 @@ export function BlogPreview() {
 }
 
 function BlogCard({ post, index }: { post: (typeof posts)[number]; index: number }) {
-  const { ref, isVisible } = useScrollReveal();
-  const category = getCategoryBySlug(post.categorySlug);
+  const { ref, isVisible, shouldAnimate } = useScrollReveal();
+  const category = getListingCategoryBySlug(post.categorySlug);
 
   return (
     <article
       ref={ref}
       className={cn(
-        "group rounded-xl border bg-card p-6 transition-shadow duration-300 hover:shadow-md opacity-0",
+        "group rounded-xl border bg-card p-6 transition-shadow duration-300 hover:shadow-md",
+        shouldAnimate ? "opacity-0" : "opacity-100",
         isVisible && "animate-fade-in"
       )}
       style={{ animationDelay: `${index * 80}ms` }}
@@ -45,7 +50,7 @@ function BlogCard({ post, index }: { post: (typeof posts)[number]; index: number
       <span className={cn("inline-block rounded-full px-2.5 py-0.5 text-xs font-medium", category?.badgeClassName ?? "bg-muted text-muted-foreground")}>
         {category?.title ?? "Blog"}
       </span>
-      <a href={getBlogPostUrl(post.slug)} target="_blank" rel="noopener noreferrer" className="block">
+      <a href={getLightweightBlogPostUrl(post.slug)} target="_blank" rel="noopener noreferrer" className="block">
         <h3 className="mt-3 text-lg font-semibold transition-colors group-hover:text-primary">{post.title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
       </a>

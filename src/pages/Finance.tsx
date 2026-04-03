@@ -45,7 +45,7 @@ const financeStructuredData = [
 ];
 
 const Finance = () => {
-  const { ref, isVisible } = useScrollReveal();
+  const { ref, isVisible, shouldAnimate } = useScrollReveal();
   return (
     <>
       <SEOHead
@@ -125,7 +125,7 @@ const Finance = () => {
             </div>
             <div
               ref={ref}
-              className={cn("grid gap-6 sm:grid-cols-2 opacity-0", isVisible && "animate-fade-in")}
+              className={cn("grid gap-6 sm:grid-cols-2", shouldAnimate ? "opacity-0" : "opacity-100", isVisible && "animate-fade-in")}
             >
               {features.map((f, i) => {
                 const Icon = f.icon;

@@ -74,7 +74,7 @@ export function ProductEcosystem() {
 }
 
 function ProductCard({ product, index }: { product: (typeof products)[number]; index: number }) {
-  const { ref, isVisible } = useScrollReveal();
+  const { ref, isVisible, shouldAnimate } = useScrollReveal();
   const Icon = product.icon;
   const hasLogo = "logoSrc" in product;
 
@@ -82,7 +82,8 @@ function ProductCard({ product, index }: { product: (typeof products)[number]; i
     <div
       ref={ref}
       className={cn(
-        "group relative flex flex-col rounded-xl border bg-card p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg opacity-0",
+        "group relative flex flex-col rounded-xl border bg-card p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg",
+        shouldAnimate ? "opacity-0" : "opacity-100",
         isVisible && "animate-fade-in"
       )}
       style={{ animationDelay: `${index * 80}ms` }}
