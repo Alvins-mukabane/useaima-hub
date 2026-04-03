@@ -12,7 +12,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(221,138,44,0.18),transparent_44%),radial-gradient(circle_at_bottom_right,rgba(171,111,43,0.2),transparent_34%),linear-gradient(180deg,rgba(14,12,11,0.98),rgba(14,12,11,1))]">
+    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(221,138,44,0.18),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(171,111,43,0.14),transparent_32%),linear-gradient(180deg,rgba(253,247,239,0.98),rgba(250,244,235,1))] dark:bg-[radial-gradient(circle_at_top,rgba(221,138,44,0.18),transparent_44%),radial-gradient(circle_at_bottom_right,rgba(171,111,43,0.2),transparent_34%),linear-gradient(180deg,rgba(14,12,11,0.98),rgba(14,12,11,1))]">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{

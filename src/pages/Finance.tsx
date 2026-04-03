@@ -61,7 +61,7 @@ const Finance = () => {
         <section className="py-24">
           <div className="container">
             <SemanticBreadcrumbs items={financeBreadcrumbs} className="mb-8" />
-            <div className="mx-auto max-w-4xl rounded-[2rem] border border-primary/15 bg-[linear-gradient(135deg,rgba(221,138,44,0.16),rgba(25,22,21,0.96)),linear-gradient(180deg,rgba(25,22,21,0.94),rgba(14,12,11,1))] p-8 shadow-sm sm:p-10">
+            <div className="mx-auto max-w-4xl rounded-[2rem] border border-primary/15 bg-[linear-gradient(135deg,rgba(221,138,44,0.12),rgba(255,255,255,0.96)),linear-gradient(180deg,rgba(255,251,246,0.98),rgba(250,244,235,1))] p-8 shadow-sm dark:bg-[linear-gradient(135deg,rgba(221,138,44,0.16),rgba(25,22,21,0.96)),linear-gradient(180deg,rgba(25,22,21,0.94),rgba(14,12,11,1))] sm:p-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-primary">
                 AIMA Finance Product
               </div>
