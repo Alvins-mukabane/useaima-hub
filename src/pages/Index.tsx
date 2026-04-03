@@ -15,6 +15,7 @@ import {
   blogUrl,
   siteBrandSummary,
   siteDescription,
+  siteName,
   siteUrl,
   toolLinks,
 } from "@/content/siteContent";
