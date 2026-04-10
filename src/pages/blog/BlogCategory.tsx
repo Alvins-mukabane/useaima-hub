@@ -72,12 +72,12 @@ export default function BlogCategory() {
               <p className="mt-5 text-lg leading-8 text-muted-foreground">{category.description}</p>
               <div className="mt-8 flex flex-wrap gap-4 text-sm text-muted-foreground">
                 <span>{posts.length} articles</span>
-                <span>Practical breakdowns from the aima ecosystem</span>
+                <span>Practical breakdowns from the aima finance blog</span>
               </div>
               <div className="mt-8 rounded-[1.5rem] border bg-card/80 p-5 shadow-sm">
                 <p className="text-sm leading-7 text-muted-foreground">
                   This category page is built to help readers move from explanation to action, with guides that connect
-                  learning, product thinking, and real aima tools.
+                  learning, finance concepts, and the product that is live today: eva.
                 </p>
               </div>
             </div>
@@ -94,10 +94,10 @@ export default function BlogCategory() {
 
             <div className="mt-16 rounded-[2rem] border bg-card p-8 shadow-sm lg:p-10">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Built By {siteName}</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">Learn first, then explore the products</h2>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight">Learn first, then explore eva</h2>
               <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-                aima combines educational content, assistant-style tools, and a clearer product philosophy across
-                finance, digital growth, learning, and intelligent systems.
+                aima combines educational content, assistant-style product design, and a clearer finance story around
+                eva.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href={siteUrl} className="inline-flex items-center gap-2 text-sm font-medium text-primary">

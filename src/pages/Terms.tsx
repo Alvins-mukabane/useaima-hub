@@ -28,7 +28,7 @@ const sections = [
   },
   {
     title: "Accounts and Access",
-    body: "Some products may require registration, subscriptions, or controlled access. Users are responsible for maintaining accurate information and protecting their own credentials where accounts are used.",
+    body: "Some features may require registration, subscriptions, or controlled access. Users are responsible for maintaining accurate information and protecting their own credentials where accounts are used.",
   },
   {
     title: "Intellectual Property",
@@ -45,7 +45,7 @@ const Terms = () => {
     <>
       <SEOHead
         title="Terms of Service"
-        description="Read the terms that govern use of the aima platform, products, and AI-powered recommendations."
+        description="Read the terms that govern use of the aima platform, eva, and AI-powered recommendations."
         path="/terms-of-service"
         structuredData={termsStructuredData}
       />
@@ -55,7 +55,7 @@ const Terms = () => {
           <div className="container max-w-3xl">
             <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">Terms of Service</h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              These terms provide a clear baseline for how aima products are offered and how users are expected to use
+              These terms provide a clear baseline for how aima and eva are offered and how users are expected to use
               the platform responsibly.
             </p>
 

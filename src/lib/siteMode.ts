@@ -1,4 +1,4 @@
-import { blogUrl } from "@/content/siteContent";
+import { blogUrl, supportUrl } from "@/content/siteContent";
 
 function normalizePath(path: string) {
   if (!path || path === "/") return "/";
@@ -10,6 +10,11 @@ export function isBlogHost() {
   return window.location.hostname.toLowerCase() === "blog.useaima.com";
 }
 
+export function isSupportHost() {
+  if (typeof window === "undefined") return false;
+  return window.location.hostname.toLowerCase() === "support.useaima.com";
+}
+
 export function getBlogRoute(path = "/") {
   const normalizedPath = normalizePath(path);
   if (isBlogHost()) return normalizedPath;
@@ -18,4 +23,8 @@ export function getBlogRoute(path = "/") {
 
 export function getBlogCanonicalUrl(path = "/") {
   return new URL(normalizePath(path), blogUrl).toString();
+}
+
+export function getSupportCanonicalUrl(path = "/") {
+  return new URL(normalizePath(path), supportUrl).toString();
 }

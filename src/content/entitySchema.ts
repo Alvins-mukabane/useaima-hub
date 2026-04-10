@@ -1,8 +1,18 @@
-import { blogUrl, siteDescription, siteName, siteTagline, siteUrl, toolLinks } from "@/content/siteContent";
+import {
+  blogUrl,
+  siteDescription,
+  siteEmail,
+  siteName,
+  siteTagline,
+  siteUrl,
+  supportLinks,
+  supportUrl,
+  toolLinks,
+} from "@/content/siteContent";
 
 export type StructuredDataEntry = Record<string, unknown>;
 
-export type AgentKey = "ace" | "eva" | "mailmind";
+export type AgentKey = "eva";
 
 export type AgentProfile = {
   key: AgentKey;
@@ -31,31 +41,7 @@ export const agentProfiles: AgentProfile[] = [
     description: "AI finance assistant for spending visibility, anomaly detection, and decision support.",
     utilityTldr: "eva helps users understand spending, spot risks early, and turn financial signals into next-step guidance.",
     previewLabel: "Agent Preview",
-    relatedKeys: ["ace", "mailmind"],
-  },
-  {
-    key: "ace",
-    name: "ace",
-    applicationCategory: "BusinessApplication",
-    pageHref: `${siteUrl}/#products`,
-    toolHref: toolLinks.socialPulse,
-    logoPath: "/ace-logo.png",
-    description: "AI social media intelligence agent for content analysis, trend detection, and growth decisions.",
-    utilityTldr: "ace turns social analytics into practical next steps for creators, marketers, and growth-focused teams.",
-    previewLabel: "Agent Preview",
-    relatedKeys: ["eva", "mailmind"],
-  },
-  {
-    key: "mailmind",
-    name: "MailMind",
-    applicationCategory: "ProductivityApplication",
-    pageHref: `${siteUrl}/#products`,
-    toolHref: toolLinks.emailAI,
-    logoPath: "/aima-mark-128.png",
-    description: "AI inbox intelligence for summaries, tasks, and structured follow-up actions.",
-    utilityTldr: "MailMind turns inbox overload into digestible priorities, follow-up tasks, and faster communication decisions.",
-    previewLabel: "Agent Preview",
-    relatedKeys: ["eva", "ace"],
+    relatedKeys: [],
   },
 ];
 
@@ -133,7 +119,26 @@ export const baseStructuredData: StructuredDataEntry[] = [
     image: `${siteUrl}/aima-mark.png`,
     description: siteDescription,
     slogan: siteTagline,
-    sameAs: [blogUrl],
+    email: siteEmail,
+    sameAs: [blogUrl, supportUrl, supportLinks.instagram, supportLinks.youtube],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: siteEmail,
+        url: supportUrl,
+        availableLanguage: ["en-US"],
+      },
+    ],
+    knowsAbout: [
+      "AI finance assistants",
+      "Personal finance intelligence",
+      "Autonomous finance",
+      "Spending analysis",
+      "AP2",
+      "A2A",
+      "KYA",
+    ],
     hasPart: agentProfiles.map((agent) => ({
       "@id": getAgentSchemaId(agent.key),
     })),
@@ -298,17 +303,8 @@ export function inferRelevantAgentKeys(
     add("eva");
   }
 
-  if (categorySlug === "social-media" || /ace|social|creator|content|analytics|views|reach|growth/.test(haystack)) {
-    add("ace");
-  }
-
-  if (/mailmind|email|inbox|communication|messages/.test(haystack)) {
-    add("mailmind");
-  }
-
   if (matches.length === 0 && categorySlug === "ai-agents") {
     add("eva");
-    add("ace");
   }
 
   if (matches.length === 0) {

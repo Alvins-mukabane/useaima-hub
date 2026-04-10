@@ -2,8 +2,51 @@ import { blogUrl, siteName, toolLinks } from "@/content/siteContent";
 
 export const blogTitle = `${siteName} Blog | Official aima Articles`;
 export const blogDescription =
-  "The official aima blog publishes practical guides on AI, finance, social media, and systems thinking across the aima ecosystem.";
-export const blogAuthor = "aima";
+  "The official aima blog publishes practical guides on AI agents, personal finance, and financial systems centered on eva.";
+
+export type BlogAuthorId = "alvins" | "adams";
+
+export type BlogAuthorProfile = {
+  id: BlogAuthorId;
+  name: string;
+  role: string;
+  bio: string;
+  instagramUrl: string;
+  instagramHandle: string;
+  facebookUrl: string;
+  facebookLabel: string;
+  primaryUrl: string;
+  sameAs: string[];
+};
+
+export const defaultBlogAuthorId: BlogAuthorId = "alvins";
+
+export const blogAuthors: Record<BlogAuthorId, BlogAuthorProfile> = {
+  alvins: {
+    id: "alvins",
+    name: "Alvins Mukabane",
+    role: "Founder, builder, and product lead at aima",
+    bio: "Alvins writes about practical AI systems, finance workflows, and how eva turns raw financial signals into useful next-step guidance.",
+    instagramUrl: "https://www.instagram.com/techtrendedge/",
+    instagramHandle: "@techtrendedge",
+    facebookUrl: "https://www.facebook.com/public/Alvins-Mukabane",
+    facebookLabel: "Alvins Mukabane",
+    primaryUrl: "https://www.instagram.com/techtrendedge/",
+    sameAs: ["https://www.instagram.com/techtrendedge/"],
+  },
+  adams: {
+    id: "adams",
+    name: "Adams Aura",
+    role: "Content and research contributor at aima",
+    bio: "Adams writes about AI agents, agent protocols, and the system ideas that shape autonomous finance around eva.",
+    instagramUrl: "https://www.instagram.com/adams.2wild/",
+    instagramHandle: "@adams.2wild",
+    facebookUrl: "https://www.facebook.com/public/Pos-Sheisty",
+    facebookLabel: "Pos sheisty",
+    primaryUrl: "https://www.instagram.com/adams.2wild/",
+    sameAs: ["https://www.instagram.com/adams.2wild/"],
+  },
+};
 
 export type BlogCategory = {
   slug: string;
@@ -22,6 +65,7 @@ export type BlogSection = {
 
 export type BlogPost = {
   slug: string;
+  authorId?: BlogAuthorId;
   title: string;
   seoTitle?: string;
   description: string;
@@ -70,35 +114,9 @@ export const blogCategories: BlogCategory[] = [
     gradient: "from-success via-primary to-warning",
     badgeClassName: "bg-success/10 text-success",
   },
-  {
-    slug: "social-media",
-    title: "Social Media",
-    description: "Analytics, creator workflows, and content strategy that lead to action instead of noise.",
-    emoji: "📱",
-    gradient: "from-accent via-primary to-warning",
-    badgeClassName: "bg-accent/20 text-accent-foreground",
-  },
-  {
-    slug: "dev-systems",
-    title: "Dev & Systems",
-    description: "Infrastructure, operations, product systems, and the engineering discipline behind useful AI.",
-    emoji: "⚙️",
-    gradient: "from-secondary via-accent to-primary",
-    badgeClassName: "bg-secondary text-secondary-foreground",
-  },
 ];
 
 export const blogProducts = [
-  {
-    name: "ace",
-    logoSrc: "/ace-logo.png",
-    surfaceClass: "border-primary/20 bg-secondary text-foreground",
-    logoWidth: 712,
-    logoHeight: 465,
-    description: "Turn social data into decisions with insight-led analytics, trend detection, and content clarity.",
-    href: toolLinks.socialPulse,
-    label: "Try ace",
-  },
   {
     name: "eva",
     logoSrc: "/eva-logo.png",
@@ -114,6 +132,7 @@ export const blogProducts = [
 export const blogPosts: BlogPost[] = [
   {
     slug: "what-are-ai-agents",
+    authorId: "alvins",
     title: "What Are AI Agents? The Complete Beginner Guide to Autonomous Finance in 2026",
     seoTitle: "What Are AI Agents? (Beginner Guide 2026) - Autonomous Finance Explained",
     description:
@@ -154,7 +173,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Introduction",
         paragraphs: [
-          "AI is no longer just a tool you use. It is becoming something that works for you independently. From managing emails to analyzing markets, a new type of system is emerging: AI agents.",
+          "AI is no longer just a tool you use. It is becoming something that works for you independently. From monitoring spending to analyzing market shifts, a new type of system is emerging: AI agents.",
           "These systems are not just responsive. They are proactive, autonomous, and decision-driven. That is why they matter so much in 2026, especially in finance where small delays and missed patterns can have real consequences.",
           "In this guide, you will learn what AI agents are, how they work in simple terms, why they are transforming finance, and how tools like eva make autonomous finance practical.",
         ],
@@ -175,12 +194,12 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "How AI Agents Work",
         paragraphs: [
-          "Behind the scenes, AI agents run in a loop. First they take in data from transactions, emails, market updates, and other relevant systems. Then they process that information to detect patterns, identify problems, and decide what matters most.",
+          "Behind the scenes, AI agents run in a loop. First they take in data from transactions, market updates, and other relevant systems. Then they process that information to detect patterns, identify problems, and decide what matters most.",
           "After processing, they generate output in the form of alerts, recommendations, summaries, or automated actions. This is what makes them feel more capable than a normal chatbot. They are coordinating context, memory, tools, and execution.",
           "The core building blocks are usually a memory layer for past behavior, a decision engine for choosing next actions, an integration layer for connecting to tools, and an execution layer for actually doing something useful.",
         ],
         bullets: [
-          "Input: bank transactions, social media, emails, or market data.",
+          "Input: bank transactions, portfolio data, account history, or market data.",
           "Processing: detect patterns, anomalies, and opportunities.",
           "Output: notifications, recommendations, or automated decisions.",
           "Architecture: memory layer, decision engine, integration layer, and execution layer.",
@@ -244,13 +263,13 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The Bigger Picture: AI Agents Everywhere",
         paragraphs: [
-          "AI agents are not limited to finance. The same model is expanding into email management, content strategy, and communication workflows. Once people understand how valuable agent-style systems are in one area, it becomes easier to see the same pattern across the rest of digital life.",
-          "That wider ecosystem is already visible inside aima. ace focuses on social media intelligence, MailMind focuses on inbox clarity, and eva focuses on financial intelligence. Each one is designed around assistance rather than passive reporting.",
+          "AI agents are not limited to finance, but finance is one of the clearest places to see their value today. Once users experience how useful agent-style systems are for spending awareness, anomaly detection, and decision support, it becomes easier to understand where the broader technology is going.",
+          "Inside aima, that direction is currently represented by eva. The focus is on building one strong financial assistant that feels useful in real life instead of spreading attention across several unfinished tools.",
         ],
         bullets: [
-          "ace for social media intelligence.",
-          "MailMind for inbox clarity and follow-up support.",
-          "eva for financial intelligence.",
+          "eva for financial intelligence and decision support.",
+          "AI agents become useful when they turn signals into next actions.",
+          "Focused execution builds more trust than a wide but unfinished product surface.",
         ],
       },
       {
@@ -312,6 +331,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "what-is-kya-know-your-agent",
+    authorId: "adams",
     title: "What Is KYA (Know Your Agent)? The Future of Financial Security in 2026",
     seoTitle: "What Is KYA (Know Your Agent)? vs KYC Explained (2026 Guide)",
     description:
@@ -346,7 +366,7 @@ export const blogPosts: BlogPost[] = [
       "KYA stands for Know Your Agent, not Know Your Activity.",
       "KYC verifies the human user, while KYA verifies the software agent acting on the user's behalf.",
       "Trusted agentic finance needs identity, permissions, policy boundaries, and auditability.",
-      "eva fits this shift by helping users understand behavior and anomalies while the broader ecosystem moves toward agent-aware financial controls.",
+      "eva fits this shift by helping users understand behavior and anomalies while broader financial systems move toward agent-aware controls.",
     ],
     sections: [
       {
@@ -492,6 +512,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "a2a-ap2-kya-explained",
+    authorId: "adams",
     title: "A2A, AP2 & KYA Explained: How AI Agents Will Control Financial Systems in 2026",
     seoTitle: "A2A, AP2 & KYA Explained - The Future of AI Agent Finance (2026 Guide)",
     description:
@@ -664,6 +685,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "agent-to-agent-payments-explained",
+    authorId: "adams",
     title: "Agent-to-Agent (A2A) Payments: The Future of Autonomous Commerce in 2026",
     seoTitle: "Agent-to-Agent Payments Explained (A2A) - The Future of AI Commerce",
     description:
@@ -840,6 +862,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "what-is-personal-finance",
+    authorId: "alvins",
     title: "What Is Personal Finance? (Beginner Guide for 2026)",
     seoTitle: "What Is Personal Finance? Beginner Guide (2026)",
     description:
@@ -1327,6 +1350,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "weekly-finance-review-with-ai",
+    authorId: "alvins",
     title: "A Simple Weekly Finance Review You Can Run With AI",
     description: "Use a practical weekly review to understand spending patterns, risks, and better financial decisions.",
     excerpt: "Most people do not need a more complicated budget. They need a weekly review that helps them notice what changed and what to do next.",
@@ -1386,6 +1410,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "why-most-budgets-fail-and-what-to-track-instead",
+    authorId: "alvins",
     title: "Why Most Budgets Fail and What to Track Instead",
     description: "Learn why budgets break down and how better financial signals create decisions people can maintain.",
     excerpt: "Budget failure is usually not a motivation problem. It is a system design problem built around too much friction and too little feedback.",
@@ -1618,7 +1643,15 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-const hiddenBlogSlugs = new Set(["why-ai-products-need-operational-clarity"]);
+const hiddenBlogSlugs = new Set([
+  "why-ai-products-need-operational-clarity",
+  "how-ai-assistants-are-replacing-apps",
+  "what-is-agentic-ai-and-why-it-matters",
+  "choosing-ai-tools-that-reduce-work",
+  "why-your-social-media-posts-get-no-views",
+  "what-creators-should-measure-before-posting-again",
+  "social-media-analytics-that-lead-to-action",
+]);
 
 export const sortedBlogPosts = [...blogPosts]
   .filter((post) => !hiddenBlogSlugs.has(post.slug))
@@ -1657,6 +1690,10 @@ export function getRelatedPosts(post: BlogPost) {
 
 export function getPostsByProduct(productName: string) {
   return sortedBlogPosts.filter((post) => post.productCta.name === productName);
+}
+
+export function getBlogAuthor(authorId: BlogAuthorId = defaultBlogAuthorId) {
+  return blogAuthors[authorId] ?? blogAuthors[defaultBlogAuthorId];
 }
 
 export function getBlogPostUrl(slug: string) {

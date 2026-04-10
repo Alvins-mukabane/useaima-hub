@@ -2,7 +2,7 @@ import { ArrowRight, BookOpen, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { siteBrandSummary, siteTagline } from "@/content/siteContent";
+import { siteBrandSummary, siteTagline, toolLinks } from "@/content/siteContent";
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
@@ -40,10 +40,10 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "120ms", lineHeight: 1.08 }}
         >
-          aima is the official home
+          aima builds eva,
           <br />
           <span className="bg-gradient-to-r from-foreground via-primary to-warning bg-clip-text text-transparent">
-            for AI assistants in real life.
+            an AI finance assistant for everyday money decisions.
           </span>
         </h1>
 
@@ -53,8 +53,8 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "240ms" }}
         >
-          {siteTagline} aima creates intelligent systems for finance, communication, productivity,
-          and digital growth. Each product is designed to act like an assistant, not just a dashboard.
+          {siteTagline} The platform is built to help people understand spending, catch unusual financial behavior
+          earlier, and move from raw transaction data to clearer action with less guesswork.
         </p>
 
         <div
@@ -63,7 +63,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: "300ms" }}
         >
-          {["SocialPulse-led brand system", "Connected AI ecosystem", "Privacy-minded product design"].map((item) => (
+          {["Live product: eva", "AI finance assistant", "Support, guides, and product clarity"].map((item) => (
             <span key={item} className="rounded-full border bg-background/70 px-3 py-1.5">
               {item}
             </span>
@@ -77,8 +77,8 @@ export function HeroSection() {
           style={{ transitionDelay: "360ms" }}
         >
           <Button size="lg" className="gap-2 active:scale-[0.97]" asChild>
-            <a href="#products">
-              Explore aima <ArrowRight className="h-4 w-4" />
+            <a href={toolLinks.financeAI} target="_blank" rel="noopener noreferrer">
+              Open eva <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
           <Button variant="outline" size="lg" className="gap-2 active:scale-[0.97]" asChild>
@@ -87,9 +87,9 @@ export function HeroSection() {
             </Link>
           </Button>
           <Button variant="ghost" size="lg" className="gap-2 active:scale-[0.97]" asChild>
-            <a href="https://blog.useaima.com" target="_blank" rel="noopener noreferrer">
-              <BookOpen className="h-4 w-4" /> Read Blog
-            </a>
+            <Link to="/support">
+              <BookOpen className="h-4 w-4" /> Support & Help
+            </Link>
           </Button>
         </div>
 

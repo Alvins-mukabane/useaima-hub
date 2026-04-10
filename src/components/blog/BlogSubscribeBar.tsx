@@ -64,10 +64,10 @@ export function BlogSubscribeBar({ compact = false }: BlogSubscribeBarProps) {
           Daily Updates
         </p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight">
-          {compact ? "Get new blog updates in your inbox" : "Subscribe for daily aima blog notifications"}
+          {compact ? "Get new blog updates in your inbox" : "Subscribe for daily eva blog notifications"}
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Receive new articles, product updates, and ecosystem insights from the aima blog without having to check
+          Receive new articles, eva updates, and finance insights from the aima blog without having to check
           manually.
         </p>
       </div>
@@ -88,7 +88,7 @@ export function BlogSubscribeBar({ compact = false }: BlogSubscribeBarProps) {
       </form>
 
       <p className="mt-4 text-xs leading-6 text-muted-foreground">
-        By subscribing, readers opt in to blog updates and product notifications related to the aima ecosystem.
+        By subscribing, readers opt in to blog updates and eva-related notifications from aima.
       </p>
     </section>
   );

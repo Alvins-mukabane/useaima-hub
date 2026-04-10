@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BlogEngagementBar } from "@/components/blog/BlogEngagementBar";
-import { BlogPost, getBlogPostUrl, getCategoriesForPost } from "@/content/blogContent";
+import { BlogPost, getBlogAuthor, getBlogPostUrl, getCategoriesForPost } from "@/content/blogContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +15,7 @@ export function BlogArticleCard({ post, variant = "latest" }: BlogArticleCardPro
   const isCompact = variant === "compact";
   const articleRoute = getBlogRoute(`/${post.slug}`);
   const articleUrl = getBlogPostUrl(post.slug);
+  const author = getBlogAuthor(post.authorId);
 
   return (
     <article
@@ -71,12 +72,18 @@ export function BlogArticleCard({ post, variant = "latest" }: BlogArticleCardPro
             ))}
           </div>
           <p className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">{post.excerpt}</p>
-          <div className="mt-5 flex items-center justify-between gap-3 text-sm">
-            <span className="text-muted-foreground">{post.publishedAt}</span>
-            <span className="inline-flex items-center gap-2 font-medium text-foreground">
+          <div className="mt-5 space-y-2 text-sm">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-muted-foreground">
+              <span>{post.publishedAt}</span>
+              <span>By {author.name}</span>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs text-muted-foreground">{author.role}</span>
+              <span className="inline-flex items-center gap-2 font-medium text-foreground">
               Read article
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
+              </span>
+            </div>
           </div>
         </div>
       </Link>

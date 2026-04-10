@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Layers3, Lightbulb, Sparkles } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Layers3, Lightbulb, Sparkles } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { AgentInsightsChart } from "@/components/AgentInsightsChart";
 import { AtomicUtilityBlock } from "@/components/AtomicUtilityBlock";
@@ -21,7 +21,7 @@ import {
 import { cn } from "@/lib/utils";
 import { BlogFooter } from "@/components/blog/BlogFooter";
 import { BlogNavbar } from "@/components/blog/BlogNavbar";
-import { blogAuthor, getBlogPostUrl, getCategoriesForPost, getCategoryBySlug, getPostBySlug } from "@/content/blogContent";
+import { getBlogAuthor, getBlogPostUrl, getCategoriesForPost, getCategoryBySlug, getPostBySlug } from "@/content/blogContent";
 import { blogUrl, siteUrl } from "@/content/siteContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import BlogNotFound from "./BlogNotFound";
@@ -49,6 +49,7 @@ export default function BlogArticle() {
   const articleUrl = getBlogPostUrl(post?.slug ?? slug);
   const category = post ? getCategoryBySlug(post.categorySlug) : undefined;
   const postCategories = useMemo(() => (post ? getCategoriesForPost(post) : []), [post]);
+  const author = post ? getBlogAuthor(post.authorId) : undefined;
   const primaryAgentKey = getPrimaryAgentKey({
     title: post?.title,
     tags: post?.tags,
@@ -126,9 +127,10 @@ export default function BlogArticle() {
       inLanguage: "en-US",
       isAccessibleForFree: true,
       author: {
-        "@type": "Organization",
-        name: blogAuthor,
-        url: blogUrl,
+        "@type": "Person",
+        name: author?.name,
+        url: author?.primaryUrl,
+        sameAs: author?.sameAs,
       },
       publisher: {
         "@id": organizationSchemaId,
@@ -188,7 +190,7 @@ export default function BlogArticle() {
         siteOrigin={blogUrl}
         type="article"
         section={category?.title}
-        authorName={blogAuthor}
+        authorName={author?.name}
         publishedTime={post.publishedAt}
         modifiedTime={post.updatedAt}
         keywords={[...postCategories.map((item) => item.title), ...post.tags]}
@@ -228,7 +230,7 @@ export default function BlogArticle() {
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">{post.excerpt}</p>
                 <div className="mt-8 flex flex-wrap gap-4 text-sm text-white/80">
-                  <span>By {blogAuthor}</span>
+                  <span>By {author?.name ?? "aima"}</span>
                   <span>Published {post.publishedAt}</span>
                   {post.updatedAt !== post.publishedAt ? <span>Updated {post.updatedAt}</span> : null}
                   <span>{post.readingTime}</span>
@@ -248,6 +250,38 @@ export default function BlogArticle() {
                   note={`This guide points readers toward ${primaryAgent?.name ?? post.productCta.name} as the clearest next step.`}
                 />
               </div>
+              {author ? (
+                <div className="mt-8 rounded-[1.75rem] border bg-card p-6 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Written by</p>
+                  <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                      <h2 className="text-2xl font-semibold tracking-tight">{author.name}</h2>
+                      <p className="mt-2 text-sm font-medium text-primary">{author.role}</p>
+                      <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">{author.bio}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <a
+                        href={author.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-muted/30"
+                      >
+                        <Instagram className="h-4 w-4" />
+                        {author.instagramHandle}
+                      </a>
+                      <a
+                        href={author.facebookUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-muted/30"
+                      >
+                        <Facebook className="h-4 w-4" />
+                        {author.facebookLabel}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
               {primaryAgent ? (
                 <div className="mt-8">
                   <AgentInsightsChart

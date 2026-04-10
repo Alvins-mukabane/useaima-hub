@@ -6,12 +6,13 @@
     <atom:link href="https://blog.useaima.com/blog-feed.xml" rel="self" type="application/rss+xml" />
     <description>Simple guides, real insights, and tools built for the future.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2026 23:53:27 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 20:59:43 GMT</lastBuildDate>
     <item>
       <title>What Are AI Agents? The Complete Beginner Guide to Autonomous Finance in 2026</title>
       <link>https://blog.useaima.com/what-are-ai-agents</link>
       <guid>https://blog.useaima.com/what-are-ai-agents</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <author>Alvins Mukabane</author>
       <description>A beginner-friendly guide to AI agents, autonomous finance, and why agent-style systems matter now.</description>
     </item>
     <item>
@@ -19,6 +20,7 @@
       <link>https://blog.useaima.com/what-is-kya-know-your-agent</link>
       <guid>https://blog.useaima.com/what-is-kya-know-your-agent</guid>
       <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <author>Adams Aura</author>
       <description>Learn what Know Your Agent means, how it differs from KYC, and why trust matters in autonomous finance.</description>
     </item>
     <item>
@@ -26,6 +28,7 @@
       <link>https://blog.useaima.com/a2a-ap2-kya-explained</link>
       <guid>https://blog.useaima.com/a2a-ap2-kya-explained</guid>
       <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+      <author>Adams Aura</author>
       <description>A practical guide to A2A, AP2, and KYA in the emerging agent economy.</description>
     </item>
     <item>
@@ -33,6 +36,7 @@
       <link>https://blog.useaima.com/agent-to-agent-payments-explained</link>
       <guid>https://blog.useaima.com/agent-to-agent-payments-explained</guid>
       <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <author>Adams Aura</author>
       <description>An introduction to A2A payments, autonomous commerce, and AI-led financial execution.</description>
     </item>
     <item>
@@ -40,41 +44,15 @@
       <link>https://blog.useaima.com/what-is-personal-finance</link>
       <guid>https://blog.useaima.com/what-is-personal-finance</guid>
       <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <author>Alvins Mukabane</author>
       <description>A simple personal finance guide covering budgeting, saving, investing, and AI-powered finance workflows.</description>
-    </item>
-    <item>
-      <title>How AI Assistants Are Replacing Apps (And What It Means for You)</title>
-      <link>https://blog.useaima.com/how-ai-assistants-are-replacing-apps</link>
-      <guid>https://blog.useaima.com/how-ai-assistants-are-replacing-apps</guid>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Why assistant-style systems are becoming the new interface for work, planning, and decisions.</description>
-    </item>
-    <item>
-      <title>Why Your Social Media Posts Get No Views (And How to Fix It)</title>
-      <link>https://blog.useaima.com/why-your-social-media-posts-get-no-views</link>
-      <guid>https://blog.useaima.com/why-your-social-media-posts-get-no-views</guid>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
-      <description>A practical reach and retention guide for creators, teams, and marketers who want better performance.</description>
-    </item>
-    <item>
-      <title>What Is Agentic AI and Why It Matters for Everyday Work</title>
-      <link>https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters</link>
-      <guid>https://blog.useaima.com/what-is-agentic-ai-and-why-it-matters</guid>
-      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
-      <description>A clear explanation of agentic AI and how it changes daily workflows and software expectations.</description>
-    </item>
-    <item>
-      <title>Choosing AI Tools That Reduce Work Instead of Adding More Dashboards</title>
-      <link>https://blog.useaima.com/choosing-ai-tools-that-reduce-work</link>
-      <guid>https://blog.useaima.com/choosing-ai-tools-that-reduce-work</guid>
-      <pubDate>Sun, 22 Mar 2026 00:00:00 GMT</pubDate>
-      <description>A framework for selecting AI tools that create clarity, utility, and fewer wasted clicks.</description>
     </item>
     <item>
       <title>A Simple Weekly Finance Review You Can Run With AI</title>
       <link>https://blog.useaima.com/weekly-finance-review-with-ai</link>
       <guid>https://blog.useaima.com/weekly-finance-review-with-ai</guid>
       <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <author>Alvins Mukabane</author>
       <description>A practical AI-assisted finance review framework for tracking spending and making better decisions.</description>
     </item>
     <item>
@@ -82,21 +60,8 @@
       <link>https://blog.useaima.com/why-most-budgets-fail-and-what-to-track-instead</link>
       <guid>https://blog.useaima.com/why-most-budgets-fail-and-what-to-track-instead</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <author>Alvins Mukabane</author>
       <description>A clearer way to review money behavior when static budgets stop being useful.</description>
-    </item>
-    <item>
-      <title>What Creators Should Measure Before Posting Again</title>
-      <link>https://blog.useaima.com/what-creators-should-measure-before-posting-again</link>
-      <guid>https://blog.useaima.com/what-creators-should-measure-before-posting-again</guid>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
-      <description>A creator-focused review workflow that uses better metrics before the next post goes live.</description>
-    </item>
-    <item>
-      <title>Social Media Analytics That Lead to Action</title>
-      <link>https://blog.useaima.com/social-media-analytics-that-lead-to-action</link>
-      <guid>https://blog.useaima.com/social-media-analytics-that-lead-to-action</guid>
-      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
-      <description>How to move from passive analytics dashboards to real social decisions and better content plans.</description>
     </item>
   </channel>
 </rss>

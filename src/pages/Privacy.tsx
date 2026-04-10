@@ -16,7 +16,7 @@ const privacyStructuredData = [
 const sections = [
   {
     title: "Overview",
-    body: `${siteName} is designed with privacy in mind. We aim to handle user information responsibly, process data securely, and build products that earn trust instead of taking it for granted.`,
+    body: `${siteName} is designed with privacy in mind. We aim to handle user information responsibly, process data securely, and build eva in a way that earns trust instead of taking it for granted.`,
   },
   {
     title: "Information We May Collect",
@@ -36,7 +36,7 @@ const sections = [
   },
   {
     title: "User Choice",
-    body: "Users may request updates, corrections, or deletion of certain information where applicable. As products evolve, more account-level controls may be introduced to give users clearer control over their data and preferences.",
+    body: "Users may request updates, corrections, or deletion of certain information where applicable. As eva evolves, more account-level controls may be introduced to give users clearer control over their data and preferences.",
   },
 ];
 
@@ -55,7 +55,7 @@ const Privacy = () => {
           <div className="container max-w-3xl">
             <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">Privacy Policy</h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              This page explains the general privacy approach for aima and its products. It is intended to provide
+              This page explains the general privacy approach for aima and eva. It is intended to provide
               clarity, trust, and a straightforward understanding of how the platform handles information.
             </p>
 

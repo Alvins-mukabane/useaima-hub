@@ -5,8 +5,6 @@ import { cn } from "@/lib/utils";
 
 const tones = {
   eva: "border-primary/20 bg-primary/10",
-  ace: "border-accent/30 bg-accent/15",
-  mailmind: "border-warning/20 bg-warning/10",
 } as const;
 
 type RelatedAgentsProps = {
@@ -22,14 +20,17 @@ export function RelatedAgents({ primaryAgentKey, className }: RelatedAgentsProps
   }
 
   const agents = [primaryAgent, ...getRelatedAgents(primaryAgentKey, 2)];
+  const isSingleAgent = agents.length === 1;
 
   return (
     <section className={className}>
       <div className="flex items-center gap-3">
-        <h2 className="text-2xl font-semibold tracking-tight">Related Agents</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">{isSingleAgent ? "Next Step" : "Related Agents"}</h2>
       </div>
       <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
-        Instead of sending readers to another generic post, guide them toward the next agent or setup page that actually helps them act.
+        {isSingleAgent
+          ? "Instead of ending with another abstract article, guide readers straight to eva so they can act on what they just learned."
+          : "Instead of sending readers to another generic post, guide them toward the next agent or setup page that actually helps them act."}
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">

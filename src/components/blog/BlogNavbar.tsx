@@ -85,7 +85,7 @@ export function BlogNavbar() {
           <Button asChild className="rounded-full">
             <a href="https://useaima.com/#products">
               <Sparkles className="h-4 w-4" />
-              Explore Tools
+              Explore eva
             </a>
           </Button>
         </div>

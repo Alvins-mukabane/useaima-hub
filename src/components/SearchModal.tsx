@@ -14,17 +14,10 @@ interface SearchItem {
 }
 
 const staticSearchData: SearchItem[] = [
-  { title: "What is aima?", description: "Overview of the aima platform and ecosystem", category: "Page", to: "/#what-is-aima" },
+  { title: "What is aima?", description: "Overview of aima and eva, the AI finance assistant", category: "Page", to: "/#what-is-aima" },
   { title: "eva", description: "AI financial advisor — tracks spending and provides insights", category: "Product", to: toolLinks.financeAI, external: true },
-  { title: "MailMind", description: "AI email intelligence — summarizes, detects deadlines, generates plans", category: "Product", to: toolLinks.emailAI, external: true },
-  {
-    title: "ace",
-    description: "AI social media analytics — trends, content ideas, algorithm detection",
-    category: "Product",
-    to: toolLinks.socialPulse,
-    external: true,
-  },
   { title: "Finance", description: "AI-powered financial intelligence hub", category: "Page", to: "/finance" },
+  { title: "Support", description: "Help, support, and Q&A for aima and eva", category: "Page", to: "/support" },
   { title: "About Us", description: "Learn about the aima mission, vision, and approach", category: "Page", to: "/about" },
   { title: "Privacy Policy", description: "How aima handles user data and privacy", category: "Page", to: "/privacy-policy" },
   { title: "Terms of Service", description: "Terms that govern use of the aima platform", category: "Page", to: "/terms-of-service" },
@@ -99,7 +92,7 @@ export function SearchModal({ open, onClose }: SearchModalProps) {
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search products, pages, blog…"
+            placeholder="Search eva, pages, blog…"
             className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
           <button onClick={onClose} className="rounded p-1 text-muted-foreground hover:text-foreground active:scale-95">

@@ -13,8 +13,9 @@ const SearchModal = lazy(() =>
 
 const links = [
   { label: "Home", to: "/" },
-  { label: "Blog", to: "https://blog.useaima.com", external: true },
   { label: "Finance", to: "/finance" },
+  { label: "Support", to: "/support" },
+  { label: "Blog", to: "https://blog.useaima.com", external: true },
   { label: "FAQs", to: "/#faq" },
   { label: "About Us", to: "/about" },
 ];

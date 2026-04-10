@@ -27,6 +27,11 @@ const BlogPreview = lazy(() =>
     default: module.BlogPreview,
   })),
 );
+const SupportSection = lazy(() =>
+  import("@/components/SupportSection").then((module) => ({
+    default: module.SupportSection,
+  })),
+);
 const NewsletterSignup = lazy(() =>
   import("@/components/NewsletterSignup").then((module) => ({
     default: module.NewsletterSignup,
@@ -88,9 +93,8 @@ const homeStructuredData = [
     "@type": "ItemList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "eva", url: toolLinks.financeAI },
-      { "@type": "ListItem", position: 2, name: "MailMind", url: toolLinks.emailAI },
-      { "@type": "ListItem", position: 3, name: "ace", url: toolLinks.socialPulse },
-      { "@type": "ListItem", position: 4, name: "Blog", url: blogUrl },
+      { "@type": "ListItem", position: 2, name: "Blog", url: blogUrl },
+      { "@type": "ListItem", position: 3, name: "Support", url: "https://support.useaima.com" },
     ],
   },
 ];
@@ -113,6 +117,7 @@ function DeferredHomeSections() {
   const fallback = (
     <>
       <SectionPlaceholder minHeight={420} tinted />
+      <SectionPlaceholder minHeight={360} />
       <SectionPlaceholder minHeight={420} />
       <SectionPlaceholder minHeight={340} />
       <SectionPlaceholder minHeight={420} tinted />
@@ -126,6 +131,7 @@ function DeferredHomeSections() {
   return (
     <Suspense fallback={fallback}>
       <TrustSection />
+      <SupportSection />
       <BlogPreview />
       <NewsletterSignup />
       <FAQSection />
@@ -149,7 +155,7 @@ function SectionPlaceholder({ minHeight, tinted = false }: { minHeight: number; 
 const Index = () => (
   <>
     <SEOHead
-      title="aima Official Website | AI Assistants for Everyday Decisions"
+      title="aima Official Website | Company Behind eva, the AI Finance Assistant"
       description={siteDescription}
       path="/"
       keywords={[...brandKeywords]}

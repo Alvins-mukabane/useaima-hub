@@ -5,7 +5,7 @@ export type BlogListing = {
   title: string;
   description: string;
   excerpt: string;
-  categorySlug: "ai-agents" | "finance" | "social-media" | "dev-systems";
+  categorySlug: "ai-agents" | "finance";
 };
 
 export const blogListingCategories = {
@@ -18,16 +18,6 @@ export const blogListingCategories = {
     slug: "finance",
     title: "Finance",
     badgeClassName: "bg-success/10 text-success",
-  },
-  "social-media": {
-    slug: "social-media",
-    title: "Social Media",
-    badgeClassName: "bg-accent/20 text-accent-foreground",
-  },
-  "dev-systems": {
-    slug: "dev-systems",
-    title: "Dev & Systems",
-    badgeClassName: "bg-secondary text-secondary-foreground",
   },
 } as const;
 
@@ -76,15 +66,6 @@ export const lightweightBlogListings: BlogListing[] = [
     excerpt:
       "AI agents are moving from simple assistants to autonomous financial systems. This beginner guide explains how they work and why autonomous finance matters now.",
     categorySlug: "ai-agents",
-  },
-  {
-    slug: "why-your-social-media-posts-get-no-views",
-    title: "Why Your Social Media Posts Get No Views (And How to Fix It)",
-    description:
-      "A practical reach and retention guide for creators, teams, and marketers who want better performance.",
-    excerpt:
-      "If your posts are getting almost no views, the issue is usually not luck. It is usually the combination of weak hooks, mixed direction, poor retention, and no performance analysis.",
-    categorySlug: "social-media",
   },
 ];
 

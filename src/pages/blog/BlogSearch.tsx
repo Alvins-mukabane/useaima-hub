@@ -58,7 +58,7 @@ export default function BlogSearch() {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Search</p>
               <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">Find the right article faster</h1>
               <p className="mt-4 text-lg leading-8 text-muted-foreground">
-                Search across AI, finance, social media, and systems thinking inside the {blogTitle}.
+                Search across AI agents, finance, and financial systems inside the {blogTitle}.
               </p>
             </div>
 
@@ -68,7 +68,7 @@ export default function BlogSearch() {
                 <Input
                   value={draftQuery}
                   onChange={(event) => setDraftQuery(event.target.value)}
-                  placeholder="Search AI, finance, social media, systems..."
+                  placeholder="Search AI agents, finance, systems..."
                   className="h-12 rounded-full pl-11"
                 />
               </div>
@@ -101,7 +101,7 @@ export default function BlogSearch() {
               <div className="rounded-[2rem] border bg-card p-10 text-center shadow-sm">
                 <h2 className="text-2xl font-semibold">No articles matched your search</h2>
                 <p className="mt-3 text-muted-foreground">
-                  Try broader terms like AI, finance, creators, or systems.
+                  Try broader terms like AI, finance, payments, or systems.
                 </p>
               </div>
             ) : (

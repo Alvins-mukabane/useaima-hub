@@ -1,8 +1,7 @@
-import { DollarSign, Mail, BarChart3, ArrowRight } from "lucide-react";
+import { DollarSign, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SectionHeader } from "./SectionHeader";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
 import { toolLinks } from "@/content/siteContent";
 
 const products = [
@@ -22,32 +21,6 @@ const products = [
     external: true,
     ctaLabel: "Open eva",
   },
-  {
-    name: "MailMind",
-    icon: Mail,
-    status: "Beta" as const,
-    description: "AI email intelligence that summarizes emails, detects deadlines and tasks, and generates daily action plans.",
-    features: ["Smart email summaries", "Deadline & task detection", "Daily action plans"],
-    link: toolLinks.emailAI,
-    external: true,
-    ctaLabel: "Open MailMind",
-  },
-  {
-    name: "ace",
-    icon: BarChart3,
-    logoSrc: "/ace-logo.png",
-    logoFrameClass:
-      "flex min-h-16 flex-1 items-center rounded-2xl border border-primary/20 bg-secondary px-4 py-3 shadow-inner",
-    logoImageClass: "h-11 w-auto max-w-full object-contain",
-    logoWidth: 712,
-    logoHeight: 465,
-    status: "Beta" as const,
-    description: "AI social media analytics agent with cross-platform analytics, trend discovery, and content idea generation.",
-    features: ["Cross-platform analytics", "Trend discovery", "Algorithm change detection"],
-    link: toolLinks.socialPulse,
-    external: true,
-    ctaLabel: "Open ace",
-  },
 ];
 
 const statusColors = {
@@ -60,10 +33,10 @@ export function ProductEcosystem() {
     <section id="products" className="py-24">
       <div className="container">
         <SectionHeader
-          title="The aima Ecosystem"
-          subtitle="A unified collection of AI-powered products built to help users understand context, take action, and make better decisions."
+          title="eva"
+          subtitle="eva is the live product from aima. It is an AI finance assistant built to help people understand spending, detect anomalies, and make clearer money decisions with less manual effort."
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-3xl gap-6">
           {products.map((p, i) => (
             <ProductCard key={p.name} product={p} index={i} />
           ))}
@@ -127,24 +100,15 @@ function ProductCard({ product, index }: { product: (typeof products)[number]; i
           </li>
         ))}
       </ul>
-      {product.external ? (
-        <a
-          href={product.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
-          aria-label={product.ctaLabel}
-        >
-          {product.ctaLabel} <ArrowRight className="h-3.5 w-3.5" />
-        </a>
-      ) : (
-        <Link
-          to={product.link}
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
-        >
-          {product.ctaLabel} <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
-      )}
+      <a
+        href={product.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80 active:scale-[0.97]"
+        aria-label={product.ctaLabel}
+      >
+        {product.ctaLabel} <ArrowRight className="h-3.5 w-3.5" />
+      </a>
     </div>
   );
 }

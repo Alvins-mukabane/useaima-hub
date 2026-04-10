@@ -6,10 +6,7 @@ type ToolMentionTextProps = {
 };
 
 const toolMentionMap = {
-  ace: toolLinks.socialPulse,
   eva: toolLinks.financeAI,
-  MailMind: toolLinks.emailAI,
-  EmailAI: toolLinks.emailAI,
 } as const;
 
 const toolMentionPattern = new RegExp(`\\b(${Object.keys(toolMentionMap).join("|")})\\b`, "g");

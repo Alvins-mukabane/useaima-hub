@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
-import { toolLinks } from "@/content/siteContent";
+import { siteEmail, supportUrl, toolLinks } from "@/content/siteContent";
 import { BrandLogo } from "./BrandLogo";
 
 const sections = [
   {
-    title: "Products",
+    title: "Product",
     links: [
       { label: "eva", to: toolLinks.financeAI, external: true },
-      { label: "MailMind", to: toolLinks.emailAI, external: true },
-      { label: "ace", to: toolLinks.socialPulse, external: true },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About Us", to: "/about" },
+      { label: "Support", to: "/support" },
       { label: "Blog", to: "https://blog.useaima.com", external: true },
       { label: "FAQs", to: "/#faq" },
     ],
@@ -36,9 +35,9 @@ export function Footer() {
           <div>
             <BrandLogo size="lg" />
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground" style={{ maxWidth: "28ch" }}>
-              AI systems that help people make better decisions, every day.
+              aima builds eva, the AI finance assistant designed to turn financial activity into clearer next steps.
             </p>
-            <p className="mt-4 text-sm text-muted-foreground">hello@useaima.com</p>
+            <p className="mt-4 text-sm text-muted-foreground">{siteEmail}</p>
           </div>
           {sections.map((s) => (
             <div key={s.title}>
@@ -69,6 +68,9 @@ export function Footer() {
             <Link to="/about" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
               About Us
             </Link>
+            <a href={supportUrl} className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+              Support
+            </a>
             <Link to="/privacy-policy" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
               Privacy Policy
             </Link>

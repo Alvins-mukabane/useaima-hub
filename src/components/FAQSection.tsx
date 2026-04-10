@@ -10,7 +10,7 @@ export function FAQSection() {
       <div className="container max-w-3xl">
         <SectionHeader
           title="Frequently Asked Questions"
-          subtitle="Clear answers about what aima is, how the platform works, and what users should expect from the ecosystem."
+          subtitle="Clear answers about what aima is, how eva works, and what users should expect from the current platform."
         />
         <Accordion type="single" collapsible className="w-full">
           {faqItems.map((f, i) => (
@@ -25,6 +25,9 @@ export function FAQSection() {
         <div className="mt-8 flex flex-wrap gap-3 text-sm text-muted-foreground">
           <Link to="/about" className="rounded-full border bg-background px-4 py-2 transition-colors hover:text-foreground">
             Learn more about aima
+          </Link>
+          <Link to="/support" className="rounded-full border bg-background px-4 py-2 transition-colors hover:text-foreground">
+            Help & Support
           </Link>
           <Link to="/privacy-policy" className="rounded-full border bg-background px-4 py-2 transition-colors hover:text-foreground">
             Privacy Policy

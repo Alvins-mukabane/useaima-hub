@@ -11,8 +11,8 @@ export function BlogFooter() {
           <div>
             <BrandLogo size="lg" />
             <p className="mt-4 max-w-[34ch] text-sm leading-7 text-muted-foreground">
-              Simple guides, practical insight, and product-backed thinking across AI, finance, digital growth, and
-              systems design.
+              Simple guides, practical insight, and finance-focused thinking built around eva and the ideas behind
+              useful AI assistants.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -26,6 +26,12 @@ export function BlogFooter() {
                 className="rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-background"
               >
                 About aima
+              </a>
+              <a
+                href="https://support.useaima.com"
+                className="rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-background"
+              >
+                Support
               </a>
               <a
                 href="https://blog.useaima.com/blog-feed.xml"
@@ -90,7 +96,7 @@ export function BlogFooter() {
         </div>
 
         <div className="mt-12 border-t pt-6 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} aima Blog. Built for learning, trust, and product discovery.
+          © {new Date().getFullYear()} aima Blog. Built for learning, trust, and eva discovery.
         </div>
       </div>
     </footer>

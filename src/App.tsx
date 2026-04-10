@@ -6,13 +6,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { PageTransition } from "@/components/PageTransition";
 import { ScrollToHash } from "@/components/ScrollToHash";
-import { isBlogHost } from "@/lib/siteMode";
+import { isBlogHost, isSupportHost } from "@/lib/siteMode";
 
 const Index = lazy(() => import("./pages/Index"));
 const Finance = lazy(() => import("./pages/Finance"));
 const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
+const Support = lazy(() => import("./pages/Support"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const BlogHome = lazy(() => import("./pages/blog/BlogHome"));
 const BlogCategory = lazy(() => import("./pages/blog/BlogCategory"));
@@ -24,6 +25,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const blogHost = isBlogHost();
+  const supportHost = isSupportHost();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -43,11 +45,19 @@ const App = () => {
                     <Route path="/:slug" element={<BlogArticle />} />
                     <Route path="*" element={<BlogNotFound />} />
                   </>
+                ) : supportHost ? (
+                  <>
+                    <Route path="/" element={<Support />} />
+                    <Route path="/help" element={<Support />} />
+                    <Route path="/q-and-a" element={<Support />} />
+                    <Route path="*" element={<Support />} />
+                  </>
                 ) : (
                   <>
                     <Route path="/" element={<Index />} />
                     <Route path="/finance" element={<Finance />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/support" element={<Support />} />
                     <Route path="/privacy-policy" element={<Privacy />} />
                     <Route path="/terms-of-service" element={<Terms />} />
                     <Route path="/blog" element={<BlogHome />} />

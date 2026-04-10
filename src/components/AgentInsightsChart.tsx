@@ -23,16 +23,6 @@ const palette = {
     chip: "border-primary/20 bg-primary/10 text-primary",
     active: "border-primary/30 bg-primary/15 text-primary",
   },
-  ace: {
-    bar: "from-accent to-primary",
-    chip: "border-accent/25 bg-accent/15 text-accent-foreground",
-    active: "border-accent/35 bg-accent/20 text-accent-foreground",
-  },
-  mailmind: {
-    bar: "from-warning to-primary",
-    chip: "border-warning/20 bg-warning/10 text-warning",
-    active: "border-warning/35 bg-warning/15 text-warning",
-  },
 } as const;
 
 const seriesByAgent: Record<AgentKey, InsightSeries[]> = {
@@ -55,50 +45,6 @@ const seriesByAgent: Record<AgentKey, InsightSeries[]> = {
         { label: "Anomaly response speed", value: 88, detail: "Fast warnings when spending jumps above normal behavior.", suffix: "%" },
         { label: "Decision clarity", value: 76, detail: "Summaries focus on the next action instead of raw data alone.", suffix: "%" },
         { label: "Habit visibility", value: 69, detail: "Pattern detection creates better awareness week over week.", suffix: "%" },
-      ],
-    },
-  ],
-  ace: [
-    {
-      id: "growth",
-      label: "Growth clarity",
-      description: "ace focuses on finding the next content decision instead of overwhelming teams with dashboards.",
-      points: [
-        { label: "Trend response speed", value: 79, detail: "Surfaces what changed so teams can act sooner.", suffix: "%" },
-        { label: "Content planning efficiency", value: 72, detail: "Makes the next post easier to choose with supporting signals.", suffix: "%" },
-        { label: "Performance visibility", value: 67, detail: "Connects reach and retention patterns to actual decisions.", suffix: "%" },
-      ],
-    },
-    {
-      id: "retention",
-      label: "Content retention",
-      description: "This view emphasizes how better hooks, stronger pacing, and cleaner analytics improve social outcomes.",
-      points: [
-        { label: "Hook strength", value: 83, detail: "Early-scroll attention has the biggest impact on distribution.", suffix: "%" },
-        { label: "Format alignment", value: 71, detail: "Trend-aware content gives the algorithm more context.", suffix: "%" },
-        { label: "Iteration quality", value: 62, detail: "Better post reviews turn one-off wins into repeatable growth.", suffix: "%" },
-      ],
-    },
-  ],
-  mailmind: [
-    {
-      id: "inbox",
-      label: "Inbox clarity",
-      description: "MailMind turns dense communication into a faster set of decisions, priorities, and follow-ups.",
-      points: [
-        { label: "Priority detection", value: 86, detail: "Urgent conversations rise to the top sooner.", suffix: "%" },
-        { label: "Reply drafting speed", value: 73, detail: "Less blank-page time when responses already have structure.", suffix: "%" },
-        { label: "Follow-up coverage", value: 65, detail: "Task extraction reduces forgotten next steps.", suffix: "%" },
-      ],
-    },
-    {
-      id: "workload",
-      label: "Workload relief",
-      description: "The goal is not more inbox data. It is fewer missed actions and better communication flow.",
-      points: [
-        { label: "Thread summarization", value: 81, detail: "Long conversations collapse into what matters now.", suffix: "%" },
-        { label: "Decision friction removed", value: 69, detail: "Email becomes easier to process in batches.", suffix: "%" },
-        { label: "Manual triage reduced", value: 58, detail: "A smarter inbox means less context switching.", suffix: "%" },
       ],
     },
   ],

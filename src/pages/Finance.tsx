@@ -10,7 +10,7 @@ import { createBreadcrumbStructuredData, getAgentByKey, getAgentStructuredData }
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { DollarSign, TrendingUp, Shield, BarChart3, ArrowRight } from "lucide-react";
-import { toolLinks } from "@/content/siteContent";
+import { supportUrl, toolLinks } from "@/content/siteContent";
 import { getBlogPostUrl, getCategoryBySlug, getPostsByProduct } from "@/content/blogContent";
 
 const features = [
@@ -30,7 +30,7 @@ const financeGuides = getPostsByProduct("eva").slice(0, 4);
 const financeAgent = getAgentByKey("eva");
 const financeBreadcrumbs = [
   { label: "Home", href: "/" },
-  { label: "Products", href: "/#products" },
+  { label: "Product", href: "/#products" },
   { label: "eva", href: "/finance" },
 ];
 
@@ -78,8 +78,8 @@ const Finance = () => {
                 AI-powered financial intelligence that helps you understand, plan, and grow
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
-                eva is the finance experience inside aima. It tracks spending, detects unusual patterns, highlights opportunities,
-                and turns raw money data into decisions you can actually act on.
+                eva is the finance product inside aima. It tracks spending, detects unusual patterns, highlights opportunities,
+                and turns raw money data into decisions users can actually act on.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild className="rounded-full">
@@ -90,6 +90,11 @@ const Finance = () => {
                 <Button variant="outline" asChild className="rounded-full border-primary/25">
                   <a href="https://blog.useaima.com/category/finance" target="_blank" rel="noopener noreferrer">
                     Explore finance guides
+                  </a>
+                </Button>
+                <Button variant="outline" asChild className="rounded-full border-primary/25">
+                  <a href={supportUrl} target="_blank" rel="noopener noreferrer">
+                    Support & Help
                   </a>
                 </Button>
               </div>
