@@ -1,0 +1,22 @@
+<svg width="1600" height="960" viewBox="0 0 1600 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="960" rx="64" fill="#1C1714"/>
+  <rect x="84" y="84" width="1432" height="792" rx="48" fill="url(#bg)"/>
+  <circle cx="1228" cy="252" r="168" fill="#F59F0A" fill-opacity="0.24"/>
+  <circle cx="1102" cy="560" r="220" fill="#D97A00" fill-opacity="0.18"/>
+  <path d="M328 648V384L504 280L680 384V648L504 752L328 648Z" stroke="#FFE0AF" stroke-width="14"/>
+  <path d="M404 456H458L512 402L546 360" stroke="#FFE0AF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M512 402V574L430 620V704" stroke="#FFE0AF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M512 510L640 434" stroke="#FFE0AF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="404" cy="456" r="18" fill="#FFF7EE" stroke="#FFE0AF" stroke-width="10"/>
+  <circle cx="546" cy="360" r="24" fill="#FFF7EE" stroke="#FFE0AF" stroke-width="10"/>
+  <circle cx="654" cy="434" r="24" fill="#FFF7EE" stroke="#FFE0AF" stroke-width="10"/>
+  <text x="860" y="372" fill="#FFF7EE" font-family="Segoe UI, sans-serif" font-size="76" font-weight="700">AI Agents</text>
+  <text x="860" y="454" fill="#F7D3B1" font-family="Segoe UI, sans-serif" font-size="34">Clear guides to agentic systems, workflows, and finance.</text>
+  <defs>
+    <linearGradient id="bg" x1="84" y1="84" x2="1516" y2="876" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B221E"/>
+      <stop offset="0.54" stop-color="#1D1714"/>
+      <stop offset="1" stop-color="#261D19"/>
+    </linearGradient>
+  </defs>
+</svg>

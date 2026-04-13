@@ -4,22 +4,38 @@
     <title>aima Blog</title>
     <link>https://blog.useaima.com</link>
     <atom:link href="https://blog.useaima.com/blog-feed.xml" rel="self" type="application/rss+xml" />
-    <description>Simple guides, real insights, and tools built for the future.</description>
+    <description>Editorial guides, protocol explainers, and personal finance thinking built around eva.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2026 20:59:43 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2026 21:28:49 GMT</lastBuildDate>
     <item>
-      <title>What Are AI Agents? The Complete Beginner Guide to Autonomous Finance in 2026</title>
-      <link>https://blog.useaima.com/what-are-ai-agents</link>
-      <guid>https://blog.useaima.com/what-are-ai-agents</guid>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <title>Inside eva: The Finance Workspace Built to Turn Spending Into Next Actions</title>
+      <link>https://blog.useaima.com/inside-eva-finance-workspace</link>
+      <guid>https://blog.useaima.com/inside-eva-finance-workspace</guid>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
       <author>Alvins Mukabane</author>
-      <description>A beginner-friendly guide to AI agents, autonomous finance, and why agent-style systems matter now.</description>
+      <description>A close look at the eva workspace, subscriptions flow, and the design choices behind practical financial clarity.</description>
+    </item>
+    <item>
+      <title>What Is Personal Finance? (Beginner Guide for 2026)</title>
+      <link>https://blog.useaima.com/what-is-personal-finance</link>
+      <guid>https://blog.useaima.com/what-is-personal-finance</guid>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <author>Alvins Mukabane</author>
+      <description>A simple guide to earning, spending, saving, investing, and using AI tools to improve financial habits.</description>
+    </item>
+    <item>
+      <title>Agent-to-Agent (A2A) Payments: The Future of Autonomous Commerce in 2026</title>
+      <link>https://blog.useaima.com/agent-to-agent-payments-explained</link>
+      <guid>https://blog.useaima.com/agent-to-agent-payments-explained</guid>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <author>Adams Aura</author>
+      <description>An introduction to A2A payments, autonomous commerce, and AI-led financial execution.</description>
     </item>
     <item>
       <title>What Is KYA (Know Your Agent)? The Future of Financial Security in 2026</title>
       <link>https://blog.useaima.com/what-is-kya-know-your-agent</link>
       <guid>https://blog.useaima.com/what-is-kya-know-your-agent</guid>
-      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
       <author>Adams Aura</author>
       <description>Learn what Know Your Agent means, how it differs from KYC, and why trust matters in autonomous finance.</description>
     </item>
@@ -32,20 +48,12 @@
       <description>A practical guide to A2A, AP2, and KYA in the emerging agent economy.</description>
     </item>
     <item>
-      <title>Agent-to-Agent (A2A) Payments: The Future of Autonomous Commerce in 2026</title>
-      <link>https://blog.useaima.com/agent-to-agent-payments-explained</link>
-      <guid>https://blog.useaima.com/agent-to-agent-payments-explained</guid>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
-      <author>Adams Aura</author>
-      <description>An introduction to A2A payments, autonomous commerce, and AI-led financial execution.</description>
-    </item>
-    <item>
-      <title>What Is Personal Finance? (Beginner Guide for 2026)</title>
-      <link>https://blog.useaima.com/what-is-personal-finance</link>
-      <guid>https://blog.useaima.com/what-is-personal-finance</guid>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <title>What Are AI Agents? The Complete Beginner Guide to Autonomous Finance in 2026</title>
+      <link>https://blog.useaima.com/what-are-ai-agents</link>
+      <guid>https://blog.useaima.com/what-are-ai-agents</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
       <author>Alvins Mukabane</author>
-      <description>A simple personal finance guide covering budgeting, saving, investing, and AI-powered finance workflows.</description>
+      <description>A beginner-friendly guide to AI agents, autonomous finance, and why agent-style systems matter now.</description>
     </item>
     <item>
       <title>A Simple Weekly Finance Review You Can Run With AI</title>

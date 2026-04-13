@@ -1,0 +1,20 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="72" fill="#FFF7F0"/>
+  <circle cx="320" cy="228" r="124" fill="url(#paint0_linear)"/>
+  <path d="M184 538C198 454 248 396 320 396C392 396 442 454 456 538" fill="#FFFFFF" stroke="#D9C2A7" stroke-width="10"/>
+  <circle cx="284" cy="216" r="14" fill="#36231C"/>
+  <circle cx="356" cy="216" r="14" fill="#36231C"/>
+  <path d="M274 274C290 287 306 294 320 294C334 294 350 287 366 274" stroke="#6A4D42" stroke-width="14" stroke-linecap="round"/>
+  <path d="M226 188C244 122 282 92 332 92C386 92 422 132 422 194V228H226V188Z" fill="#3B2923"/>
+  <path d="M156 520C174 442 236 386 320 386C404 386 466 442 484 520" stroke="#EACDAB" stroke-width="18" stroke-linecap="round"/>
+  <rect x="336" y="480" width="252" height="102" rx="30" fill="#FFFFFF" stroke="#E8D4BE" stroke-width="8"/>
+  <text x="364" y="525" fill="#6D564A" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700">Adams</text>
+  <text x="364" y="560" fill="#8E7568" font-family="Segoe UI, sans-serif" font-size="20">Research · Protocol Writing</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="212" y1="120" x2="428" y2="348" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9A741"/>
+      <stop offset="0.5" stop-color="#D97A00"/>
+      <stop offset="1" stop-color="#8C4A08"/>
+    </linearGradient>
+  </defs>
+</svg>

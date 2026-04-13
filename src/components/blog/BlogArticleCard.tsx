@@ -1,7 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { BlogEngagementBar } from "@/components/blog/BlogEngagementBar";
-import { BlogPost, getBlogAuthor, getBlogPostUrl, getCategoriesForPost } from "@/content/blogContent";
+import { AuthorProfileCard } from "@/components/blog/AuthorProfileCard";
+import { BlogPost, getBlogAuthor, getCategoriesForPost } from "@/content/blogContent";
+import { formatBlogDate } from "@/lib/formatBlogDate";
 import { getBlogRoute } from "@/lib/siteMode";
 import { cn } from "@/lib/utils";
 
@@ -11,92 +12,111 @@ type BlogArticleCardProps = {
 };
 
 export function BlogArticleCard({ post, variant = "latest" }: BlogArticleCardProps) {
-  const categories = getCategoriesForPost(post).slice(0, 2);
-  const isCompact = variant === "compact";
-  const articleRoute = getBlogRoute(`/${post.slug}`);
-  const articleUrl = getBlogPostUrl(post.slug);
   const author = getBlogAuthor(post.authorId);
+  const categories = getCategoriesForPost(post).slice(0, 2);
+  const articleRoute = getBlogRoute(`/${post.slug}`);
+  const isCompact = variant === "compact";
+  const isFeatured = variant === "featured";
+
+  if (isCompact) {
+    return (
+      <article className="rounded-[1.5rem] border border-border/70 bg-card/95 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+        <Link to={articleRoute} className="grid gap-4 sm:grid-cols-[180px_minmax(0,1fr)] sm:items-center">
+          <div className="overflow-hidden rounded-[1.25rem] border bg-muted/20">
+            <img
+              src={post.coverImage.src}
+              alt={post.coverImage.alt}
+              width={post.coverImage.width}
+              height={post.coverImage.height}
+              className="h-40 w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div>
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <span
+                  key={category.slug}
+                  className={cn("rounded-full px-3 py-1 text-xs font-medium", category.badgeClassName)}
+                >
+                  {category.title}
+                </span>
+              ))}
+            </div>
+            <h3 className="mt-3 text-xl font-semibold leading-tight">{post.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">{post.excerpt}</p>
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+              <span>{formatBlogDate(post.publishedAt)}</span>
+              <span>{post.readingTime}</span>
+              <span>{author.name}</span>
+            </div>
+          </div>
+        </Link>
+      </article>
+    );
+  }
 
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-[1.75rem] border bg-card/95 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl",
-        isCompact && "rounded-2xl"
+        "group flex h-full flex-col overflow-hidden rounded-[1.9rem] border border-border/70 bg-card/95 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+        isFeatured && "rounded-[2.2rem]",
       )}
     >
-      <Link to={articleRoute} className="flex flex-1 flex-col">
-        <div className={cn("relative overflow-hidden border-b p-6", isCompact ? "min-h-[140px]" : "min-h-[180px]")}>
-          <div className={cn("absolute inset-0 bg-gradient-to-br opacity-95", post.thumbnailClassName)} />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_42%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.16),transparent_55%)]" />
-          <div className="relative flex h-full flex-col justify-between text-white">
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex flex-wrap gap-2">
-                {categories.length > 0 ? (
-                  categories.map((category) => (
-                    <span
-                      key={category.slug}
-                      className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur"
-                    >
-                      {category.emoji} {category.title}
-                    </span>
-                  ))
-                ) : (
-                  <span
-                    className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur"
-                  >
-                    aima
-                  </span>
-                )}
-              </div>
-              <span className="text-xs font-medium text-white/80">{post.readingTime}</span>
-            </div>
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/70">{post.eyebrow}</p>
-              <h3 className={cn("mt-3 max-w-[16ch] font-semibold leading-tight", isCompact ? "text-xl" : "text-2xl")}>
-                {post.title}
-              </h3>
+      <Link to={articleRoute} className="flex h-full flex-col">
+        <div className="relative overflow-hidden border-b bg-muted/20">
+          <img
+            src={post.coverImage.src}
+            alt={post.coverImage.alt}
+            width={post.coverImage.width}
+            height={post.coverImage.height}
+            className={cn(
+              "w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]",
+              isFeatured ? "h-[320px]" : "h-[240px]",
+            )}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent p-5">
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <span
+                  key={category.slug}
+                  className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur"
+                >
+                  {category.title}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="flex flex-1 flex-col p-6">
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <span
-                key={category.slug}
-                className={cn("inline-flex w-fit rounded-full px-3 py-1 text-xs font-medium", category.badgeClassName)}
-              >
-                {category.title}
-              </span>
-            ))}
-          </div>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">{post.eyebrow}</p>
+          <h3 className={cn("mt-3 font-semibold leading-tight tracking-tight", isFeatured ? "text-[1.9rem]" : "text-[1.45rem]")}>{post.title}</h3>
           <p className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">{post.excerpt}</p>
-          <div className="mt-5 space-y-2 text-sm">
-            <div className="flex flex-wrap items-center justify-between gap-3 text-muted-foreground">
-              <span>{post.publishedAt}</span>
-              <span>By {author.name}</span>
+          <div className="mt-6 border-t pt-5">
+            <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
+              <span>{formatBlogDate(post.publishedAt)}</span>
+              <span>{post.readingTime}</span>
             </div>
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-xs text-muted-foreground">{author.role}</span>
-              <span className="inline-flex items-center gap-2 font-medium text-foreground">
+            <div className="mt-4">
+              <AuthorProfileCard
+                author={author}
+                compact
+                showLink={false}
+                showSocial={false}
+                className="border-0 bg-transparent p-0 shadow-none"
+              />
+            </div>
+            <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary">
               Read article
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </div>
+            </span>
           </div>
         </div>
       </Link>
-
-      <div className="border-t bg-muted/20 px-6 py-4">
-        <BlogEngagementBar
-          slug={post.slug}
-          title={post.title}
-          url={articleUrl}
-          variant="card"
-          commentHref={`${articleRoute}#comments`}
-        />
-      </div>
     </article>
   );
 }

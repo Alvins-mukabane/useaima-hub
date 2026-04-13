@@ -1,38 +1,39 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Facebook, Instagram, Layers3, Lightbulb, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { AgentInsightsChart } from "@/components/AgentInsightsChart";
-import { AtomicUtilityBlock } from "@/components/AtomicUtilityBlock";
-import { RelatedAgents } from "@/components/RelatedAgents";
-import { SemanticBreadcrumbs } from "@/components/SemanticBreadcrumbs";
+import { AuthorProfileCard } from "@/components/blog/AuthorProfileCard";
+import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
+import { BlogArticleMetaRow } from "@/components/blog/BlogArticleMetaRow";
 import { BlogCommentsSection } from "@/components/blog/BlogCommentsSection";
 import { BlogEngagementBar } from "@/components/blog/BlogEngagementBar";
+import { BlogFooter } from "@/components/blog/BlogFooter";
+import { BlogNavbar } from "@/components/blog/BlogNavbar";
 import { BlogSubscribeBar } from "@/components/blog/BlogSubscribeBar";
+import { QuickSummaryAside } from "@/components/blog/QuickSummaryAside";
+import { ReadingProgressBar } from "@/components/blog/ReadingProgressBar";
+import { StoryMediaShowcase } from "@/components/blog/StoryMediaShowcase";
 import { SEOHead } from "@/components/SEOHead";
+import { SemanticBreadcrumbs } from "@/components/SemanticBreadcrumbs";
 import { ToolMentionText } from "@/components/ToolMentionText";
 import { Button } from "@/components/ui/button";
 import {
   createBreadcrumbStructuredData,
   getAgentByKey,
+  getPersonStructuredData,
   getPrimaryAgentKey,
-  getProtocolContext,
   organizationSchemaId,
 } from "@/content/entitySchema";
-import { cn } from "@/lib/utils";
-import { BlogFooter } from "@/components/blog/BlogFooter";
-import { BlogNavbar } from "@/components/blog/BlogNavbar";
-import { getBlogAuthor, getBlogPostUrl, getCategoriesForPost, getCategoryBySlug, getPostBySlug } from "@/content/blogContent";
-import { blogUrl, siteUrl } from "@/content/siteContent";
+import {
+  getBlogAuthor,
+  getBlogCategoryUrl,
+  getBlogPostUrl,
+  getCategoriesForPost,
+  getPostBySlug,
+  getRelatedPosts,
+} from "@/content/blogContent";
+import { blogUrl, siteUrl, toolLinks } from "@/content/siteContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import BlogNotFound from "./BlogNotFound";
-
-type ArticlePanel = "summary" | "simple" | "takeaways";
-
-const panelIcons = {
-  summary: Sparkles,
-  simple: Lightbulb,
-  takeaways: Layers3,
-} as const;
 
 function toSectionId(value: string) {
   return value
@@ -44,12 +45,13 @@ function toSectionId(value: string) {
 export default function BlogArticle() {
   const { slug = "" } = useParams();
   const post = getPostBySlug(slug);
-  const [activePanel, setActivePanel] = useState<ArticlePanel>("summary");
   const [readingProgress, setReadingProgress] = useState(0);
+
   const articleUrl = getBlogPostUrl(post?.slug ?? slug);
-  const category = post ? getCategoryBySlug(post.categorySlug) : undefined;
+  const authors = post?.authorIds.map((authorId) => getBlogAuthor(authorId)) ?? [];
+  const primaryAuthor = authors[0];
   const postCategories = useMemo(() => (post ? getCategoriesForPost(post) : []), [post]);
-  const author = post ? getBlogAuthor(post.authorId) : undefined;
+  const relatedPosts = useMemo(() => (post ? getRelatedPosts(post).slice(0, 3) : []), [post]);
   const primaryAgentKey = getPrimaryAgentKey({
     title: post?.title,
     tags: post?.tags,
@@ -58,31 +60,23 @@ export default function BlogArticle() {
     excerpt: post?.excerpt,
   });
   const primaryAgent = getAgentByKey(primaryAgentKey);
-  const protocolContext = getProtocolContext(post?.title ?? "", post?.tags ?? []);
-  const breadcrumbItems = useMemo(
-    () => [
-      { label: "Home", href: siteUrl },
-      { label: "Blog", href: blogUrl },
-      ...(category ? [{ label: category.title, href: `${blogUrl}/category/${category.slug}` }] : []),
-      ...(protocolContext ? [{ label: protocolContext.label, href: protocolContext.href }] : []),
-      ...(primaryAgent && !protocolContext ? [{ label: primaryAgent.name, href: primaryAgent.pageHref }] : []),
-      { label: post?.title ?? "Article" },
-    ],
-    [category, post?.title, primaryAgent, protocolContext],
-  );
   const sectionLinks = useMemo(
     () => post?.sections.map((section) => ({ id: toSectionId(section.heading), label: section.heading })) ?? [],
-    [post]
+    [post],
   );
+  const breadcrumbItems = useMemo(() => {
+    if (!post) return [];
 
-  const panelCopy = useMemo(
-    () => ({
-      summary: post?.summary ?? "",
-      simple: post?.simpleExplanation ?? "",
-      takeaways: post?.keyTakeaways.join(" ") ?? "",
-    }),
-    [post]
-  );
+    return [
+      { label: "Home", href: siteUrl },
+      { label: "Blog", href: blogUrl },
+      ...post.breadcrumbs.map((item) => ({
+        label: item.label,
+        href: item.href ? new URL(item.href, blogUrl).toString() : undefined,
+      })),
+      { label: post.title },
+    ];
+  }, [post]);
 
   useEffect(() => {
     const updateReadingProgress = () => {
@@ -122,16 +116,16 @@ export default function BlogArticle() {
       headline: post.title,
       description: post.description,
       abstract: post.summary,
+      image: post.coverImage.src.startsWith("http") ? post.coverImage.src : `${siteUrl}${post.coverImage.src}`,
       datePublished: post.publishedAt,
-      dateModified: post.updatedAt,
+      dateModified: post.updatedAt ?? post.publishedAt,
       inLanguage: "en-US",
       isAccessibleForFree: true,
-      author: {
+      author: authors.map((author) => ({
         "@type": "Person",
-        name: author?.name,
-        url: author?.primaryUrl,
-        sameAs: author?.sameAs,
-      },
+        name: author.name,
+        url: `${blogUrl}/author/${author.slug}`,
+      })),
       publisher: {
         "@id": organizationSchemaId,
       },
@@ -157,11 +151,11 @@ export default function BlogArticle() {
           ]
         : [],
     },
+    ...authors.map((author) => getPersonStructuredData(author)),
     createBreadcrumbStructuredData(
-      [...breadcrumbItems.slice(0, -1), { label: post.title, href: articleUrl }].map((item) => ({
-        label: item.label,
-        href: item.href ?? articleUrl,
-      })),
+      [...breadcrumbItems.slice(0, -1), { label: post.title, href: articleUrl }]
+        .filter((item): item is { label: string; href: string } => Boolean(item.href))
+        .map((item) => ({ label: item.label, href: item.href }))
     ),
     ...(post.faqs?.length
       ? [
@@ -189,11 +183,12 @@ export default function BlogArticle() {
         path={`/${post.slug}`}
         siteOrigin={blogUrl}
         type="article"
-        section={category?.title}
-        authorName={author?.name}
+        section={postCategories[0]?.title}
+        authorName={authors.map((author) => author.name).join(", ")}
         publishedTime={post.publishedAt}
-        modifiedTime={post.updatedAt}
+        modifiedTime={post.updatedAt ?? post.publishedAt}
         keywords={[...postCategories.map((item) => item.title), ...post.tags]}
+        image={post.coverImage.src}
         alternateLinks={[
           {
             type: "application/rss+xml",
@@ -205,106 +200,88 @@ export default function BlogArticle() {
       />
       <BlogNavbar />
       <main>
-        <div className="sticky top-[73px] z-40 h-1 bg-border/40">
-          <div
-            className="h-full bg-gradient-to-r from-primary via-accent to-warning transition-[width] duration-200"
-            style={{ width: `${readingProgress}%` }}
-          />
-        </div>
-        <section className="border-b bg-muted/20 py-16">
-          <div className="container">
-            <div className="max-w-4xl">
+        <ReadingProgressBar progress={readingProgress} />
+        <section className="border-b bg-muted/20 py-14 lg:py-16">
+          <div className="container grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
+            <div>
               <SemanticBreadcrumbs items={breadcrumbItems} />
-
-              <div className={cn("mt-8 rounded-[2rem] bg-gradient-to-br p-8 text-white shadow-xl", post.thumbnailClassName)}>
-                <div className="flex flex-wrap gap-2">
-                  {postCategories.map((item) => (
-                    <span key={item.slug} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white/85">
-                      {item.emoji} {item.title}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">{post.eyebrow}</p>
-                <h1 className="mt-4 max-w-[15ch] text-balance text-4xl font-semibold leading-tight sm:text-5xl">
-                  {post.title}
-                </h1>
-                <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">{post.excerpt}</p>
-                <div className="mt-8 flex flex-wrap gap-4 text-sm text-white/80">
-                  <span>By {author?.name ?? "aima"}</span>
-                  <span>Published {post.publishedAt}</span>
-                  {post.updatedAt !== post.publishedAt ? <span>Updated {post.updatedAt}</span> : null}
-                  <span>{post.readingTime}</span>
-                </div>
+              <div className="mt-8 flex flex-wrap gap-2">
+                {postCategories.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={getBlogRoute(`/category/${item.slug}`)}
+                    className="rounded-full border bg-card/70 px-3 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
               </div>
-
-              <div className="mt-8">
-                <AtomicUtilityBlock
-                  title="Quick Summary"
-                  tldr={post.summary}
-                  action={{
-                    label: primaryAgent?.previewLabel ?? "Agent Preview",
-                    href: primaryAgent?.toolHref ?? post.productCta.href,
-                    external: true,
-                  }}
-                  highlights={post.keyTakeaways}
-                  note={`This guide points readers toward ${primaryAgent?.name ?? post.productCta.name} as the clearest next step.`}
-                />
-              </div>
-              {author ? (
-                <div className="mt-8 rounded-[1.75rem] border bg-card p-6 shadow-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Written by</p>
-                  <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                    <div>
-                      <h2 className="text-2xl font-semibold tracking-tight">{author.name}</h2>
-                      <p className="mt-2 text-sm font-medium text-primary">{author.role}</p>
-                      <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">{author.bio}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      <a
-                        href={author.instagramUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-muted/30"
-                      >
-                        <Instagram className="h-4 w-4" />
-                        {author.instagramHandle}
-                      </a>
-                      <a
-                        href={author.facebookUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:bg-muted/30"
-                      >
-                        <Facebook className="h-4 w-4" />
-                        {author.facebookLabel}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-              {primaryAgent ? (
+              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">{post.eyebrow}</p>
+              <h1 className="mt-4 max-w-[16ch] text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+                {post.title}
+              </h1>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">{post.excerpt}</p>
+              {primaryAuthor ? (
                 <div className="mt-8">
-                  <AgentInsightsChart
-                    agentKey={primaryAgent.key}
-                    title={`${primaryAgent.name} utility snapshot`}
-                    description="Interactive signal views increase time on page while reinforcing the value of the product connected to this article."
+                  <BlogArticleMetaRow
+                    authorName={authors.map((author) => author.name).join(", ")}
+                    publishedAt={post.publishedAt}
+                    updatedAt={post.updatedAt}
+                    readingTime={post.readingTime}
                   />
                 </div>
               ) : null}
+              <div className="mt-8 overflow-hidden rounded-[2rem] border border-border/70 bg-card shadow-sm">
+                <img
+                  src={post.coverImage.src}
+                  alt={post.coverImage.alt}
+                  width={post.coverImage.width}
+                  height={post.coverImage.height}
+                  className="h-[320px] w-full object-cover sm:h-[420px]"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </div>
+              <div className="mt-8">
+                <QuickSummaryAside
+                  tldr={post.tldr}
+                  highlights={post.keyTakeaways}
+                  action={{
+                    label: post.productCta.label,
+                    href: post.productCta.href,
+                  }}
+                  note={`This article points readers toward ${post.productCta.name} as the clearest next step.`}
+                />
+              </div>
             </div>
+
+            <aside className="xl:sticky xl:top-24 xl:self-start">
+              {primaryAuthor ? (
+                <AuthorProfileCard author={primaryAuthor} compact showLink showSocial={false} />
+              ) : null}
+              <div className="mt-6 rounded-[1.75rem] border bg-card p-6 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Open eva</p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight">Move from explanation to action.</h2>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">Read the guide, then open eva to apply the idea inside a live finance workflow.</p>
+                <Button asChild className="mt-5 w-full rounded-full">
+                  <a href={toolLinks.eva} target="_blank" rel="noreferrer noopener">
+                    Open eva
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </aside>
           </div>
         </section>
 
-        <section className="py-20">
-          <div className="container grid gap-12 xl:grid-cols-[minmax(0,1fr)_320px]">
+        <section className="py-16">
+          <div className="container grid gap-12 xl:grid-cols-[minmax(0,1fr)_300px]">
             <article className="min-w-0">
-              <div className="mb-10 rounded-[1.75rem] border bg-card p-6 shadow-sm">
+              <div className="mb-8 rounded-[1.75rem] border bg-card p-6 shadow-sm">
                 <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Reader Actions</p>
-                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                      Like, share, or jump into the discussion for this article.
-                    </p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Reader actions</p>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">Like, share, or jump into the discussion for this article.</p>
                   </div>
                   <BlogEngagementBar
                     slug={post.slug}
@@ -316,9 +293,15 @@ export default function BlogArticle() {
                 </div>
               </div>
 
+              {post.mediaSpotlight?.length ? (
+                <div className="mb-12">
+                  <StoryMediaShowcase title="Product proof" eyebrow="Inside eva" items={post.mediaSpotlight} compact />
+                </div>
+              ) : null}
+
               <div
                 id="blog-article-content"
-                className="prose prose-invert max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:text-foreground prose-p:text-foreground/90 prose-li:text-foreground/85 prose-p:leading-8 prose-li:leading-8"
+                className="prose max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:text-foreground prose-p:text-foreground/90 prose-li:text-foreground/85 prose-p:leading-8 prose-li:leading-8"
               >
                 {post.sections.map((section, index) => (
                   <div key={section.heading}>
@@ -337,14 +320,13 @@ export default function BlogArticle() {
                         ))}
                       </ul>
                     ) : null}
-
                     {index === 1 ? (
-                      <div className="not-prose my-10 rounded-[1.75rem] border bg-card p-7 shadow-sm">
-                        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Inline Product CTA</p>
+                      <div className="not-prose my-10 rounded-[1.75rem] border bg-[#fff8f2] p-7 shadow-sm dark:bg-primary/5">
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Inline product CTA</p>
                         <h3 className="mt-4 text-2xl font-semibold">{post.productCta.name}</h3>
                         <p className="mt-3 text-sm leading-7 text-muted-foreground">{post.productCta.description}</p>
                         <Button asChild className="mt-6 rounded-full">
-                          <a href={post.productCta.href}>
+                          <a href={post.productCta.href} target="_blank" rel="noreferrer noopener">
                             {post.productCta.label}
                             <ArrowRight className="h-4 w-4" />
                           </a>
@@ -357,7 +339,7 @@ export default function BlogArticle() {
 
               {post.faqs?.length ? (
                 <div id="article-faqs" className="mt-12 rounded-[1.75rem] border bg-card p-8 shadow-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Frequently Asked Questions</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Frequently asked questions</p>
                   <div className="mt-6 space-y-4">
                     {post.faqs.map((item) => (
                       <div key={item.question} className="rounded-2xl border bg-muted/20 p-5">
@@ -371,33 +353,52 @@ export default function BlogArticle() {
                 </div>
               ) : null}
 
-              <div className="mt-12 rounded-[1.75rem] border bg-muted/20 p-8">
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Key Takeaways</p>
-                <ul className="mt-6 space-y-4">
-                  {post.keyTakeaways.map((item) => (
-                    <li key={item} className="rounded-2xl border bg-card px-5 py-4 text-sm leading-7 text-muted-foreground">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
               <div className="mt-12 rounded-[1.75rem] border bg-card p-8 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Product CTA</p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight">{post.productCta.name}</h2>
-                <p className="mt-4 text-lg leading-8 text-muted-foreground">{post.inlineCallout}</p>
-                <p className="mt-3 text-sm leading-7 text-muted-foreground">{post.productCta.description}</p>
-                <Button asChild className="mt-6 rounded-full">
-                  <a href={post.productCta.href}>
-                    {post.productCta.label}
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </Button>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Related agent</p>
+                <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-center">
+                  <div>
+                    <h2 className="text-3xl font-semibold tracking-tight">eva</h2>
+                    <p className="mt-4 text-lg leading-8 text-muted-foreground">{post.inlineCallout}</p>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{post.productCta.description}</p>
+                    <Button asChild className="mt-6 rounded-full">
+                      <a href={post.productCta.href} target="_blank" rel="noreferrer noopener">
+                        {post.productCta.label}
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                  <div className="rounded-[1.5rem] border bg-[#fff8f2] p-5 dark:bg-primary/5">
+                    <img
+                      src="/eva-logo.png"
+                      alt="eva logo"
+                      width={547}
+                      height={374}
+                      className="h-14 w-auto max-w-full object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                      eva is the live AI finance assistant from aima, built to turn spending patterns into clearer actions.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-16">
-                <RelatedAgents primaryAgentKey={primaryAgentKey} />
-              </div>
+              {relatedPosts.length ? (
+                <div className="mt-12">
+                  <div className="mb-6 flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Read next</p>
+                      <h2 className="mt-3 text-2xl font-semibold tracking-tight">More from the editorial desk</h2>
+                    </div>
+                  </div>
+                  <div className="grid gap-4">
+                    {relatedPosts.map((relatedPost) => (
+                      <BlogArticleCard key={relatedPost.slug} post={relatedPost} variant="compact" />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
 
               <BlogCommentsSection slug={post.slug} title={post.title} articleUrl={articleUrl} />
 
@@ -408,69 +409,41 @@ export default function BlogArticle() {
 
             <aside className="xl:sticky xl:top-24 xl:self-start">
               <div className="rounded-[1.75rem] border bg-card p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Article Tools</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">On this page</p>
                 <div className="mt-5 grid gap-3">
-                  {([
-                    ["summary", "Summarize this article"],
-                    ["simple", "Explain simply"],
-                    ["takeaways", "Key takeaways"],
-                  ] as const).map(([panelKey, label]) => {
-                    const Icon = panelIcons[panelKey];
-                    return (
-                      <button
-                        key={panelKey}
-                        type="button"
-                        onClick={() => setActivePanel(panelKey)}
-                        className={cn(
-                          "flex items-center gap-3 rounded-2xl border px-4 py-3 text-left text-sm transition-colors",
-                          activePanel === panelKey ? "border-primary/50 bg-primary/5 text-foreground" : "text-muted-foreground hover:text-foreground"
-                        )}
-                      >
-                        <Icon className="h-4 w-4" />
-                        {label}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mt-6 rounded-2xl bg-muted/30 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                    {activePanel === "summary" ? "Summary" : activePanel === "simple" ? "Simple Explanation" : "Takeaways"}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{panelCopy[activePanel]}</p>
-                </div>
-
-                <div className="mt-6 rounded-2xl border bg-muted/15 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">On This Page</p>
-                  <div className="mt-4 grid gap-3">
-                    {sectionLinks.map((section) => (
-                      <a
-                        key={section.id}
-                        href={`#${section.id}`}
-                        className="text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {section.label}
-                      </a>
-                    ))}
-                    {post.faqs?.length ? (
-                      <a href="#article-faqs" className="text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground">
-                        Frequently asked questions
-                      </a>
-                    ) : null}
-                    <button
-                      type="button"
-                      onClick={scrollToComments}
-                      className="text-left text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                  {sectionLinks.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      className="text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      Jump to comments
-                    </button>
-                  </div>
+                      {section.label}
+                    </a>
+                  ))}
+                  {post.faqs?.length ? (
+                    <a href="#article-faqs" className="text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground">
+                      Frequently asked questions
+                    </a>
+                  ) : null}
+                  <button
+                    type="button"
+                    onClick={scrollToComments}
+                    className="text-left text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                  >
+                    Jump to comments
+                  </button>
                 </div>
-
-                {category ? (
-                  <Link to={getBlogRoute(`/category/${category.slug}`)} className="mt-6 inline-flex text-sm font-medium text-primary">
-                    More in {category.title}
-                  </Link>
+                {authors.length > 1 ? (
+                  <div className="mt-6 border-t pt-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Authors</p>
+                    <div className="mt-4 space-y-3 text-sm">
+                      {authors.map((author) => (
+                        <Link key={author.id} to={getBlogRoute(`/author/${author.slug}`)} className="block text-muted-foreground transition-colors hover:text-foreground">
+                          {author.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ) : null}
               </div>
             </aside>

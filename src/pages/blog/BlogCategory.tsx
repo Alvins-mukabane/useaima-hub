@@ -1,11 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { SEOHead } from "@/components/SEOHead";
 import { BlogArticleCard } from "@/components/blog/BlogArticleCard";
 import { BlogFooter } from "@/components/blog/BlogFooter";
 import { BlogNavbar } from "@/components/blog/BlogNavbar";
+import { SEOHead } from "@/components/SEOHead";
+import { createBreadcrumbStructuredData } from "@/content/entitySchema";
 import { blogTitle, getCategoryBySlug, getPostsByCategory } from "@/content/blogContent";
-import { blogUrl, siteName, siteUrl } from "@/content/siteContent";
+import { blogUrl, siteName, siteUrl, toolLinks } from "@/content/siteContent";
 import { getBlogRoute } from "@/lib/siteMode";
 import BlogNotFound from "./BlogNotFound";
 
@@ -18,6 +19,7 @@ export default function BlogCategory() {
   }
 
   const posts = getPostsByCategory(slug);
+  const leadPost = posts[0];
   const canonicalPath = `/category/${slug}`;
   const structuredData = [
     {
@@ -27,14 +29,10 @@ export default function BlogCategory() {
       url: `${blogUrl}${canonicalPath}`,
       description: category.description,
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: blogTitle, item: blogUrl },
-        { "@type": "ListItem", position: 2, name: category.title, item: `${blogUrl}${canonicalPath}` },
-      ],
-    },
+    createBreadcrumbStructuredData([
+      { label: blogTitle, href: blogUrl },
+      { label: category.title, href: `${blogUrl}${canonicalPath}` },
+    ]),
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -54,62 +52,54 @@ export default function BlogCategory() {
         description={`${category.description} Browse practical ${category.title.toLowerCase()} guides on the aima blog.`}
         path={canonicalPath}
         siteOrigin={blogUrl}
-        keywords={[category.title, "aima blog", "guides", "AI blog"]}
+        image={leadPost?.coverImage.src}
+        keywords={[category.title, "aima blog", "eva", "guides"]}
         structuredData={structuredData}
       />
       <BlogNavbar />
       <main>
-        <section className="border-b bg-muted/25 py-20">
+        <section className="border-b bg-muted/20 py-16">
           <div className="container">
             <Link to={getBlogRoute("/")} className="text-sm font-medium text-primary">
               ← Back to blog home
             </Link>
-            <div className="mt-8 max-w-3xl">
-              <div className={`inline-flex rounded-full px-4 py-2 text-sm font-medium ${category.badgeClassName}`}>
-                {category.emoji} {category.title}
+            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+              <div className="max-w-3xl">
+                <div className={`inline-flex rounded-full px-4 py-2 text-sm font-medium ${category.badgeClassName}`}>
+                  {category.title}
+                </div>
+                <h1 className="mt-6 text-balance text-5xl font-semibold tracking-tight">{category.title}</h1>
+                <p className="mt-5 text-lg leading-8 text-muted-foreground">{category.description}</p>
+                <div className="mt-8 flex flex-wrap gap-4 text-sm text-muted-foreground">
+                  <span>{posts.length} articles</span>
+                  <span>Official aima editorial coverage</span>
+                </div>
               </div>
-              <h1 className="mt-6 text-balance text-5xl font-semibold tracking-tight">{category.title}</h1>
-              <p className="mt-5 text-lg leading-8 text-muted-foreground">{category.description}</p>
-              <div className="mt-8 flex flex-wrap gap-4 text-sm text-muted-foreground">
-                <span>{posts.length} articles</span>
-                <span>Practical breakdowns from the aima finance blog</span>
-              </div>
-              <div className="mt-8 rounded-[1.5rem] border bg-card/80 p-5 shadow-sm">
-                <p className="text-sm leading-7 text-muted-foreground">
-                  This category page is built to help readers move from explanation to action, with guides that connect
-                  learning, finance concepts, and the product that is live today: eva.
+              <div className="rounded-[1.75rem] border bg-card p-6 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Next step</p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight">Turn the guide into action with eva.</h2>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  The aima blog explains the systems clearly. eva is where those ideas become a practical product experience.
                 </p>
+                <a
+                  href={toolLinks.eva}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  Open eva
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20">
-          <div className="container">
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {posts.map((post) => (
-                <BlogArticleCard key={post.slug} post={post} />
-              ))}
-            </div>
-
-            <div className="mt-16 rounded-[2rem] border bg-card p-8 shadow-sm lg:p-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Built By {siteName}</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">Learn first, then explore eva</h2>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-                aima combines educational content, assistant-style product design, and a clearer finance story around
-                eva.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a href={siteUrl} className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-                  Visit aima
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-                <a href={`${siteUrl}/about`} className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-                  About aima
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
+        <section className="py-16">
+          <div className="container grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {posts.map((post, index) => (
+              <BlogArticleCard key={post.slug} post={post} variant={index === 0 ? "featured" : "latest"} />
+            ))}
           </div>
         </section>
       </main>

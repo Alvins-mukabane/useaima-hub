@@ -18,6 +18,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const BlogHome = lazy(() => import("./pages/blog/BlogHome"));
 const BlogCategory = lazy(() => import("./pages/blog/BlogCategory"));
 const BlogSearch = lazy(() => import("./pages/blog/BlogSearch"));
+const BlogAuthor = lazy(() => import("./pages/blog/BlogAuthor"));
 const BlogArticle = lazy(() => import("./pages/blog/BlogArticle"));
 const BlogNotFound = lazy(() => import("./pages/blog/BlogNotFound"));
 
@@ -42,6 +43,7 @@ const App = () => {
                     <Route path="/" element={<BlogHome />} />
                     <Route path="/category/:slug" element={<BlogCategory />} />
                     <Route path="/search" element={<BlogSearch />} />
+                    <Route path="/author/:slug" element={<BlogAuthor />} />
                     <Route path="/:slug" element={<BlogArticle />} />
                     <Route path="*" element={<BlogNotFound />} />
                   </>
@@ -63,6 +65,7 @@ const App = () => {
                     <Route path="/blog" element={<BlogHome />} />
                     <Route path="/blog/category/:slug" element={<BlogCategory />} />
                     <Route path="/blog/search" element={<BlogSearch />} />
+                    <Route path="/blog/author/:slug" element={<BlogAuthor />} />
                     <Route path="/blog/:slug" element={<BlogArticle />} />
                     <Route path="*" element={<NotFound />} />
                   </>

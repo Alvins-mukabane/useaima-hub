@@ -1,0 +1,20 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="72" fill="#FDF6EE"/>
+  <circle cx="320" cy="228" r="124" fill="url(#paint0_linear)"/>
+  <path d="M184 538C198 454 248 396 320 396C392 396 442 454 456 538" fill="#FFFFFF" stroke="#D9C2A7" stroke-width="10"/>
+  <circle cx="284" cy="214" r="14" fill="#3F2B23"/>
+  <circle cx="356" cy="214" r="14" fill="#3F2B23"/>
+  <path d="M274 274C290 288 307 296 320 296C333 296 350 288 366 274" stroke="#6F4F42" stroke-width="14" stroke-linecap="round"/>
+  <path d="M228 168C240 118 278 88 320 88C370 88 412 128 412 188V214H228V168Z" fill="#432E25"/>
+  <path d="M156 520C174 442 236 386 320 386C404 386 466 442 484 520" stroke="#F1D2A5" stroke-width="18" stroke-linecap="round"/>
+  <rect x="52" y="480" width="252" height="102" rx="30" fill="#FFFFFF" stroke="#E8D4BE" stroke-width="8"/>
+  <text x="80" y="525" fill="#6D564A" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700">Alvins</text>
+  <text x="80" y="560" fill="#8E7568" font-family="Segoe UI, sans-serif" font-size="20">Founder · Editorial Lead</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="320" y1="104" x2="320" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFBF5A"/>
+      <stop offset="0.54" stop-color="#F49800"/>
+      <stop offset="1" stop-color="#C97100"/>
+    </linearGradient>
+  </defs>
+</svg>

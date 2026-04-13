@@ -1,0 +1,19 @@
+<svg width="1600" height="960" viewBox="0 0 1600 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="960" rx="64" fill="#FDF7EF"/>
+  <rect x="84" y="84" width="1432" height="792" rx="48" fill="url(#bg)"/>
+  <rect x="188" y="220" width="420" height="220" rx="32" fill="#FFFDFB" stroke="#D7C0A4" stroke-width="8"/>
+  <rect x="188" y="488" width="420" height="220" rx="32" fill="#FFFDFB" stroke="#D7C0A4" stroke-width="8"/>
+  <path d="M732 654C796 602 842 560 898 528C962 490 1020 466 1078 438C1166 396 1242 340 1328 248" stroke="#F59F0A" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1160 252H1328V420" stroke="#F59F0A" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="230" y="312" fill="#3F2B23" font-family="Segoe UI, sans-serif" font-size="48" font-weight="700">Budget clarity</text>
+  <text x="230" y="372" fill="#7D675A" font-family="Segoe UI, sans-serif" font-size="28">Understand what changed before it becomes a problem.</text>
+  <text x="230" y="580" fill="#3F2B23" font-family="Segoe UI, sans-serif" font-size="48" font-weight="700">Actionable insight</text>
+  <text x="230" y="640" fill="#7D675A" font-family="Segoe UI, sans-serif" font-size="28">Move from tracking money to deciding what to do next.</text>
+  <text x="860" y="732" fill="#3F2B23" font-family="Segoe UI, sans-serif" font-size="76" font-weight="700">Personal Finance</text>
+  <defs>
+    <linearGradient id="bg" x1="84" y1="84" x2="1516" y2="876" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8F1"/>
+      <stop offset="1" stop-color="#FAF0E3"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -25,9 +25,7 @@ export const brandKeywords = [
 
 export const toolLinks = {
   eva: "https://eva.useaima.com",
-  socialPulse: "https://socialpulse.useaima.com",
   financeAI: "https://eva.useaima.com",
-  emailAI: "https://mailmind.useaima.com",
 } as const;
 
 export const supportLinks = {

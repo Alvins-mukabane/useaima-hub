@@ -9,6 +9,7 @@ import {
   supportUrl,
   toolLinks,
 } from "@/content/siteContent";
+import { BlogAuthorProfile } from "@/content/blogAuthors";
 
 export type StructuredDataEntry = Record<string, unknown>;
 
@@ -35,12 +36,12 @@ export const agentProfiles: AgentProfile[] = [
     key: "eva",
     name: "eva",
     applicationCategory: "FinanceApplication",
-    pageHref: `${siteUrl}/finance`,
-    toolHref: toolLinks.financeAI,
+    pageHref: toolLinks.eva,
+    toolHref: toolLinks.eva,
     logoPath: "/eva-logo.png",
-    description: "AI finance assistant for spending visibility, anomaly detection, and decision support.",
+    description: "AI finance assistant for spending visibility, anomaly detection, subscription review, and clearer next-step guidance.",
     utilityTldr: "eva helps users understand spending, spot risks early, and turn financial signals into next-step guidance.",
-    previewLabel: "Agent Preview",
+    previewLabel: "Open eva",
     relatedKeys: [],
   },
 ];
@@ -55,16 +56,12 @@ export function getAgentByKey(key: AgentKey) {
 
 export function getAgentByName(name: string) {
   const normalizedName = name.trim().toLowerCase();
-
   return agentProfiles.find((agent) => agent.name.toLowerCase() === normalizedName);
 }
 
 export function getRelatedAgents(agentKey: AgentKey, limit = 3) {
   const agent = getAgentByKey(agentKey);
-
-  if (!agent) {
-    return [];
-  }
+  if (!agent) return [];
 
   return agent.relatedKeys
     .map((key) => getAgentByKey(key))
@@ -74,7 +71,6 @@ export function getRelatedAgents(agentKey: AgentKey, limit = 3) {
 
 export function getAgentStructuredData(agentKey: AgentKey): StructuredDataEntry {
   const agent = getAgentByKey(agentKey);
-
   if (!agent) {
     throw new Error(`Unknown agent key: ${agentKey}`);
   }
@@ -97,6 +93,23 @@ export function getAgentStructuredData(agentKey: AgentKey): StructuredDataEntry 
       "@id": organizationSchemaId,
     },
     isRelatedTo: {
+      "@id": organizationSchemaId,
+    },
+  };
+}
+
+export function getPersonStructuredData(author: BlogAuthorProfile): StructuredDataEntry {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${blogUrl}/author/${author.slug}#person`,
+    name: author.name,
+    url: `${blogUrl}/author/${author.slug}`,
+    image: `${siteUrl}${author.avatar}`,
+    description: author.bio,
+    jobTitle: author.role,
+    sameAs: author.sameAs,
+    worksFor: {
       "@id": organizationSchemaId,
     },
   };
@@ -160,8 +173,8 @@ export const baseStructuredData: StructuredDataEntry[] = [
         alternateName: "Agent Payments Protocol",
         termCode: "AP2",
         description:
-          "AP2 is the emerging payment layer that helps AI agents initiate and coordinate transactions with explicit policy limits and safer execution rules.",
-        url: `${blogUrl}/a2a-ap2-kya-explained#what-is-ap2`,
+          "AP2 is the payment layer that helps AI agents initiate and coordinate transactions with explicit policy limits and safer execution rules.",
+        url: `${blogUrl}/a2a-ap2-kya-explained`,
         inDefinedTermSet: {
           "@id": protocolSchemaId,
         },
@@ -174,7 +187,7 @@ export const baseStructuredData: StructuredDataEntry[] = [
         termCode: "A2A",
         description:
           "A2A describes the communication layer that allows AI agents to exchange context, coordinate actions, and complete workflows together.",
-        url: `${blogUrl}/a2a-ap2-kya-explained#what-is-a2a`,
+        url: `${blogUrl}/agent-to-agent-payments-explained`,
         inDefinedTermSet: {
           "@id": protocolSchemaId,
         },
@@ -253,10 +266,10 @@ export function createTldr(text: string, maxLength = 150) {
   const lastSpace = sliced.lastIndexOf(" ");
 
   if (lastSpace < 90) {
-    return `${sliced.trimEnd()}…`;
+    return `${sliced.trimEnd()}...`;
   }
 
-  return `${sliced.slice(0, lastSpace).trimEnd()}…`;
+  return `${sliced.slice(0, lastSpace).trimEnd()}...`;
 }
 
 export function getProtocolContext(title: string, tags: string[]) {
@@ -264,15 +277,15 @@ export function getProtocolContext(title: string, tags: string[]) {
 
   if (haystack.includes("AP2")) {
     return {
-      label: "AP2 Protocol",
-      href: `${blogUrl}/a2a-ap2-kya-explained#what-is-ap2`,
+      label: "AP2",
+      href: `${blogUrl}/a2a-ap2-kya-explained`,
     };
   }
 
   if (haystack.includes("A2A")) {
     return {
       label: "A2A",
-      href: `${blogUrl}/a2a-ap2-kya-explained#what-is-a2a`,
+      href: `${blogUrl}/agent-to-agent-payments-explained`,
     };
   }
 
@@ -299,11 +312,9 @@ export function inferRelevantAgentKeys(
     }
   };
 
-  if (categorySlug === "finance" || /eva|finance|budget|spending|money|payments?|ap2|a2a|kya|autonomous finance/.test(haystack)) {
-    add("eva");
-  }
-
-  if (matches.length === 0 && categorySlug === "ai-agents") {
+  if (
+    /eva|finance|budget|spending|money|payments?|ap2|a2a|kya|autonomous finance|subscription/.test(haystack)
+  ) {
     add("eva");
   }
 
